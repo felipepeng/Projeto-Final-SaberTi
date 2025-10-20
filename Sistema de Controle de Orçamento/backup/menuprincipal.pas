@@ -5,7 +5,8 @@ unit MenuPrincipal;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, Categoria_Produto;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
+           cadCategoria_Produto, cadCliente;
 
 type
 
@@ -28,6 +29,8 @@ type
     Separator1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure MenuItemCategoriaClick(Sender: TObject);
+    procedure MenuItemClienteClick(Sender: TObject);
+    procedure MenuItemSairClick(Sender: TObject);
   private
 
   public
@@ -50,11 +53,20 @@ end;
 
 procedure TMenuPrincipalF.MenuItemCategoriaClick(Sender: TObject);
 var
-  Categoria_ProdutoF : TCategoria_ProdutoF;
+  cadCategoria_ProdutoF : TcadCategoria_ProdutoF;
 begin
-  Categoria_ProdutoF := TCategoria_ProdutoF.Create(Self);
-  Categoria_ProdutoF.ShowModal;
+  cadCategoria_ProdutoF := TcadCategoria_ProdutoF.Create(Self);
+  cadCategoria_ProdutoF.ShowModal;
+end;
 
+procedure TMenuPrincipalF.MenuItemClienteClick(Sender: TObject);
+begin
+
+end;
+
+procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);
+begin
+  Application.Terminate;
 end;
 
 end.

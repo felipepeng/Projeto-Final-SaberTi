@@ -1,6 +1,6 @@
 inherited Categoria_ProdutoF: TCategoria_ProdutoF
   Left = 361
-  Top = 183
+  Top = 167
   Caption = 'Categoria de Produto'
   OnClose = FormClose
   OnShow = FormShow

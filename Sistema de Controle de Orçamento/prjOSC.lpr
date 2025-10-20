@@ -10,7 +10,8 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, XCadPai, MenuPrincipal, Categoria_Produto, DataModule, zcomponent;
+  Forms, XCadPai, MenuPrincipal, cadCategoria_Produto, DataModule, zcomponent,
+  cadCliente;
 
 {$R *.res}
 
@@ -24,6 +25,7 @@ begin
   Application.CreateForm(TMenuPrincipalF, MenuPrincipalF);
   Application.CreateForm(TXCadPaiF, XCadPaiF);
   Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TcadClienteF, cadClienteF);
   Application.Run;
 end.
 
