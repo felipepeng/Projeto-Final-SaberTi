@@ -12,7 +12,7 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="-1"/>
         <CursorPos X="-1" Y="-1"/>
-        <UsageCount Value="22"/>
+        <UsageCount Value="23"/>
       </Unit>
       <Unit>
         <Filename Value="xcadpai.pas"/>
@@ -21,93 +21,71 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="XCadPai"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="75"/>
+        <CursorPos X="25" Y="99"/>
+        <UsageCount Value="23"/>
+      </Unit>
+      <Unit>
+        <Filename Value="menuprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MenuPrincipalF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MenuPrincipal"/>
+        <TopLine Value="42"/>
+        <CursorPos X="9" Y="60"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="categoria_produto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Categoria_ProdutoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Categoria_Produto"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="23"/>
-        <CursorPos X="34" Y="35"/>
-        <UsageCount Value="22"/>
+        <EditorIndex Value="1"/>
+        <UsageCount Value="20"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="19">
+    <JumpHistory HistoryIndex="8">
       <Position>
-        <Filename Value="xcadpai.pas"/>
+        <Filename Value="menuprincipal.pas"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="34" Column="3" TopLine="13"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="42" Column="3" TopLine="21"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="33" Column="3" TopLine="12"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="43" Column="3" TopLine="22"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="14" Column="27" TopLine="5"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="44" Column="3" TopLine="23"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="15" Column="32" TopLine="5"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="45" Column="3" TopLine="24"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="16" Column="26" TopLine="5"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="46" Column="3" TopLine="25"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="18" Column="41" TopLine="5"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="48" TopLine="23"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="39" Column="40" TopLine="18"/>
+        <Filename Value="menuprincipal.pas"/>
+        <Caret Line="57" Column="37" TopLine="34"/>
       </Position>
       <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="40" Column="40" TopLine="19"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="41" Column="40" TopLine="20"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="42" Column="40" TopLine="21"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="43" Column="40" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="44" Column="40" TopLine="23"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="45" Column="40" TopLine="24"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="33" Column="34" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="36" Column="34" TopLine="24"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="35" Column="34" TopLine="23"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="34" Column="34" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="33" Column="34" TopLine="22"/>
-      </Position>
-      <Position>
-        <Filename Value="xcadpai.pas"/>
-        <Caret Line="34" Column="34" TopLine="23"/>
+        <Filename Value="categoria_produto.pas"/>
       </Position>
     </JumpHistory>
     <RunParams>

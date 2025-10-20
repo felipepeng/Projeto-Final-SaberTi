@@ -1,0 +1,58 @@
+object MenuPrincipalF: TMenuPrincipalF
+  Left = 367
+  Height = 486
+  Top = 208
+  Width = 567
+  Caption = 'Menu Principal'
+  Color = 15989758
+  DesignTimePPI = 120
+  Menu = MainMenu1
+  LCLVersion = '4.2.0.0'
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  object MainMenu1: TMainMenu
+    Left = 488
+    Top = 32
+    object MenuCadastros: TMenuItem
+      Caption = 'Cadastros'
+      object MenuItemProduto: TMenuItem
+        Caption = 'Produto'
+      end
+      object MenuItemCategoria: TMenuItem
+        Caption = 'Categoria de Produto'
+        OnClick = MenuItemCategoriaClick
+      end
+      object MenuItemCliente: TMenuItem
+        Caption = 'Cliente'
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemUsuario: TMenuItem
+        Caption = 'Usuário'
+      end
+    end
+    object MenuVendas: TMenuItem
+      Caption = 'Vendas'
+      object MenuItemOrcamento: TMenuItem
+        Caption = 'Orçamento'
+      end
+    end
+    object MenuRelatorios: TMenuItem
+      Caption = 'Relatórios'
+    end
+    object MenuSobre: TMenuItem
+      Caption = 'Sobre'
+    end
+    object MenuSair: TMenuItem
+      Caption = 'Sair'
+      object MenuItemEncerrarSes: TMenuItem
+        Caption = 'Encerrar Sessão'
+      end
+      object MenuItemSair: TMenuItem
+        Caption = 'Sair'
+        OnClick = MenuItemSairClick
+      end
+    end
+  end
+end

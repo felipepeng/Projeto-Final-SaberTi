@@ -10,8 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, XCadPai
-  { you can add units after this };
+  Forms, XCadPai, MenuPrincipal, Categoria_Produto;
 
 {$R *.res}
 
@@ -22,6 +21,7 @@ begin
   Application.MainFormOnTaskbar:=True;
   {$POP}
   Application.Initialize;
+  Application.CreateForm(TMenuPrincipalF, MenuPrincipalF);
   Application.CreateForm(TXCadPaiF, XCadPaiF);
   Application.Run;
 end.

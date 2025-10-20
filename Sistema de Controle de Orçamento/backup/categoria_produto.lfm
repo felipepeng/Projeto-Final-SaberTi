@@ -1,0 +1,101 @@
+inherited Categoria_ProdutoF: TCategoria_ProdutoF
+  Top = 198
+  Caption = 'Categoria de Produto'
+  inherited PageControl1: TPageControl
+    ActivePage = tbCadastro
+    TabIndex = 1
+    inherited tbConsulta: TTabSheet
+      inherited PanelConsultaTop: TPanel
+        object lblPesquisa: TLabel[0]
+          Left = 8
+          Height = 23
+          Top = 16
+          Width = 125
+          Caption = 'Pesquisar por id:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtPesquisa: TEdit[1]
+          Left = 136
+          Height = 28
+          Top = 16
+          Width = 128
+          NumbersOnly = True
+          TabOrder = 0
+        end
+        object btnPesquisa: TSpeedButton[2]
+          Left = 272
+          Height = 28
+          Top = 16
+          Width = 29
+          Glyph.Data = {
+            42010000424D4201000000000000760000002800000011000000110000000100
+            040000000000CC00000000000000000000001000000010000000000000000000
+            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+            DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
+            0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
+            0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
+            7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
+            077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
+            0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
+            DDDDD0000000
+          }
+        end
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      inherited PanelCadastroCenter: TPanel
+        object lblId: TLabel[0]
+          Left = 44
+          Height = 23
+          Top = 38
+          Width = 18
+          Caption = 'id:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblDescricao: TLabel[1]
+          Left = 44
+          Height = 23
+          Top = 112
+          Width = 77
+          Caption = 'Descrição:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtId: TDBEdit[2]
+          Left = 44
+          Height = 28
+          Top = 64
+          Width = 100
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object edtDescricao: TDBEdit[3]
+          Left = 44
+          Height = 28
+          Top = 136
+          Width = 204
+          MaxLength = 0
+          TabOrder = 1
+        end
+      end
+    end
+  end
+end

@@ -42,6 +42,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="XCadPai"/>
       </Unit>
+      <Unit>
+        <Filename Value="menuprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MenuPrincipalF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="MenuPrincipal"/>
+      </Unit>
+      <Unit>
+        <Filename Value="categoria_produto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Categoria_ProdutoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Categoria_Produto"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
