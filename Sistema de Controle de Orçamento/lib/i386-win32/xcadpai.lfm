@@ -134,6 +134,7 @@ object XCadPaiF: TXCadPaiF
           Align = alClient
           Color = clWindow
           Columns = <>
+          ReadOnly = True
           TabOrder = 0
           OnDblClick = DBGrid1DblClick
         end

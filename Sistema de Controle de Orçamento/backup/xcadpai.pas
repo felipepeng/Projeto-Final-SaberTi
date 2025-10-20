@@ -20,15 +20,12 @@ type
     btnInserir: TBitBtn;
     btnFechar: TBitBtn;
     DBGrid1: TDBGrid;
-    edtPesquisa: TEdit;
-    lblPesquisar: TLabel;
     PageControl1: TPageControl;
     PanelCadastroCenter: TPanel;
     PanelCadastroBottom: TPanel;
     PanelConsultaCenter: TPanel;
     PanelConsultaBottom: TPanel;
     PanelConsultaTop: TPanel;
-    btnPesquisa: TSpeedButton;
     tbConsulta: TTabSheet;
     tbCadastro: TTabSheet;
     procedure btnCancelarClick(Sender: TObject);

@@ -91,7 +91,7 @@ end;
 
 procedure TXCadPaiF.DBGrid1DblClick(Sender: TObject);
 begin
-  PageControl1.ActivePage := tbConsulta;
+  PageControl1.ActivePage := tbCadastro;
 end;
 
 procedure TXCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);
