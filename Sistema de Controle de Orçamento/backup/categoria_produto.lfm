@@ -1,11 +1,10 @@
 inherited Categoria_ProdutoF: TCategoria_ProdutoF
-  Top = 198
+  Left = 361
+  Top = 183
   Caption = 'Categoria de Produto'
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       inherited PanelConsultaTop: TPanel
         object lblPesquisa: TLabel[0]
@@ -48,6 +47,12 @@ inherited Categoria_ProdutoF: TCategoria_ProdutoF
             0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
             DDDDD0000000
           }
+          OnClick = btnPesquisaClick
+        end
+      end
+      inherited PanelConsultaBottom: TPanel
+        inherited btnInserir: TBitBtn
+          OnClick = btnInserirClick
         end
       end
       inherited PanelConsultaCenter: TPanel
@@ -67,10 +72,25 @@ inherited Categoria_ProdutoF: TCategoria_ProdutoF
               FieldName = 'ds_categoria_produto'
             end>
           DataSource = dsCatProduto
+          ReadOnly = False
         end
       end
     end
     inherited tbCadastro: TTabSheet
+      inherited PanelCadastroBottom: TPanel
+        inherited btnGravar: TBitBtn
+          OnClick = btnGravarClick
+        end
+        inherited btnEditar: TBitBtn
+          OnClick = btnEditarClick
+        end
+        inherited btnCancelar: TBitBtn
+          OnClick = btnCancelarClick
+        end
+        inherited btnExcluir: TBitBtn
+          OnClick = btnExcluirClick
+        end
+      end
       inherited PanelCadastroCenter: TPanel
         OnClick = PanelCadastroCenterClick
         object lblId: TLabel[0]

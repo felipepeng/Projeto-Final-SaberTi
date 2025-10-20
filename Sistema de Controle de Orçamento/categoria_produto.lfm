@@ -1,5 +1,6 @@
 inherited Categoria_ProdutoF: TCategoria_ProdutoF
-  Top = 198
+  Left = 361
+  Top = 167
   Caption = 'Categoria de Produto'
   OnClose = FormClose
   OnShow = FormShow
@@ -46,6 +47,12 @@ inherited Categoria_ProdutoF: TCategoria_ProdutoF
             0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
             DDDDD0000000
           }
+          OnClick = btnPesquisaClick
+        end
+      end
+      inherited PanelConsultaBottom: TPanel
+        inherited btnInserir: TBitBtn
+          OnClick = btnInserirClick
         end
       end
       inherited PanelConsultaCenter: TPanel
@@ -70,6 +77,20 @@ inherited Categoria_ProdutoF: TCategoria_ProdutoF
       end
     end
     inherited tbCadastro: TTabSheet
+      inherited PanelCadastroBottom: TPanel
+        inherited btnGravar: TBitBtn
+          OnClick = btnGravarClick
+        end
+        inherited btnEditar: TBitBtn
+          OnClick = btnEditarClick
+        end
+        inherited btnCancelar: TBitBtn
+          OnClick = btnCancelarClick
+        end
+        inherited btnExcluir: TBitBtn
+          OnClick = btnExcluirClick
+        end
+      end
       inherited PanelCadastroCenter: TPanel
         OnClick = PanelCadastroCenterClick
         object lblId: TLabel[0]

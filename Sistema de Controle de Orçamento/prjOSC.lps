@@ -47,8 +47,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Categoria_Produto"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="39"/>
-        <CursorPos X="35" Y="52"/>
+        <TopLine Value="74"/>
+        <CursorPos X="19" Y="92"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -67,7 +67,7 @@
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="7">
+    <JumpHistory HistoryIndex="14">
       <Position>
         <Filename Value="categoria_produto.pas"/>
       </Position>
@@ -98,6 +98,34 @@
       <Position>
         <Filename Value="xcadpai.pas"/>
         <Caret Line="99" Column="25" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="53" Column="35" TopLine="38"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="70" Column="24" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="78" Column="22" TopLine="57"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="86" Column="22" TopLine="65"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="97" Column="20" TopLine="72"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="96" Column="5" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="categoria_produto.pas"/>
+        <Caret Line="102" Column="35" TopLine="77"/>
       </Position>
     </JumpHistory>
     <RunParams>
