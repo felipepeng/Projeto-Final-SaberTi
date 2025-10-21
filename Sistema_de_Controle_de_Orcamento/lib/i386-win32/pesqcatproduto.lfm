@@ -1,0 +1,134 @@
+object pesqCatProdutoF: TpesqCatProdutoF
+  Left = 460
+  Height = 464
+  Top = 239
+  Width = 533
+  Caption = 'Pesquisar Categorias'
+  ClientHeight = 464
+  ClientWidth = 533
+  DesignTimePPI = 120
+  Position = poScreenCenter
+  LCLVersion = '4.2.0.0'
+  OnClose = FormClose
+  OnShow = FormShow
+  object Panel1: TPanel
+    Left = 380
+    Height = 63
+    Top = 163
+    Width = 213
+    Caption = 'Panel1'
+    TabOrder = 0
+  end
+  object PanelTop: TPanel
+    Left = 0
+    Height = 56
+    Top = 0
+    Width = 533
+    Align = alTop
+    ClientHeight = 56
+    ClientWidth = 533
+    Color = 10084282
+    ParentBackground = False
+    ParentColor = False
+    TabOrder = 1
+    object btnPesquisa: TSpeedButton
+      Left = 176
+      Height = 28
+      Top = 16
+      Width = 32
+      Glyph.Data = {
+        42010000424D4201000000000000760000002800000011000000110000000100
+        040000000000CC00000000000000000000001000000010000000000000000000
+        BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+        DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
+        0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
+        0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
+        7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
+        077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
+        0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
+        DDDDD0000000
+      }
+    end
+    object edtPesquisa: TEdit
+      Left = 72
+      Height = 28
+      Top = 16
+      Width = 96
+      NumbersOnly = True
+      TabOrder = 0
+      OnChange = edtPesquisaChange
+    end
+    object lblPesquisa: TLabel
+      Left = 8
+      Height = 23
+      Top = 16
+      Width = 59
+      Caption = 'Código:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -17
+      Font.Name = 'Segoe UI Semibold'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Height = 408
+    Top = 56
+    Width = 533
+    Align = alClient
+    Color = clWindow
+    Columns = <    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'id'
+        Width = 40
+        FieldName = 'categoriaprodutoid'
+      end    
+      item
+        Title.Caption = 'Categoria'
+        Width = 120
+        FieldName = 'ds_categoria_produto'
+      end>
+    DataSource = dsPesqCat
+    TabOrder = 2
+    OnDblClick = DBGrid1DblClick
+  end
+  object qrypesqCat: TZQuery
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select * from categoria_produto;'
+    )
+    Params = <>
+    Left = 416
+    Top = 16
+    object qrypesqCatcategoriaprodutoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qrypesqCatds_categoria_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'ds_categoria_produto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+  end
+  object dsPesqCat: TDataSource
+    DataSet = qrypesqCat
+    Left = 320
+    Top = 16
+  end
+end
