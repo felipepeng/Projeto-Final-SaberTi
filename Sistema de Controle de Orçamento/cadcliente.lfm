@@ -1,6 +1,6 @@
 inherited cadClienteF: TcadClienteF
-  Left = 367
-  Top = 365
+  Left = 358
+  Top = 229
   Width = 590
   Caption = 'Cliente'
   ClientWidth = 590
@@ -169,9 +169,11 @@ inherited cadClienteF: TcadClienteF
           Left = 32
           Height = 28
           Top = 48
-          Width = 100
+          Width = 56
           DataField = 'clienteid'
           DataSource = dsCadCliente
+          ReadOnly = True
+          Color = cl3DLight
           MaxLength = 0
           TabOrder = 0
         end
@@ -235,6 +237,7 @@ inherited cadClienteF: TcadClienteF
   end
   object qryCadCliente: TZQuery[1]
     Connection = DataModule1.ZConnection1
+    AfterInsert = qryCadClienteAfterInsert
     UpdateObject = updtCadCliente
     SQL.Strings = (
       'select * from cliente c'

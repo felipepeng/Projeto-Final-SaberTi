@@ -1,0 +1,305 @@
+inherited cadUsuarioF: TcadUsuarioF
+  Left = 361
+  Top = 199
+  Caption = 'Cadastro de Usuário'
+  ClientHeight = 0
+  ClientWidth = 0
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    inherited tbConsulta: TTabSheet
+      inherited PanelConsultaTop: TPanel
+        object lblPesquisa: TLabel[0]
+          Left = 8
+          Height = 23
+          Top = 16
+          Width = 125
+          Caption = 'Pesquisar por id:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtPesquisa: TEdit[1]
+          Left = 136
+          Height = 28
+          Top = 16
+          Width = 128
+          NumbersOnly = True
+          TabOrder = 0
+        end
+        object btnPesquisa: TSpeedButton[2]
+          Left = 272
+          Height = 28
+          Top = 16
+          Width = 29
+          Glyph.Data = {
+            42010000424D4201000000000000760000002800000011000000110000000100
+            040000000000CC00000000000000000000001000000010000000000000000000
+            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+            DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
+            0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
+            0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
+            7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
+            077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
+            0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
+            DDDDD0000000
+          }
+        end
+      end
+      inherited PanelConsultaBottom: TPanel
+        inherited btnInserir: TBitBtn
+          OnClick = btnInserirClick
+        end
+      end
+      inherited PanelConsultaCenter: TPanel
+        inherited DBGrid1: TDBGrid
+          Columns = <          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'id'
+              Width = 40
+              FieldName = 'id'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Usuário'
+              Width = 80
+              FieldName = 'usuario'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Nome Completo'
+              Width = 200
+              FieldName = 'nome_completo'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Senha'
+              Width = 100
+              FieldName = 'senha'
+            end>
+          DataSource = dsCadUsuario
+        end
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      inherited PanelCadastroBottom: TPanel
+        inherited btnGravar: TBitBtn
+          OnClick = btnGravarClick
+        end
+        inherited btnEditar: TBitBtn
+          OnClick = btnEditarClick
+        end
+        inherited btnCancelar: TBitBtn
+          OnClick = btnCancelarClick
+        end
+        inherited btnExcluir: TBitBtn
+          OnClick = btnExcluirClick
+        end
+      end
+      inherited PanelCadastroCenter: TPanel
+        object lblId: TLabel[0]
+          Left = 32
+          Height = 23
+          Top = 24
+          Width = 18
+          Caption = 'id:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtId: TDBEdit[1]
+          Left = 32
+          Height = 28
+          Top = 48
+          Width = 62
+          DataField = 'id'
+          DataSource = dsCadUsuario
+          ReadOnly = True
+          Color = cl3DLight
+          MaxLength = 0
+          TabOrder = 0
+        end
+        object lblUsuario: TLabel[2]
+          Left = 32
+          Height = 23
+          Top = 96
+          Width = 62
+          Caption = 'Usuário:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtUsuario: TDBEdit[3]
+          Left = 32
+          Height = 28
+          Top = 120
+          Width = 182
+          DataField = 'usuario'
+          DataSource = dsCadUsuario
+          MaxLength = 0
+          TabOrder = 1
+        end
+        object lblNomeComp: TLabel[4]
+          Left = 32
+          Height = 23
+          Top = 168
+          Width = 131
+          Caption = 'Nome Completo:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtNomeComp: TDBEdit[5]
+          Left = 32
+          Height = 28
+          Top = 192
+          Width = 232
+          DataField = 'nome_completo'
+          DataSource = dsCadUsuario
+          MaxLength = 0
+          TabOrder = 2
+        end
+        object lblSenha: TLabel[6]
+          Left = 32
+          Height = 23
+          Top = 240
+          Width = 51
+          Caption = 'Senha:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object edtSenha: TDBEdit[7]
+          Left = 32
+          Height = 28
+          Top = 264
+          Width = 232
+          DataField = 'senha'
+          DataSource = dsCadUsuario
+          MaxLength = 0
+          TabOrder = 3
+        end
+      end
+    end
+  end
+  object qryCadUsuario: TZQuery[1]
+    Connection = DataModule1.ZConnection1
+    AfterInsert = qryCadUsuarioAfterInsert
+    UpdateObject = updtCadUsuario
+    SQL.Strings = (
+      'select * from usuarios;'
+    )
+    Params = <>
+    Left = 400
+    Top = 32
+    object qryCadUsuarioid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'id'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+    end
+    object qryCadUsuariousuario: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'usuario'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 30
+    end
+    object qryCadUsuarionome_completo: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nome_completo'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object qryCadUsuariosenha: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'senha'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
+  end
+  object dsCadUsuario: TDataSource[2]
+    DataSet = qryCadUsuario
+    Left = 304
+    Top = 32
+  end
+  object updtCadUsuario: TZUpdateSQL[3]
+    DeleteSQL.Strings = (
+      'DELETE FROM usuarios'
+      'WHERE'
+      '  ((usuarios.id IS NULL AND :OLD_id IS NULL) OR (usuarios.id = :OLD_id))'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO usuarios'
+      '  (id, usuario, nome_completo, senha)'
+      'VALUES'
+      '  (:id, :usuario, :nome_completo, :senha)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE usuarios SET'
+      '  id = :id,'
+      '  usuario = :usuario,'
+      '  nome_completo = :nome_completo,'
+      '  senha = :senha'
+      'WHERE'
+      '  ((usuarios.id IS NULL AND :OLD_id IS NULL) OR (usuarios.id = :OLD_id))'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 504
+    Top = 32
+    ParamData = <    
+      item
+        Name = 'id'
+      end    
+      item
+        Name = 'usuario'
+      end    
+      item
+        Name = 'nome_completo'
+      end    
+      item
+        Name = 'senha'
+      end    
+      item
+        Name = 'OLD_id'
+      end>
+  end
+end

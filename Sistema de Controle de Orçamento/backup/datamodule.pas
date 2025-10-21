@@ -5,7 +5,7 @@ unit DataModule;
 interface
 
 uses
-  Classes, SysUtils, ZConnection;
+  Classes, SysUtils, ZConnection, ZDataset;
 
 type
 
@@ -13,10 +13,14 @@ type
 
   TDataModule1 = class(TDataModule)
     ZConnection1: TZConnection;
+    qryGenerica: TZQuery;
+    qryGeneria02: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
 
   public
+    function getSequence(const pNomeSequence: String): String;
+    procedure decreaseSequence(const pNomeSequence: String);
 
   end;
 
@@ -38,6 +42,32 @@ begin
   ZConnection1.Port     := 5432;
   ZConnection1.Protocol := 'postgresql';
   ZConnection1.Connected := True;
+end;
+
+function TDataModule1.getSequence(const pNomeSequence: String): String;
+begin
+     Result := '';
+ try
+     qryGenerica.close;
+     qryGenerica.SQL.Clear;
+     qryGenerica.SQL.Add('SELECT NEXTVAL(' + QuotedStr(pNomeSequence) + ') AS CODIGO');
+     qryGenerica.Open;
+     Result := qryGenerica.FieldByName('CODIGO').AsString;
+ finally
+   qryGenerica.Close;
+ end;
+end;
+
+procedure TDataModule1.decreaseSequence(const pNomeSequence: String);
+begin
+try
+  qryGenerica02.Close;
+  qryGenerica02.SQL.Clear;
+  qryGeneria02.SQL.Add('SELECT setval(' + QuotedStr(pNomeSequence) + ', last_value - 1) FROM ' + pNomeSequence + ';');
+  qryGeneria02.Open;
+finally
+  qryGeneria02.Close;
+end;
 end;
 
 end.

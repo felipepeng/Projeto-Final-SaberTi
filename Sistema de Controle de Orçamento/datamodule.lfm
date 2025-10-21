@@ -2,8 +2,8 @@ object DataModule1: TDataModule1
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 653
-  HorizontalOffset = 385
-  VerticalOffset = 177
+  HorizontalOffset = 355
+  VerticalOffset = 160
   Width = 713
   PPI = 120
   object ZConnection1: TZConnection
@@ -19,7 +19,19 @@ object DataModule1: TDataModule1
     User = 'postgres'
     Password = '12345'
     Protocol = 'postgresql'
-    Left = 350
-    Top = 70
+    Left = 32
+    Top = 32
+  end
+  object qryGenerica: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 200
+    Top = 32
+  end
+  object qryGenerica02: TZQuery
+    Connection = ZConnection1
+    Params = <>
+    Left = 320
+    Top = 32
   end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB;
+  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule;
 
 type
 
@@ -39,6 +39,7 @@ type
     procedure btnPesquisaClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure qryCadClienteAfterInsert(DataSet: TDataSet);
   private
 
   public
@@ -60,6 +61,12 @@ procedure TcadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadCliente.Open;
+end;
+
+procedure TcadClienteF.qryCadClienteAfterInsert(DataSet: TDataSet);
+begin
+  //Aplica Sequence
+  qryCadCliente.FieldByName('clienteid').AsInteger := StrToInt(DataModule1.getSequence('cliente_clienteid'));
 end;
 
 procedure TcadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -123,7 +130,13 @@ end;
 procedure TcadClienteF.btnCancelarClick(Sender: TObject);
 begin
   inherited; //Vai para Consulta
+
+  //Checa se está durante o Insert
+  if qryCadCliente.State = dsInsert then
+    DataModule1.decreaseSequence('cliente_clienteid');
+
   qryCadCliente.Cancel;
+
 end;
 
 end.

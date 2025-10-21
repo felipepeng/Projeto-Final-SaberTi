@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
-           cadCategoria_Produto, cadCliente;
+           cadCategoria_Produto, cadCliente, cadProduto;
 
 type
 
@@ -30,6 +30,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure MenuItemCategoriaClick(Sender: TObject);
     procedure MenuItemClienteClick(Sender: TObject);
+    procedure MenuItemProdutoClick(Sender: TObject);
     procedure MenuItemSairClick(Sender: TObject);
   private
 
@@ -66,6 +67,14 @@ begin
   cadClienteF := TcadClienteF.Create(Self);
   cadClienteF.ShowModal;
 
+end;
+
+procedure TMenuPrincipalF.MenuItemProdutoClick(Sender: TObject);
+var
+  cadProdutoF : TcadProdutoF;
+begin
+  cadProdutoF := TcadProdutoF.Create(Self);
+  cadProdutoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);

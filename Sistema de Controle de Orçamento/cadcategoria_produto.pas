@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB;
+  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule;
 
 type
 
@@ -35,6 +35,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure PanelCadastroCenterClick(Sender: TObject);
+    procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
   private
 
   public
@@ -53,6 +54,12 @@ implementation
 procedure TcadCategoria_ProdutoF.PanelCadastroCenterClick(Sender: TObject);
 begin
 
+end;
+
+//After Insert
+procedure TcadCategoria_ProdutoF.qryCatProdutoAfterInsert(DataSet: TDataSet);
+begin
+  qryCatProdutocategoriaprodutoid.AsInteger := StrToInt(DataModule1.getSequence('categoria_produto_categoriaprodutoid_seq'));
 end;
 
 procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
@@ -140,8 +147,14 @@ end;
 procedure TcadCategoria_ProdutoF.btnCancelarClick(Sender: TObject);
 begin
   inherited; //Vai para Consulta
+
+  //Checa se está durante o Insert
+  if qryCatProduto.State = dsInsert then
+    DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+
   //Cancela
   qryCatProduto.Cancel;
+
 end;
 
 end.

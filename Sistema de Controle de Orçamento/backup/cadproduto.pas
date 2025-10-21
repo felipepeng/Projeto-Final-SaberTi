@@ -84,6 +84,8 @@ procedure TcadProdutoF.btnInserirClick(Sender: TObject);
 begin
   inherited; //Vai para Cadastro
   qryCadProduto.Insert;
+  qryCadProduto.FieldByName('dt_cadastro_produto').AsDateTime := Date;
+
 end;
 
 procedure TcadProdutoF.btnOpenCatProdClick(Sender: TObject);

@@ -4,15 +4,13 @@ inherited cadProdutoF: TcadProdutoF
   Top = 165
   Width = 609
   Caption = 'Cadastro de Produto'
-  ClientHeight = 526
-  ClientWidth = 609
+  ClientHeight = 0
+  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 526
     Width = 609
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 493
       ClientWidth = 601

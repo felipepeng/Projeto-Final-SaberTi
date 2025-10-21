@@ -32,6 +32,7 @@ object MenuPrincipalF: TMenuPrincipalF
       end
       object MenuItemUsuario: TMenuItem
         Caption = 'Usuário'
+        OnClick = MenuItemUsuarioClick
       end
     end
     object MenuVendas: TMenuItem
