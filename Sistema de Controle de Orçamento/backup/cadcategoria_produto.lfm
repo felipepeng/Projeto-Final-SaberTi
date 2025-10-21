@@ -1,6 +1,6 @@
 inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
-  Left = 377
-  Top = 370
+  Left = 383
+  Top = 216
   Caption = 'Categoria de Produto'
   OnClose = FormClose
   OnShow = FormShow

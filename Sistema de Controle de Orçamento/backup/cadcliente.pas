@@ -88,7 +88,7 @@ begin
                               ' where c.clienteid =' + edtPesquisa.Text);
   end else
   begin
-    qryCadCliente.SQL.Text:= ('select * from cliente order by c.clienteid;');
+    qryCadCliente.SQL.Text:= ('select * from cliente c order by c.clienteid;');
   end;
 
   //Reabre a Query

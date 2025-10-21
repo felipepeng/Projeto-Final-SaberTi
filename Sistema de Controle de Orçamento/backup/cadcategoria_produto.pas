@@ -83,7 +83,7 @@ begin
   if edtPesquisa.Text <> '' then
   begin
     qryCatProduto.SQL.Text:= ('select * from categoria_produto' +
-                              ' where categoriaprodutoid =' + edtPesquisa.Text);
+                              ' where categoriaprodutoid::text like ''' + edtPesquisa.Text + '%'';');
   end else
   begin
     qryCatProduto.SQL.Text:= ('select * from categoria_produto;');

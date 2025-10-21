@@ -1,6 +1,6 @@
 inherited cadClienteF: TcadClienteF
-  Left = 363
-  Top = 170
+  Left = 367
+  Top = 365
   Width = 590
   Caption = 'Cliente'
   ClientWidth = 590
@@ -8,6 +8,8 @@ inherited cadClienteF: TcadClienteF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 590
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientWidth = 582
       inherited PanelConsultaTop: TPanel
@@ -211,6 +213,7 @@ inherited cadClienteF: TcadClienteF
             'J'
           )
           MaxLength = 0
+          Style = csDropDownList
           TabOrder = 3
         end
         object lblTipo: TLabel[7]

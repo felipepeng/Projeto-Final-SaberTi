@@ -60,7 +60,11 @@ begin
 end;
 
 procedure TMenuPrincipalF.MenuItemClienteClick(Sender: TObject);
+var
+  cadClienteF : TcadClienteF;
 begin
+  cadClienteF := TcadClienteF.Create(Self);
+  cadClienteF.ShowModal;
 
 end;
 

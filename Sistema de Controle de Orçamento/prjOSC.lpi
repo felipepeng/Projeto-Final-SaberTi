@@ -83,6 +83,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCliente"/>
       </Unit>
+      <Unit>
+        <Filename Value="cadproduto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="cadProdutoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="cadProduto"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,6 +1,6 @@
 inherited cadClienteF: TcadClienteF
-  Left = 363
-  Top = 170
+  Left = 367
+  Top = 365
   Width = 590
   Caption = 'Cliente'
   ClientWidth = 590
@@ -211,6 +211,7 @@ inherited cadClienteF: TcadClienteF
             'J'
           )
           MaxLength = 0
+          Style = csDropDownList
           TabOrder = 3
         end
         object lblTipo: TLabel[7]

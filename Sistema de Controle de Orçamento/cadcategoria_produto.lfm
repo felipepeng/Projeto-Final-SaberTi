@@ -1,14 +1,10 @@
 inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
-  Left = 377
-  Top = 370
+  Left = 383
+  Top = 216
   Caption = 'Categoria de Produto'
-  ClientHeight = 0
-  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       inherited PanelConsultaTop: TPanel
         object lblPesquisa: TLabel[0]
@@ -32,6 +28,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           Width = 128
           NumbersOnly = True
           TabOrder = 0
+          OnChange = edtPesquisaChange
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
