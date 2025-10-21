@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, DBExtCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB;
+  DBCtrls, DBExtCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB,
+  cadCategoria_Produto;
 
 type
 
@@ -39,12 +40,14 @@ type
     qryCadProdutoprodutoid: TZIntegerField;
     qryCadProdutostatus_produto: TZRawStringField;
     qryCadProdutovl_venda_produto: TZBCDField;
+    btnOpenCatProd: TSpeedButton;
     updtCadProduto: TZUpdateSQL;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
+    procedure btnOpenCatProdClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -81,6 +84,16 @@ procedure TcadProdutoF.btnInserirClick(Sender: TObject);
 begin
   inherited; //Vai para Cadastro
   qryCadProduto.Insert;
+  qryCadProduto.FieldByName('dt_cadastro_produto').AsDateTime := Date;
+
+end;
+
+procedure TcadProdutoF.btnOpenCatProdClick(Sender: TObject);
+var
+  cadCategoria_Produto : TcadCategoria_ProdutoF;
+begin
+  cadCategoria_Produto := TcadCategoria_ProdutoF.Create(Self);
+  cadCategoria_Produto.ShowModal;
 end;
 
 procedure TcadProdutoF.btnPesquisaClick(Sender: TObject);

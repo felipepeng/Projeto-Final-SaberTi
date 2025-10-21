@@ -82,14 +82,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadProduto"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="96"/>
-        <CursorPos X="23" Y="121"/>
+        <TopLine Value="82"/>
+        <CursorPos X="34" Y="94"/>
         <UsageCount Value="23"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="3">
+    <JumpHistory HistoryIndex="5">
       <Position>
         <Filename Value="cadproduto.pas"/>
         <Caret Line="86" Column="10" TopLine="84"/>
@@ -105,6 +105,14 @@
       <Position>
         <Filename Value="cadproduto.pas"/>
         <Caret Line="102" Column="24" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="116" Column="47" TopLine="54"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="123" Column="47" TopLine="98"/>
       </Position>
     </JumpHistory>
     <RunParams>
