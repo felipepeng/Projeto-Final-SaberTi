@@ -78,6 +78,7 @@ procedure TcadProdutoF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadProduto.Open;
+  qryCatProduto.Open;
 end;
 
 
@@ -92,6 +93,7 @@ procedure TcadProdutoF.FormClose(Sender: TObject; var CloseAction: TCloseAction
 begin
   inherited;
   qryCadProduto.Close;
+  qryCatProduto.Close;
 end;
 
 procedure TcadProdutoF.btnInserirClick(Sender: TObject);

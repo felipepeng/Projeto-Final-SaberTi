@@ -122,6 +122,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Orcamento"/>
       </Unit>
+      <Unit>
+        <Filename Value="pesqcliente.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pesqClienteF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="pesqCliente"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -80,7 +80,6 @@ end;
 procedure TpesqCatProdutoF.DBGrid1DblClick(Sender: TObject);
 begin
   cadProdutoF.qryCadProdutocategoriaprodutoid.AsInteger := qrypesqCatcategoriaprodutoid.AsInteger;
-  cadProdutoF.edtCatDescricao.Text := qrypesqCat.FieldByName('ds_categoria_produto').AsString;
   Close;
 end;
 

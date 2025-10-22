@@ -1,7 +1,7 @@
 object pesqCatProdutoF: TpesqCatProdutoF
-  Left = 854
+  Left = 573
   Height = 464
-  Top = 244
+  Top = 315
   Width = 533
   Caption = 'Pesquisar Categorias'
   ClientHeight = 464
