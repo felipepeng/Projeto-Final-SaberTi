@@ -1,0 +1,268 @@
+inherited OrcamentoF: TOrcamentoF
+  Left = 575
+  Height = 573
+  Top = 156
+  Width = 621
+  Caption = 'Orçamento'
+  ClientHeight = 573
+  ClientWidth = 621
+  OnClose = FormClose
+  OnShow = FormShow
+  inherited PageControl1: TPageControl
+    Height = 573
+    Width = 621
+    inherited tbConsulta: TTabSheet
+      ClientHeight = 540
+      ClientWidth = 613
+      inherited PanelConsultaTop: TPanel
+        Width = 613
+        ClientWidth = 613
+        object edtPesquisa: TEdit[0]
+          Left = 136
+          Height = 28
+          Top = 16
+          Width = 128
+          NumbersOnly = True
+          TabOrder = 0
+        end
+        object btnPesquisa: TSpeedButton[1]
+          Left = 272
+          Height = 28
+          Top = 16
+          Width = 29
+          Glyph.Data = {
+            42010000424D4201000000000000760000002800000011000000110000000100
+            040000000000CC00000000000000000000001000000010000000000000000000
+            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
+            DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
+            0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
+            0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
+            7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
+            077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
+            0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
+            DDDDD0000000
+          }
+        end
+        object lblPesquisa: TLabel[2]
+          Left = 8
+          Height = 23
+          Top = 16
+          Width = 125
+          Caption = 'Pesquisar por id:'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+      end
+      inherited PanelConsultaBottom: TPanel
+        Top = 485
+        Width = 613
+        ClientWidth = 613
+        inherited btnFechar: TBitBtn
+          Left = 512
+        end
+      end
+      inherited PanelConsultaCenter: TPanel
+        Height = 429
+        Width = 613
+        ClientHeight = 429
+        ClientWidth = 613
+        inherited DBGrid1: TDBGrid
+          Height = 427
+          Width = 611
+          Columns = <          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'id'
+              Width = 40
+              FieldName = 'orcamentoid'
+            end          
+            item
+              Alignment = taLeftJustify
+              PickList.Strings = (              )
+              Title.Alignment = taRightJustify
+              Title.Caption = 'Valor Total'
+              Width = 100
+              FieldName = 'vl_total_orcamento'
+            end          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'Data Orçamento'
+              Width = 120
+              FieldName = 'dt_orcamento'
+            end          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'Validade'
+              Width = 120
+              FieldName = 'dt_validade_orcamento'
+            end          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'id Cliente'
+              Width = 80
+              FieldName = 'clienteid'
+            end>
+          DataSource = dsOrcamento
+        end
+      end
+    end
+    inherited tbCadastro: TTabSheet
+      ClientHeight = 540
+      ClientWidth = 613
+      inherited PanelCadastroBottom: TPanel
+        Top = 477
+        Width = 613
+        ClientWidth = 613
+        inherited btnExcluir: TBitBtn
+          Left = 513
+        end
+      end
+      inherited PanelCadastroCenter: TPanel
+        Height = 477
+        Width = 613
+        ClientHeight = 477
+        ClientWidth = 613
+        object PanelCadastroTop: TPanel[0]
+          Left = 1
+          Height = 56
+          Top = 1
+          Width = 611
+          Align = alTop
+          Color = 10084282
+          ParentBackground = False
+          ParentColor = False
+          TabOrder = 0
+        end
+      end
+    end
+  end
+  object qryOrcamento: TZQuery[1]
+    Connection = DataModule1.ZConnection1
+    UpdateObject = updtOrcamento
+    SQL.Strings = (
+      'select * from orcamento;'
+    )
+    Params = <>
+    Left = 432
+    Top = 40
+    object qryOrcamentoorcamentoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'orcamentoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentoclienteid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentodt_orcamento: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_orcamento'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentodt_validade_orcamento: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_validade_orcamento'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryOrcamentovl_total_orcamento: TZBCDField
+      FieldKind = fkData
+      FieldName = 'vl_total_orcamento'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+  end
+  object dsOrcamento: TDataSource[2]
+    DataSet = qryOrcamento
+    Left = 336
+    Top = 40
+  end
+  object updtOrcamento: TZUpdateSQL[3]
+    DeleteSQL.Strings = (
+      'DELETE FROM orcamento'
+      'WHERE'
+      '  orcamento.orcamentoid = :OLD_orcamentoid AND'
+      '  orcamento.clienteid = :OLD_clienteid'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO orcamento'
+      '  (orcamentoid, clienteid, dt_orcamento, dt_validade_orcamento, vl_total_orcamento)'
+      'VALUES'
+      '  (:orcamentoid, :clienteid, :dt_orcamento, :dt_validade_orcamento, :vl_total_orcamento)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE orcamento SET'
+      '  orcamentoid = :orcamentoid,'
+      '  clienteid = :clienteid,'
+      '  dt_orcamento = :dt_orcamento,'
+      '  dt_validade_orcamento = :dt_validade_orcamento,'
+      '  vl_total_orcamento = :vl_total_orcamento'
+      'WHERE'
+      '  orcamento.orcamentoid = :OLD_orcamentoid AND'
+      '  orcamento.clienteid = :OLD_clienteid'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 536
+    Top = 40
+    ParamData = <    
+      item
+        Name = 'orcamentoid'
+      end    
+      item
+        Name = 'clienteid'
+      end    
+      item
+        Name = 'dt_orcamento'
+      end    
+      item
+        Name = 'dt_validade_orcamento'
+      end    
+      item
+        Name = 'vl_total_orcamento'
+      end    
+      item
+        Name = 'OLD_orcamentoid'
+      end    
+      item
+        Name = 'OLD_clienteid'
+      end>
+  end
+end

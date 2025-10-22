@@ -132,7 +132,7 @@ begin
   inherited;
 
   //Checa se está durante o Insert
-  if qryCadCliente.State = dsInsert then
+  if qryCadUsuario.State = dsInsert then
     DataModule1.decreaseSequence('usuarios_id_seq');
 
   //Cancelar

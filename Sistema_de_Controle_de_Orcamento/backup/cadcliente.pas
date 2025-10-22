@@ -37,6 +37,7 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -103,6 +104,13 @@ begin
   qryCadCliente.Open;
 end;
 
+procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
+begin
+  //Só permite números e backspace
+  if not (Key in ['0'..'9', #8]) then
+    Key := #0;
+end;
+
 procedure TcadClienteF.edtPesquisaChange(Sender: TObject);
 begin
   //Fecha a Query
@@ -115,7 +123,7 @@ begin
                               ' where c.clienteid::text like ''' + edtPesquisa.Text + '%'';');
   end else
   begin
-    qryCadCliente.SQL.Text:= ('select * from cliente;');
+    qryCadCliente.SQL.Text:= ('select * from cliente order by clienteid;');
   end;
 
   //Reabre a Query

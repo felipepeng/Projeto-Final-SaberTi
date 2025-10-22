@@ -1,6 +1,6 @@
 inherited cadUsuarioF: TcadUsuarioF
-  Left = 361
-  Top = 199
+  Left = 715
+  Top = 236
   Caption = 'Cadastro de Usuário'
   ClientHeight = 0
   ClientWidth = 0

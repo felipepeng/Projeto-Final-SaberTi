@@ -43,7 +43,10 @@ type
     qryCadProdutostatus_produto: TZRawStringField;
     qryCadProdutovl_venda_produto: TZBCDField;
     btnOpenCatProd: TSpeedButton;
+    qryCatProdutocategoriaprodutoid: TZIntegerField;
+    qryCatProdutods_categoria_produto: TZRawStringField;
     updtCadProduto: TZUpdateSQL;
+    qryCatProduto: TZQuery;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
@@ -76,6 +79,7 @@ begin
   inherited;
   qryCadProduto.Open;
 end;
+
 
 procedure TcadProdutoF.qryCadProdutoAfterInsert(DataSet: TDataSet);
 begin

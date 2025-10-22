@@ -37,6 +37,7 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -55,8 +56,6 @@ implementation
 {$R *.lfm}
 
 { TcadClienteF }
-
-
 
 procedure TcadClienteF.FormShow(Sender: TObject);
 begin
@@ -101,6 +100,13 @@ begin
 
   //Reabre a Query
   qryCadCliente.Open;
+end;
+
+procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
+begin
+  //Só permite números e backspace
+  if not (Key in ['0'..'9', #8]) then
+    Key := #0;
 end;
 
 procedure TcadClienteF.edtPesquisaChange(Sender: TObject);

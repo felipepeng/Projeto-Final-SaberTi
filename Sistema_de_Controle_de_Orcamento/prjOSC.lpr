@@ -11,7 +11,7 @@ uses
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
   Forms, XCadPai, MenuPrincipal, cadCategoria_Produto, DataModule, zcomponent,
-  cadCliente, cadProduto, cadUsuario, pesqCatProduto, Sobre;
+  cadCliente, cadProduto, cadUsuario, pesqCatProduto, Sobre, Orcamento;
 
 {$R *.res}
 
@@ -26,6 +26,7 @@ begin
   Application.CreateForm(TXCadPaiF, XCadPaiF);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TpesqCatProdutoF, pesqCatProdutoF);
+  Application.CreateForm(TOrcamentoF, OrcamentoF);
   Application.Run;
 end.
 
