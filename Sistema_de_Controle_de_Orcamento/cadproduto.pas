@@ -44,7 +44,7 @@ type
     qryCadProdutovl_venda_produto: TZBCDField;
     btnOpenCatProd: TSpeedButton;
     qryCatProdutocategoriaprodutoid: TZIntegerField;
-    qryCatProdutods_categoria_produto: TZRawStringField;
+    qryCatProdutods_categoria_produto: TStringField;
     updtCadProduto: TZUpdateSQL;
     qryCatProduto: TZQuery;
     procedure btnCancelarClick(Sender: TObject);

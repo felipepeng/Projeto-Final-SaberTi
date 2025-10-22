@@ -1,7 +1,7 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 586
+  Left = 528
   Height = 642
-  Top = 160
+  Top = 208
   Width = 661
   Caption = 'Cadastro de Produto'
   ClientHeight = 642
@@ -11,8 +11,6 @@ inherited cadProdutoF: TcadProdutoF
   inherited PageControl1: TPageControl
     Height = 642
     Width = 661
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 609
       ClientWidth = 653
@@ -415,12 +413,17 @@ inherited cadProdutoF: TcadProdutoF
           Height = 28
           Top = 336
           Width = 160
-          DataField = 'categoriaprodutoid'
+          DataField = 'ds_categoria_produto'
           DataSource = dsCadProduto
           ReadOnly = True
           Color = cl3DLight
-          Enabled = False
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -15
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
           MaxLength = 0
+          ParentFont = False
           TabOrder = 7
           OnChange = edtCatDescChange
         end
@@ -507,6 +510,20 @@ inherited cadProdutoF: TcadProdutoF
       ReadOnly = False
       Required = True
       Size = 10
+    end
+    object TStringField
+      FieldKind = fkLookup
+      FieldName = 'ds_categoria_produto'
+      Index = 7
+      KeyFields = 'categoriaprodutoid'
+      LookupCache = False
+      LookupDataSet = qryCatProduto
+      LookupKeyFields = 'categoriaprodutoid'
+      LookupResultField = 'ds_categoria_produto'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object dsCadProduto: TDataSource[2]

@@ -1,7 +1,7 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 586
+  Left = 543
   Height = 642
-  Top = 160
+  Top = 206
   Width = 661
   Caption = 'Cadastro de Produto'
   ClientHeight = 642
@@ -11,8 +11,6 @@ inherited cadProdutoF: TcadProdutoF
   inherited PageControl1: TPageControl
     Height = 642
     Width = 661
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 609
       ClientWidth = 653
@@ -343,7 +341,7 @@ inherited cadProdutoF: TcadProdutoF
           DataSource = dsCadProduto
         end
         object btnOpenCatProd: TSpeedButton[14]
-          Left = 264
+          Left = 272
           Height = 28
           Top = 336
           Width = 29
@@ -411,27 +409,23 @@ inherited cadProdutoF: TcadProdutoF
           ParentFont = False
         end
         object edtCatDesc: TDBEdit[16]
-          Left = 312
-          Height = 28
-          Top = 336
-          Width = 160
-          DataField = 'categoriaprodutoid'
-          DataSource = dsCadProduto
-          ReadOnly = True
-          Color = cl3DLight
-          Enabled = False
-          MaxLength = 0
-          TabOrder = 7
-          OnChange = edtCatDescChange
-        end
-        object edtCatDescricao: TEdit[17]
           Left = 104
           Height = 28
           Top = 336
-          Width = 152
-          Color = cl3DLight
+          Width = 160
+          DataField = 'ds_categoria_produto'
+          DataSource = dsCadProduto
           ReadOnly = True
-          TabOrder = 8
+          Color = cl3DLight
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -15
+          Font.Name = 'Segoe UI'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          MaxLength = 0
+          ParentFont = False
+          TabOrder = 7
+          OnChange = edtCatDescChange
         end
       end
     end
@@ -516,6 +510,20 @@ inherited cadProdutoF: TcadProdutoF
       ReadOnly = False
       Required = True
       Size = 10
+    end
+    object TStringField
+      FieldKind = fkLookup
+      FieldName = 'ds_categoria_produto'
+      Index = 7
+      KeyFields = 'categoriaprodutoid'
+      LookupCache = False
+      LookupDataSet = qryCatProduto
+      LookupKeyFields = 'categoriaprodutoid'
+      LookupResultField = 'ds_categoria_produto'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
     end
   end
   object dsCadProduto: TDataSource[2]
