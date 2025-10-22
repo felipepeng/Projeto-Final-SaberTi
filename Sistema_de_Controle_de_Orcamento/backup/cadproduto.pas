@@ -99,10 +99,7 @@ begin
 end;
 
 procedure TcadProdutoF.btnOpenCatProdClick(Sender: TObject);
-var
-  pesqCatProdutoF : TpesqCatProdutoF;
 begin
-  pesqCatProdutoF := TpesqCatProdutoF.Create(Self);
   pesqCatProdutoF.ShowModal;
 end;
 

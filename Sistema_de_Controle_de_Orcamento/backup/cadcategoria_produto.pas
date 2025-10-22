@@ -147,9 +147,14 @@ end;
 procedure TcadCategoria_ProdutoF.btnCancelarClick(Sender: TObject);
 begin
   inherited; //Vai para Consulta
+
+  //Checa se está durante o Insert
+  if qryCatProduto.State = dsInsert then
+    DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+
   //Cancela
   qryCatProduto.Cancel;
-  DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+
 end;
 
 end.

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
-  Buttons, StdCtrls, ZDataset, ZAbstractRODataset;
+  Buttons, StdCtrls, ZDataset, ZAbstractRODataset, DataModule;
 
 type
 
@@ -35,8 +35,6 @@ type
 
 var
   pesqCatProdutoF: TpesqCatProdutoF;
-
-
 
 implementation
 

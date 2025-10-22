@@ -103,8 +103,16 @@
         <Filename Value="pesqcatproduto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="pesqCatProdutoF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqCatProduto"/>
+      </Unit>
+      <Unit>
+        <Filename Value="sobre.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="SobreF"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Sobre"/>
       </Unit>
     </Units>
   </ProjectOptions>

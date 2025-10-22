@@ -1,6 +1,6 @@
 inherited cadClienteF: TcadClienteF
-  Left = 358
-  Top = 229
+  Left = 348
+  Top = 298
   Width = 590
   Caption = 'Cliente'
   ClientWidth = 590
@@ -34,6 +34,7 @@ inherited cadClienteF: TcadClienteF
           Width = 128
           NumbersOnly = True
           TabOrder = 0
+          OnChange = edtPesquisaChange
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
@@ -167,9 +168,11 @@ inherited cadClienteF: TcadClienteF
           Left = 32
           Height = 28
           Top = 48
-          Width = 100
+          Width = 56
           DataField = 'clienteid'
           DataSource = dsCadCliente
+          ReadOnly = True
+          Color = cl3DLight
           MaxLength = 0
           TabOrder = 0
         end

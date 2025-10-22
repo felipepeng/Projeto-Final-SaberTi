@@ -37,6 +37,7 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
@@ -96,6 +97,25 @@ begin
   end else
   begin
     qryCadCliente.SQL.Text:= ('select * from cliente c order by c.clienteid;');
+  end;
+
+  //Reabre a Query
+  qryCadCliente.Open;
+end;
+
+procedure TcadClienteF.edtPesquisaChange(Sender: TObject);
+begin
+  //Fecha a Query
+  qryCadCliente.Open;
+
+  //Edita o comando SQL
+  if edtPesquisa.Text <> '' then
+  begin
+    qryCadCliente.SQL.Text:= ('select * from cliente c' +
+                              ' where c.clienteid::text like ''' + edtPesquisa.Text + '%'';');
+  end else
+  begin
+    qryCadCliente.SQL.Text:= ('select * from cliente;');
   end;
 
   //Reabre a Query

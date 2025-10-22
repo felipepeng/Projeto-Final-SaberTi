@@ -57,7 +57,6 @@ procedure TMenuPrincipalF.MenuItemClienteClick(Sender: TObject);
 begin
   cadClienteF := TcadClienteF.Create(Self);
   cadClienteF.ShowModal;
-
 end;
 
 procedure TMenuPrincipalF.MenuItemProdutoClick(Sender: TObject);

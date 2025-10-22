@@ -45,6 +45,7 @@ object MenuPrincipalF: TMenuPrincipalF
     end
     object MenuSobre: TMenuItem
       Caption = 'Sobre'
+      OnClick = MenuSobreClick
     end
     object MenuSair: TMenuItem
       Caption = 'Sair'
