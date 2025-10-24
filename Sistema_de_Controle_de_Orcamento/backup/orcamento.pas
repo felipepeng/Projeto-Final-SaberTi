@@ -66,6 +66,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
+    procedure btnExcluirItemClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
@@ -81,6 +82,7 @@ type
 
   public
     procedure AbreOrcItens(orcamentoid : Integer);
+    procedure SomaItens();
 
   end;
 
@@ -92,6 +94,34 @@ implementation
 {$R *.lfm}
 
 { TOrcamentoF }
+
+procedure TOrcamentoF.SomaItens();
+var
+  tam, i: Integer;
+  count : Double;
+begin
+  //ShowMessage(IntToStr(OrcamentoF.qryOrcItem.RecordCount));
+  //tam :=  OrcamentoF.qryOrcItem.RecordCount;
+  count := 0;
+
+  //for i := 0 to tam do
+  //begin
+  //  count := count +
+  //end;
+
+  if not qryOrcItem.IsEmpty then
+  begin
+    qryOrcItem.First;
+    while not qryOrcItem.Eof do
+    begin
+      count := count + qryOrcItem.FieldByName('vl_total').AsFloat;
+      qryOrcItem.Next;
+    end;
+  end;
+
+  //ShowMessage('Total geral: ' + FloatToStr(count));
+  qryOrcamentovl_total_orcamento.AsFloat := count;
+end;
 
 procedure TOrcamentoF.AbreOrcItens(orcamentoid : Integer);
 begin
@@ -188,11 +218,11 @@ end;
 
 procedure TOrcamentoF.btnInserirClick(Sender: TObject);
 begin
-  inherited;
   //Insert
   qryOrcamento.Insert;
   //Abre Orcamento Itens
   AbreOrcItens(qryOrcamentoorcamentoid.AsInteger);
+  inherited;
   //Datas
   qryOrcamento.FieldByName('dt_orcamento').AsDateTime := Date;
   qryOrcamento.FieldByName('dt_validade_orcamento').AsDateTime:= Date + 15;
@@ -203,6 +233,7 @@ begin
   //Gravar
   inherited;
   qryOrcamento.Post;
+  qryOrcamento.Refresh;
 end;
 
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);
@@ -222,6 +253,16 @@ begin
   end;
 end;
 
+procedure TOrcamentoF.btnExcluirItemClick(Sender: TObject);
+begin
+  if not (OrcamentoF.qryOrcItem.IsEmpty) then
+  begin
+    OrcamentoF.qryOrcItem.Delete;
+  end;
+
+  SomaItens();
+end;
+
 procedure TOrcamentoF.btnCancelarClick(Sender: TObject);
 begin
   inherited;
@@ -236,9 +277,10 @@ end;
 
 procedure TOrcamentoF.btnAddItemClick(Sender: TObject);
 begin
-  //qryOrcItem.Insert;
+  //Cadastro Item
+  qryOrcItem.Insert;
+  qryOrcItemorcamentoid.AsInteger := qryOrcamentoorcamentoid.AsInteger;
   cadItemOrcF.ShowModal;
-  //qryProduto.Insert;
 end;
 
 end.

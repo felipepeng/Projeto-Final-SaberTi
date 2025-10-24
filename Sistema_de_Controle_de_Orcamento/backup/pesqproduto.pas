@@ -82,6 +82,7 @@ end;
 procedure TpesqProdutoF.DBGrid1DblClick(Sender: TObject);
 begin
   OrcamentoF.qryOrcItemprodutoid.AsInteger := qryProdutoprodutoid.AsInteger;
+  OrcamentoF.qryOrcItemvl_unitario.AsFloat := qryProdutovl_venda_produto.AsFloat;
   Close;
 end;
 

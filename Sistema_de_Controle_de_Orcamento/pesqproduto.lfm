@@ -1,11 +1,11 @@
 object pesqProdutoF: TpesqProdutoF
-  Left = 526
+  Left = 449
   Height = 472
-  Top = 328
+  Top = 308
   Width = 862
   Caption = 'Pesquisa de Produto'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 472
+  ClientWidth = 862
   DesignTimePPI = 120
   LCLVersion = '4.2.0.0'
   OnClose = FormClose

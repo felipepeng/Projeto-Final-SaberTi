@@ -227,7 +227,7 @@ inherited OrcamentoF: TOrcamentoF
             TabOrder = 1
           end
           object lblDataOrcamento: TLabel
-            Left = 256
+            Left = 128
             Height = 23
             Top = 16
             Width = 117
@@ -241,7 +241,7 @@ inherited OrcamentoF: TOrcamentoF
             ParentFont = False
           end
           object lblDataValidade: TLabel
-            Left = 408
+            Left = 280
             Height = 23
             Top = 16
             Width = 96
@@ -255,7 +255,7 @@ inherited OrcamentoF: TOrcamentoF
             ParentFont = False
           end
           object lblTotalOrcamento: TLabel
-            Left = 560
+            Left = 432
             Height = 23
             Top = 16
             Width = 131
@@ -269,13 +269,21 @@ inherited OrcamentoF: TOrcamentoF
             ParentFont = False
           end
           object edtTotalOrcamento: TDBEdit
-            Left = 560
+            Left = 432
             Height = 28
             Top = 40
             Width = 131
             DataField = 'vl_total_orcamento'
             DataSource = dsOrcamento
+            ReadOnly = True
+            Font.CharSet = ANSI_CHARSET
+            Font.Color = clBlue
+            Font.Name = 'Segoe UI Semibold'
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            Font.Style = [fsBold]
             MaxLength = 0
+            ParentFont = False
             TabOrder = 2
           end
           object btnPesqCliente: TSpeedButton
@@ -408,9 +416,10 @@ inherited OrcamentoF: TOrcamentoF
               00003939393939393939393939393939393939390000
             }
             TabOrder = 4
+            OnClick = btnExcluirItemClick
           end
           object DateEditDataOrcamento: TDBDateEdit
-            Left = 256
+            Left = 128
             Height = 28
             Top = 40
             Width = 129
@@ -425,7 +434,7 @@ inherited OrcamentoF: TOrcamentoF
             DataSource = dsOrcamento
           end
           object DateEditDataValidade: TDBDateEdit
-            Left = 408
+            Left = 280
             Height = 28
             Top = 40
             Width = 129
