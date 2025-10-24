@@ -1,18 +1,20 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 528
-  Height = 642
-  Top = 208
+  Left = 581
+  Height = 583
+  Top = 193
   Width = 661
   Caption = 'Cadastro de Produto'
-  ClientHeight = 642
+  ClientHeight = 583
   ClientWidth = 661
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    Height = 642
+    Height = 583
     Width = 661
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
-      ClientHeight = 609
+      ClientHeight = 550
       ClientWidth = 653
       inherited PanelConsultaTop: TPanel
         Width = 653
@@ -62,7 +64,7 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 554
+        Top = 495
         Width = 653
         ClientWidth = 653
         inherited btnInserir: TBitBtn
@@ -73,12 +75,12 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 498
+        Height = 439
         Width = 653
-        ClientHeight = 498
+        ClientHeight = 439
         ClientWidth = 653
         inherited DBGrid1: TDBGrid
-          Height = 496
+          Height = 437
           Width = 651
           Columns = <          
             item
@@ -132,10 +134,10 @@ inherited cadProdutoF: TcadProdutoF
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 609
+      ClientHeight = 550
       ClientWidth = 653
       inherited PanelCadastroBottom: TPanel
-        Top = 546
+        Top = 487
         Width = 653
         ClientWidth = 653
         inherited btnGravar: TBitBtn
@@ -153,9 +155,9 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 546
+        Height = 487
         Width = 653
-        ClientHeight = 546
+        ClientHeight = 487
         ClientWidth = 653
         object lblId: TLabel[0]
           Left = 32

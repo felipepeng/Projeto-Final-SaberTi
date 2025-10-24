@@ -178,7 +178,7 @@ procedure TcadProdutoF.btnCancelarClick(Sender: TObject);
 begin
   inherited; //Vai para Consulta
 
-  //Checa se está durante o Insert
+  //Decrementa a Sequence
   if qryCadProduto.State = dsInsert then
     DataModule1.decreaseSequence('produto_produtoid');
 

@@ -78,8 +78,7 @@ end;
 
 procedure TpesqClienteF.DBGrid1DblClick(Sender: TObject);
 begin
-  //cadProdutoF.qryCadProdutocategoriaprodutoid.AsInteger := qrypesqCatcategoriaprodutoid.AsInteger;
-
+  //Pega o Id Cliente
   OrcamentoF.qryOrcamentoclienteid.AsInteger := qryPesqClienteclienteid.AsInteger;
 
   Close;

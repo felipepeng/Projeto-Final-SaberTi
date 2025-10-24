@@ -130,6 +130,22 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqCliente"/>
       </Unit>
+      <Unit>
+        <Filename Value="caditemorc.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="cadItemOrcF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="cadItemOrc"/>
+      </Unit>
+      <Unit>
+        <Filename Value="pesqproduto.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="pesqProdutoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="pesqProduto"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,7 +1,7 @@
 object pesqClienteF: TpesqClienteF
-  Left = 624
+  Left = 598
   Height = 495
-  Top = 227
+  Top = 322
   Width = 614
   Caption = 'Pesquisa Cliente'
   ClientHeight = 495

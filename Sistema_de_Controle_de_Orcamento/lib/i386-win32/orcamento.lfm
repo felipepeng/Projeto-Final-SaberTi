@@ -1,18 +1,20 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 443
+  Left = 452
   Height = 573
-  Top = 158
+  Top = 159
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
   ClientWidth = 1206
   OnClose = FormClose
+  OnCreate = FormCreate
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 573
     Width = 1206
     ActivePage = tbCadastro
     TabIndex = 1
+    OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
       ClientHeight = 540
       ClientWidth = 1198
@@ -26,6 +28,7 @@ inherited OrcamentoF: TOrcamentoF
           Width = 128
           NumbersOnly = True
           TabOrder = 0
+          OnChange = edtPesquisaChange
         end
         object btnPesquisa: TSpeedButton[1]
           Left = 272
@@ -85,42 +88,45 @@ inherited OrcamentoF: TOrcamentoF
               Alignment = taCenter
               PickList.Strings = (              )
               Title.Alignment = taCenter
-              Title.Caption = 'id'
+              Title.Caption = 'Id'
               Width = 40
               FieldName = 'orcamentoid'
+            end          
+            item
+              Alignment = taCenter
+              PickList.Strings = (              )
+              Title.Alignment = taCenter
+              Title.Caption = 'Cliente Id'
+              Width = 80
+              FieldName = 'clienteid'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Nome Cliente'
+              Width = 190
+              FieldName = 'nome_cliente'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Dt. Orcamento'
+              Width = 120
+              FieldName = 'dt_orcamento'
+            end          
+            item
+              PickList.Strings = (              )
+              Title.Caption = 'Dt. Validade'
+              Width = 120
+              FieldName = 'dt_validade_orcamento'
             end          
             item
               PickList.Strings = (              )
               Title.Alignment = taRightJustify
               Title.Caption = 'Valor Total'
-              Width = 100
+              Width = 120
               FieldName = 'vl_total_orcamento'
-            end          
-            item
-              Alignment = taCenter
-              PickList.Strings = (              )
-              Title.Alignment = taCenter
-              Title.Caption = 'Data Orçamento'
-              Width = 120
-              FieldName = 'dt_orcamento'
-            end          
-            item
-              Alignment = taCenter
-              PickList.Strings = (              )
-              Title.Alignment = taCenter
-              Title.Caption = 'Validade'
-              Width = 120
-              FieldName = 'dt_validade_orcamento'
-            end          
-            item
-              Alignment = taCenter
-              PickList.Strings = (              )
-              Title.Alignment = taCenter
-              Title.Caption = 'id Cliente'
-              Width = 80
-              FieldName = 'clienteid'
             end>
           DataSource = dsOrcamento
+          OnDblClick = DBGrid1DblClick
         end
       end
     end
@@ -186,7 +192,7 @@ inherited OrcamentoF: TOrcamentoF
             Left = 16
             Height = 28
             Top = 40
-            Width = 100
+            Width = 64
             DataField = 'orcamentoid'
             DataSource = dsOrcamento
             ReadOnly = True
@@ -208,11 +214,11 @@ inherited OrcamentoF: TOrcamentoF
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object edtCliente: TDBEdit
+          object edtClienteId: TDBEdit
             Left = 16
             Height = 28
             Top = 104
-            Width = 100
+            Width = 64
             DataField = 'clienteid'
             DataSource = dsOrcamento
             ReadOnly = True
@@ -221,7 +227,7 @@ inherited OrcamentoF: TOrcamentoF
             TabOrder = 1
           end
           object lblDataOrcamento: TLabel
-            Left = 192
+            Left = 256
             Height = 23
             Top = 16
             Width = 117
@@ -234,19 +240,8 @@ inherited OrcamentoF: TOrcamentoF
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object edtDataOrcamento: TDBEdit
-            Left = 192
-            Height = 28
-            Top = 40
-            Width = 117
-            DataField = 'dt_orcamento'
-            DataSource = dsOrcamento
-            EditMask = '99/99/9999;1;_'
-            MaxLength = 10
-            TabOrder = 2
-          end
           object lblDataValidade: TLabel
-            Left = 344
+            Left = 408
             Height = 23
             Top = 16
             Width = 96
@@ -259,18 +254,8 @@ inherited OrcamentoF: TOrcamentoF
             Font.Style = [fsBold]
             ParentFont = False
           end
-          object edtDataValidade: TDBEdit
-            Left = 344
-            Height = 28
-            Top = 40
-            Width = 100
-            DataField = 'dt_validade_orcamento'
-            DataSource = dsOrcamento
-            MaxLength = 0
-            TabOrder = 3
-          end
           object lblTotalOrcamento: TLabel
-            Left = 480
+            Left = 560
             Height = 23
             Top = 16
             Width = 131
@@ -284,17 +269,17 @@ inherited OrcamentoF: TOrcamentoF
             ParentFont = False
           end
           object edtTotalOrcamento: TDBEdit
-            Left = 480
+            Left = 560
             Height = 28
             Top = 40
             Width = 131
             DataField = 'vl_total_orcamento'
             DataSource = dsOrcamento
             MaxLength = 0
-            TabOrder = 4
+            TabOrder = 2
           end
           object btnPesqCliente: TSpeedButton
-            Left = 120
+            Left = 88
             Height = 28
             Top = 104
             Width = 29
@@ -364,7 +349,8 @@ inherited OrcamentoF: TOrcamentoF
               7000777770C07777700077777000777770007777777777777000777777777777
               7000
             }
-            TabOrder = 5
+            TabOrder = 3
+            OnClick = btnAddItemClick
           end
           object btnExcluirItem: TBitBtn
             Left = 1048
@@ -421,7 +407,50 @@ inherited OrcamentoF: TOrcamentoF
               3939393939393939393969390000393939393939393939393939393939393969
               00003939393939393939393939393939393939390000
             }
+            TabOrder = 4
+          end
+          object DateEditDataOrcamento: TDBDateEdit
+            Left = 256
+            Height = 28
+            Top = 40
+            Width = 129
+            CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+            DateOrder = doNone
+            ButtonWidth = 29
+            NumGlyphs = 1
+            MaxLength = 0
+            TabOrder = 5
+            Text = 'DateEditDataOrcamento'
+            DataField = 'dt_orcamento'
+            DataSource = dsOrcamento
+          end
+          object DateEditDataValidade: TDBDateEdit
+            Left = 408
+            Height = 28
+            Top = 40
+            Width = 129
+            CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+            DateOrder = doNone
+            ButtonWidth = 29
+            NumGlyphs = 1
+            MaxLength = 0
             TabOrder = 6
+            Text = 'DateEditDataValidade'
+            DataField = 'dt_validade_orcamento'
+            DataSource = dsOrcamento
+          end
+          object DBTextClienteNome: TDBText
+            Left = 128
+            Height = 23
+            Top = 104
+            Width = 151
+            DataField = 'nome_cliente'
+            DataSource = dsOrcamento
+            Font.CharSet = ANSI_CHARSET
+            Font.Height = -17
+            Font.Pitch = fpVariable
+            Font.Quality = fqDraft
+            ParentFont = False
           end
         end
         object DBGridOrcItem: TDBGrid[1]
@@ -433,45 +462,45 @@ inherited OrcamentoF: TOrcamentoF
           Color = clWindow
           Columns = <          
             item
-              Alignment = taCenter
-              Title.Alignment = taCenter
               Title.Caption = 'Orc. Id'
-              Width = 55
               FieldName = 'orcamentoid'
             end          
             item
-              Alignment = taCenter
-              Title.Alignment = taCenter
               Title.Caption = 'Orc. Item Id'
-              Width = 90
+              Width = 100
               FieldName = 'orcamentoitemid'
             end          
             item
-              Alignment = taCenter
-              Title.Alignment = taCenter
               Title.Caption = 'Produto Id'
+              Width = 90
               FieldName = 'produtoid'
             end          
             item
-              Title.Caption = 'Quantidade'
-              Width = 90
+              Title.Caption = 'Descrição Produto'
+              Width = 160
+              FieldName = 'ds_produto'
+            end          
+            item
+              Alignment = taCenter
+              Title.Alignment = taCenter
+              Title.Caption = 'Qtde.'
+              Width = 70
               FieldName = 'qt_produto'
             end          
             item
-              Alignment = taLeftJustify
               Title.Alignment = taRightJustify
-              Title.Caption = 'Valor Unitário'
+              Title.Caption = 'Valor Unidade'
               Width = 120
               FieldName = 'vl_unitario'
             end          
             item
-              Alignment = taLeftJustify
               Title.Alignment = taRightJustify
               Title.Caption = 'Valor Total'
               Width = 120
               FieldName = 'vl_total'
             end>
           DataSource = dsOrcItem
+          ReadOnly = True
           TabOrder = 1
         end
       end
@@ -485,8 +514,8 @@ inherited OrcamentoF: TOrcamentoF
       'select * from orcamento;'
     )
     Params = <>
-    Left = 784
-    Top = 45
+    Left = 1128
+    Top = 208
     object qryOrcamentoorcamentoid: TZIntegerField
       FieldKind = fkData
       FieldName = 'orcamentoid'
@@ -537,11 +566,25 @@ inherited OrcamentoF: TOrcamentoF
       MinValue = 0
       Size = 2
     end
+    object TStringField
+      FieldKind = fkLookup
+      FieldName = 'nome_cliente'
+      Index = 5
+      KeyFields = 'clienteid'
+      LookupCache = False
+      LookupDataSet = qryCliente
+      LookupKeyFields = 'clienteid'
+      LookupResultField = 'nome_cliente'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 100
+    end
   end
   object dsOrcamento: TDataSource[2]
     DataSet = qryOrcamento
-    Left = 736
-    Top = 45
+    Left = 1032
+    Top = 208
   end
   object updtOrcamento: TZUpdateSQL[3]
     DeleteSQL.Strings = (
@@ -568,8 +611,8 @@ inherited OrcamentoF: TOrcamentoF
       '  orcamento.clienteid = :OLD_clienteid'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 832
-    Top = 45
+    Left = 1128
+    Top = 48
     ParamData = <    
       item
         Name = 'orcamentoid'
@@ -595,12 +638,13 @@ inherited OrcamentoF: TOrcamentoF
   end
   object qryOrcItem: TZQuery[4]
     Connection = DataModule1.ZConnection1
+    AfterInsert = qryOrcItemAfterInsert
     SQL.Strings = (
       'select * from orcamento_item;'
     )
     Params = <>
-    Left = 784
-    Top = 104
+    Left = 1128
+    Top = 272
     object qryOrcItemorcamentoitemid: TZIntegerField
       FieldKind = fkData
       FieldName = 'orcamentoitemid'
@@ -670,10 +714,152 @@ inherited OrcamentoF: TOrcamentoF
       MinValue = 0
       Size = 2
     end
+    object TStringField
+      FieldKind = fkLookup
+      FieldName = 'ds_produto'
+      Index = 6
+      KeyFields = 'produtoid'
+      LookupCache = False
+      LookupDataSet = qryProduto
+      LookupKeyFields = 'produtoid'
+      LookupResultField = 'ds_produto'
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 50
+    end
   end
   object dsOrcItem: TDataSource[5]
     DataSet = qryOrcItem
-    Left = 736
-    Top = 104
+    Left = 1032
+    Top = 272
+  end
+  object qryCliente: TZQuery[6]
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select * from cliente;'
+    )
+    Params = <>
+    Left = 1128
+    Top = 344
+    object qryClienteclienteid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'clienteid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryClientetipo_cliente: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'tipo_cliente'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 1
+    end
+    object qryClientecpf_cnpj_cliente: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'cpf_cnpj_cliente'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 18
+    end
+    object qryClientenome_cliente: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'nome_cliente'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 100
+    end
+  end
+  object qryProduto: TZQuery[7]
+    Connection = DataModule1.ZConnection1
+    SQL.Strings = (
+      'select * from produto;'
+    )
+    Params = <>
+    Left = 1128
+    Top = 144
+    object qryProdutoprodutoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'produtoid'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutocategoriaprodutoid: TZIntegerField
+      FieldKind = fkData
+      FieldName = 'categoriaprodutoid'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutods_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'ds_produto'
+      Index = 2
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 50
+    end
+    object qryProdutoobs_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'obs_produto'
+      Index = 3
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qryProdutovl_venda_produto: TZBCDField
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object qryProdutodt_cadastro_produto: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutostatus_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
+    end
   end
 end

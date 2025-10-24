@@ -1,24 +1,23 @@
-object pesqClienteF: TpesqClienteF
-  Left = 624
-  Height = 495
-  Top = 227
-  Width = 614
-  Caption = 'Pesquisa Cliente'
-  ClientHeight = 495
-  ClientWidth = 614
+object pesqProdutoF: TpesqProdutoF
+  Left = 526
+  Height = 472
+  Top = 328
+  Width = 862
+  Caption = 'Pesquisa de Produto'
+  ClientHeight = 0
+  ClientWidth = 0
   DesignTimePPI = 120
-  Position = poScreenCenter
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnShow = FormShow
-  object Panel1: TPanel
+  object PanelTop: TPanel
     Left = 0
     Height = 56
     Top = 0
-    Width = 614
+    Width = 862
     Align = alTop
     ClientHeight = 56
-    ClientWidth = 614
+    ClientWidth = 862
     Color = 10084282
     ParentBackground = False
     ParentColor = False
@@ -68,9 +67,9 @@ object pesqClienteF: TpesqClienteF
   end
   object DBGrid1: TDBGrid
     Left = 0
-    Height = 439
+    Height = 416
     Top = 56
-    Width = 614
+    Width = 862
     Align = alClient
     Color = clWindow
     Columns = <    
@@ -79,80 +78,128 @@ object pesqClienteF: TpesqClienteF
         Title.Alignment = taCenter
         Title.Caption = 'Id'
         Width = 40
-        FieldName = 'clienteid'
+        FieldName = 'produtoid'
       end    
       item
-        Title.Caption = 'Tipo'
-        Width = 50
-        FieldName = 'tipo_cliente'
-      end    
-      item
-        Title.Caption = 'Nome'
+        Title.Caption = 'Descrição'
         Width = 150
-        FieldName = 'nome_cliente'
+        FieldName = 'ds_produto'
       end    
       item
-        Title.Caption = 'CPF/CNPJ'
+        Title.Caption = 'Observação'
+        Width = 130
+        FieldName = 'obs_produto'
+      end    
+      item
+        Title.Caption = 'Status'
+        Width = 90
+        FieldName = 'status_produto'
+      end    
+      item
+        Title.Caption = 'Valor'
+        Width = 100
+        FieldName = 'vl_venda_produto'
+      end    
+      item
+        Title.Caption = 'Dt. Cadastro'
         Width = 120
-        FieldName = 'cpf_cnpj_cliente'
+        FieldName = 'dt_cadastro_produto'
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'Categoria Id'
+        Width = 100
+        FieldName = 'categoriaprodutoid'
       end>
-    DataSource = dsPesqCliente
-    ReadOnly = True
+    DataSource = dsProduto
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
   end
-  object qryPesqCliente: TZQuery
+  object qryProduto: TZQuery
     Connection = DataModule1.ZConnection1
     SQL.Strings = (
-      'select * from cliente'
-      'order by  clienteid;'
+      'select * from produto'
+      'order by produtoid;'
     )
     Params = <>
-    Left = 528
+    Left = 776
     Top = 8
-    object qryPesqClienteclienteid: TZIntegerField
+    object qryProdutoprodutoid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'clienteid'
+      FieldName = 'produtoid'
       Index = 0
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
     end
-    object qryPesqClientetipo_cliente: TZRawStringField
+    object qryProdutocategoriaprodutoid: TZIntegerField
       FieldKind = fkData
-      FieldName = 'tipo_cliente'
+      FieldName = 'categoriaprodutoid'
       Index = 1
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 1
     end
-    object qryPesqClientecpf_cnpj_cliente: TZRawStringField
+    object qryProdutods_produto: TZRawStringField
       FieldKind = fkData
-      FieldName = 'cpf_cnpj_cliente'
+      FieldName = 'ds_produto'
       Index = 2
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
       Required = True
-      Size = 18
+      Size = 50
     end
-    object qryPesqClientenome_cliente: TZRawStringField
+    object qryProdutoobs_produto: TZRawStringField
       FieldKind = fkData
-      FieldName = 'nome_cliente'
+      FieldName = 'obs_produto'
       Index = 3
       LookupCache = False
       ProviderFlags = [pfInUpdate, pfInWhere]
       ReadOnly = False
+      Required = False
+      Size = 300
+    end
+    object qryProdutovl_venda_produto: TZBCDField
+      FieldKind = fkData
+      FieldName = 'vl_venda_produto'
+      Index = 4
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
       Required = True
-      Size = 100
+      Precision = 15
+      Currency = False
+      MaxValue = 0
+      MinValue = 0
+      Size = 2
+    end
+    object qryProdutodt_cadastro_produto: TZDateTimeField
+      FieldKind = fkData
+      FieldName = 'dt_cadastro_produto'
+      Index = 5
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+    end
+    object qryProdutostatus_produto: TZRawStringField
+      FieldKind = fkData
+      FieldName = 'status_produto'
+      Index = 6
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = True
+      Size = 10
     end
   end
-  object dsPesqCliente: TDataSource
-    DataSet = qryPesqCliente
-    Left = 424
+  object dsProduto: TDataSource
+    DataSet = qryProduto
+    Left = 680
     Top = 8
   end
 end
