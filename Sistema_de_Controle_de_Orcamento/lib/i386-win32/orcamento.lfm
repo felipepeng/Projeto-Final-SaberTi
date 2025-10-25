@@ -520,7 +520,8 @@ inherited OrcamentoF: TOrcamentoF
     AfterInsert = qryOrcamentoAfterInsert
     UpdateObject = updtOrcamento
     SQL.Strings = (
-      'select * from orcamento;'
+      'select * from orcamento o'
+      'order by o.orcamentoid;'
     )
     Params = <>
     Left = 1128

@@ -87,7 +87,7 @@ object pesqProdutoF: TpesqProdutoF
       end    
       item
         Title.Caption = 'Observação'
-        Width = 130
+        Width = 140
         FieldName = 'obs_produto'
       end    
       item

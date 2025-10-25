@@ -12,7 +12,7 @@ uses
   Interfaces, // this includes the LCL widgetset
   Forms, XCadPai, MenuPrincipal, cadCategoria_Produto, DataModule, zcomponent,
   cadCliente, cadProduto, cadUsuario, pesqCatProduto, Sobre, Orcamento, 
-pesqCliente, cadItemOrc, pesqProduto;
+pesqCliente, cadItemOrc, pesqProduto, relClientes;
 
 {$R *.res}
 

@@ -231,9 +231,9 @@ end;
 procedure TOrcamentoF.btnGravarClick(Sender: TObject);
 begin
   //Gravar
-  inherited;
   qryOrcamento.Post;
   qryOrcamento.Refresh;
+  inherited;
 end;
 
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);

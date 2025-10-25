@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
            cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre,
-           Orcamento;
+           Orcamento, relClientes;
 
 type
 
@@ -16,6 +16,7 @@ type
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
+    MenuItemRelClientes: TMenuItem;
     MenuRelatorios: TMenuItem;
     MenuSobre: TMenuItem;
     MenuSair: TMenuItem;
@@ -32,6 +33,7 @@ type
     procedure MenuItemClienteClick(Sender: TObject);
     procedure MenuItemOrcamentoClick(Sender: TObject);
     procedure MenuItemProdutoClick(Sender: TObject);
+    procedure MenuItemRelClientesClick(Sender: TObject);
     procedure MenuItemSairClick(Sender: TObject);
     procedure MenuItemUsuarioClick(Sender: TObject);
     procedure MenuSobreClick(Sender: TObject);
@@ -74,6 +76,12 @@ begin
   cadProdutoF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.MenuItemRelClientesClick(Sender: TObject);
+begin
+  relClientesF := TrelClientesF.Create(Self);
+  relClientesF.ShowModal;
+end;
+
 procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);
 begin
   Application.Terminate;
@@ -83,7 +91,6 @@ procedure TMenuPrincipalF.MenuItemUsuarioClick(Sender: TObject);
 begin
   cadUsuarioF := TcadUsuarioF.Create(Self);
   cadUsuarioF.ShowModal;
-
 end;
 
 procedure TMenuPrincipalF.MenuSobreClick(Sender: TObject);

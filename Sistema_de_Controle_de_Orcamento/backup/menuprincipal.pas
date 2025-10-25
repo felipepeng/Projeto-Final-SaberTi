@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
-           cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre;
+           cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre,
+           Orcamento, relClientes;
 
 type
 
@@ -15,6 +16,7 @@ type
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
+    MenuItemRelClientes: TMenuItem;
     MenuRelatorios: TMenuItem;
     MenuSobre: TMenuItem;
     MenuSair: TMenuItem;
@@ -29,7 +31,9 @@ type
     Separator1: TMenuItem;
     procedure MenuItemCategoriaClick(Sender: TObject);
     procedure MenuItemClienteClick(Sender: TObject);
+    procedure MenuItemOrcamentoClick(Sender: TObject);
     procedure MenuItemProdutoClick(Sender: TObject);
+    procedure MenuItemRelClientesClick(Sender: TObject);
     procedure MenuItemSairClick(Sender: TObject);
     procedure MenuItemUsuarioClick(Sender: TObject);
     procedure MenuSobreClick(Sender: TObject);
@@ -60,10 +64,22 @@ begin
   cadClienteF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.MenuItemOrcamentoClick(Sender: TObject);
+begin
+  OrcamentoF := TOrcamentoF.Create(Self);
+  OrcamentoF.ShowModal;
+end;
+
 procedure TMenuPrincipalF.MenuItemProdutoClick(Sender: TObject);
 begin
   cadProdutoF := TcadProdutoF.Create(Self);
   cadProdutoF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.MenuItemRelClientesClick(Sender: TObject);
+begin
+  relClientesF := TrelClientesF.Create(Self);
+  relClientesF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);
@@ -75,7 +91,6 @@ procedure TMenuPrincipalF.MenuItemUsuarioClick(Sender: TObject);
 begin
   cadUsuarioF := TcadUsuarioF.Create(Self);
   cadUsuarioF.ShowModal;
-
 end;
 
 procedure TMenuPrincipalF.MenuSobreClick(Sender: TObject);

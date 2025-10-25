@@ -14,7 +14,7 @@ type
   TDataModule1 = class(TDataModule)
     ZConnection1: TZConnection;
     qryGenerica: TZQuery;
-    qryGeneria02: TZQuery;
+    qryGenerica02: TZQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
 
@@ -63,10 +63,10 @@ begin
 try
   qryGenerica02.Close;
   qryGenerica02.SQL.Clear;
-  qryGeneria02.SQL.Add('SELECT setval(' + QuotedStr(pNomeSequence) + ', last_value - 1) FROM ' + pNomeSequence + ';');
-  qryGeneria02.Open;
+  qryGenerica02.SQL.Add('SELECT setval(' + QuotedStr(pNomeSequence) + ', last_value - 1) FROM ' + pNomeSequence + ';');
+  qryGenerica02.Open;
 finally
-  qryGeneria02.Close;
+  qryGenerica02.Close;
 end;
 end;
 
