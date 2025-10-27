@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 546
+  Left = 437
   Height = 573
-  Top = 261
+  Top = 355
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -512,7 +512,7 @@ inherited OrcamentoF: TOrcamentoF
             Left = 128
             Height = 23
             Top = 104
-            Width = 112
+            Width = 151
             DataField = 'nome_cliente'
             DataSource = dsOrcamento
             Font.CharSet = ANSI_CHARSET
@@ -579,7 +579,6 @@ inherited OrcamentoF: TOrcamentoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryOrcamentoAfterInsert
     UpdateObject = updtOrcamento
-    Active = True
     SQL.Strings = (
       'select * from orcamento o'
       'order by o.orcamentoid;'
@@ -807,7 +806,6 @@ inherited OrcamentoF: TOrcamentoF
   end
   object qryCliente: TZQuery[6]
     Connection = DataModule1.ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from cliente;'
     )
@@ -934,18 +932,19 @@ inherited OrcamentoF: TOrcamentoF
       Size = 10
     end
   end
-  object frDBDataSet1: TfrDBDataSet[8]
-    DataSet = qryOrcItem
-    Left = 757
-    Top = 368
-  end
-  object frReport1: TfrReport[9]
+  object frReport1: TfrReport[8]
     Dataset = frDBDataSet1
     InitialZoom = pzDefault
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 672
-    Top = 368
+    Left = 664
+    Top = 312
+  end
+  object frDBDataSet1: TfrDBDataSet[9]
+    DataSet = qryOrcItem
+    DataSource = dsOrcItem
+    Left = 768
+    Top = 312
   end
 end

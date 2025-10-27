@@ -34,8 +34,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="MenuPrincipal"/>
         <EditorIndex Value="9"/>
-        <TopLine Value="75"/>
-        <CursorPos X="6" Y="99"/>
+        <TopLine Value="71"/>
+        <CursorPos X="31" Y="79"/>
         <UsageCount Value="67"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -132,9 +132,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Orcamento"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="237"/>
-        <CursorPos X="27" Y="240"/>
+        <TopLine Value="230"/>
+        <CursorPos X="27" Y="245"/>
         <UsageCount Value="50"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -238,9 +239,9 @@
         <Filename Value="login.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="LoginF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Login"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <TopLine Value="84"/>
         <CursorPos X="31" Y="101"/>
@@ -250,33 +251,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="68" Column="3" TopLine="60"/>
-      </Position>
-      <Position>
-        <Filename Value="menuprincipal.pas"/>
-        <Caret Line="97" Column="24" TopLine="91"/>
-      </Position>
-      <Position>
-        <Filename Value="caditemorc.pas"/>
-        <Caret Line="53" Column="13" TopLine="46"/>
-      </Position>
-      <Position>
-        <Filename Value="relcatproduto.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="relcatproduto.pas"/>
-        <Caret Line="33" Column="3" TopLine="11"/>
-      </Position>
-      <Position>
-        <Filename Value="menuprincipal.pas"/>
-        <Caret Line="103" Column="71" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="relcatproduto.pas"/>
-        <Caret Line="32" Column="5" TopLine="7"/>
-      </Position>
       <Position>
         <Filename Value="relcatproduto.pas"/>
         <Caret Line="34" Column="5" TopLine="8"/>
@@ -346,10 +320,6 @@
       </Position>
       <Position>
         <Filename Value="login.pas"/>
-        <Caret Line="10" Column="29" TopLine="43"/>
-      </Position>
-      <Position>
-        <Filename Value="login.pas"/>
         <Caret Line="73" Column="8" TopLine="55"/>
       </Position>
       <Position>
@@ -367,6 +337,38 @@
       <Position>
         <Filename Value="login.pas"/>
         <Caret Line="100" Column="22" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="login.pas"/>
+        <Caret Line="101" Column="31" TopLine="84"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="240" Column="27" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="239" Column="27" TopLine="239"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="238" Column="27" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="239" Column="5" TopLine="222"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="240" Column="5" TopLine="223"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="246" TopLine="224"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="240" Column="30" TopLine="227"/>
       </Position>
     </JumpHistory>
     <RunParams>

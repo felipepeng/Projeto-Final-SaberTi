@@ -236,9 +236,14 @@ end;
 
 procedure TOrcamentoF.btnImprimirClick(Sender: TObject);
 begin
-  frReport1.LoadFromFile('.\Relatorios\relOrcamento.lrf');
+
+  if not (qryOrcamento.State = dsInsert) then
+  begin
+    frReport1.LoadFromFile('.\Relatorios\relOrcamento.lrf');
   frReport1.PrepareReport;
   frReport1.ShowReport;
+  end;
+
 end;
 
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);
