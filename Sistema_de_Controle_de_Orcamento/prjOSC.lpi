@@ -169,6 +169,7 @@
         <Filename Value="relproduto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="relProdutoF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="relProduto"/>
       </Unit>
@@ -176,6 +177,7 @@
         <Filename Value="relcatproduto.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="relCatProdutoF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="relCatProduto"/>
       </Unit>
