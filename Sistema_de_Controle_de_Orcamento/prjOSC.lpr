@@ -13,7 +13,7 @@ uses
   Forms, XCadPai, MenuPrincipal, cadCategoria_Produto, DataModule, zcomponent,
   cadCliente, cadProduto, cadUsuario, pesqCatProduto, Sobre, Orcamento,
   pesqCliente, cadItemOrc, pesqProduto, relClientes, relOrcamento, relProduto,
-  relCatProduto;
+  relCatProduto, Login;
 
 {$R *.res}
 
@@ -24,7 +24,7 @@ begin
   Application.MainFormOnTaskbar:=True;
   {$POP}
   Application.Initialize;
-  Application.CreateForm(TMenuPrincipalF, MenuPrincipalF);
+  Application.CreateForm(TLoginF, LoginF);
   Application.CreateForm(TXCadPaiF, XCadPaiF);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TpesqCatProdutoF, pesqCatProdutoF);

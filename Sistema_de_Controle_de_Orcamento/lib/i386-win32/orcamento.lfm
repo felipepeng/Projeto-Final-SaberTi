@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 535
+  Left = 546
   Height = 573
-  Top = 307
+  Top = 261
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -512,7 +512,7 @@ inherited OrcamentoF: TOrcamentoF
             Left = 128
             Height = 23
             Top = 104
-            Width = 151
+            Width = 112
             DataField = 'nome_cliente'
             DataSource = dsOrcamento
             Font.CharSet = ANSI_CHARSET
@@ -579,6 +579,7 @@ inherited OrcamentoF: TOrcamentoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryOrcamentoAfterInsert
     UpdateObject = updtOrcamento
+    Active = True
     SQL.Strings = (
       'select * from orcamento o'
       'order by o.orcamentoid;'
@@ -806,6 +807,7 @@ inherited OrcamentoF: TOrcamentoF
   end
   object qryCliente: TZQuery[6]
     Connection = DataModule1.ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from cliente;'
     )
