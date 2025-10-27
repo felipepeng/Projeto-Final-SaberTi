@@ -2,8 +2,6 @@ inherited cadUsuarioF: TcadUsuarioF
   Left = 715
   Top = 236
   Caption = 'Cadastro de Usuário'
-  ClientHeight = 0
-  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
@@ -30,6 +28,7 @@ inherited cadUsuarioF: TcadUsuarioF
           Width = 128
           NumbersOnly = True
           TabOrder = 0
+          OnChange = edtPesquisaChange
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272

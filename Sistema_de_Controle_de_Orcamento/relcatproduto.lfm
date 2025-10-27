@@ -1,22 +1,21 @@
-object relClientesF: TrelClientesF
-  Left = 884
-  Height = 145
-  Top = 337
-  Width = 458
-  Caption = 'Relatório de Clientes'
-  ClientHeight = 145
-  ClientWidth = 458
+object relCatProdutoF: TrelCatProdutoF
+  Left = 658
+  Height = 187
+  Top = 185
+  Width = 451
+  Caption = 'Relatório de Categoria de Produto'
+  ClientHeight = 187
+  ClientWidth = 451
   Color = 10084282
   DesignTimePPI = 120
+  Position = poScreenCenter
   LCLVersion = '4.2.0.0'
-  OnClose = FormClose
-  OnShow = FormShow
   object btnRelClientes: TBitBtn
-    Left = 112
+    Left = 104
     Height = 80
-    Top = 32
-    Width = 232
-    Caption = 'Imprimir Rel. Clientes'
+    Top = 48
+    Width = 256
+    Caption = 'Imprimir Rel. Cat. Produtos'
     Glyph.Data = {
       8A040000424D22010000000000007600000028000000210000001D0000000100
       0800000000001404000000000000000000001000000000000000000000000000
@@ -59,14 +58,20 @@ object relClientesF: TrelClientesF
     TabOrder = 0
     OnClick = btnRelClientesClick
   end
-  object qryClientes: TZQuery
+  object qryCatProduto: TZQuery
     Connection = DataModule1.ZConnection1
+    Active = True
     SQL.Strings = (
-      'select * from cliente;'
+      'select * from categoria_produto; '
     )
     Params = <>
-    Left = 8
-    Top = 72
+    Left = 408
+    Top = 24
+  end
+  object frDBDataSet1: TfrDBDataSet
+    DataSet = qryCatProduto
+    Left = 72
+    Top = 144
   end
   object frReport1: TfrReport
     Dataset = frDBDataSet1
@@ -74,12 +79,6 @@ object relClientesF: TrelClientesF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 8
-    Top = 8
-  end
-  object frDBDataSet1: TfrDBDataSet
-    DataSet = qryClientes
-    Left = 72
-    Top = 8
+    Top = 144
   end
 end

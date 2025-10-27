@@ -236,9 +236,9 @@ end;
 
 procedure TOrcamentoF.btnImprimirClick(Sender: TObject);
 begin
-  //frReport1.LoadFromFile('.\Relatorios\relOrcamento.lrf');
-  //frReport1.PrepareReport;
-  //frReport1.ShowReport;
+  frReport1.LoadFromFile('.\Relatorios\relOrcamento.lrf');
+  frReport1.PrepareReport;
+  frReport1.ShowReport;
 end;
 
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);

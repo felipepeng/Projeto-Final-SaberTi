@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
            cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre,
-           Orcamento, relClientes, relOrcamento;
+           Orcamento, relClientes, relOrcamento, relProduto, relCatProduto;
 
 type
 
@@ -16,7 +16,9 @@ type
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
-    MenuItemRelOrcamento: TMenuItem;
+    MenuItemRelUsuario: TMenuItem;
+    MenuItemRelCatProduto: TMenuItem;
+    MenuItemRelProduto: TMenuItem;
     MenuItemRelClientes: TMenuItem;
     MenuRelatorios: TMenuItem;
     MenuSobre: TMenuItem;
@@ -30,12 +32,15 @@ type
     MenuItemProduto: TMenuItem;
     MenuItemUsuario: TMenuItem;
     Separator1: TMenuItem;
+    Separator2: TMenuItem;
     procedure MenuItemCategoriaClick(Sender: TObject);
     procedure MenuItemClienteClick(Sender: TObject);
     procedure MenuItemOrcamentoClick(Sender: TObject);
     procedure MenuItemProdutoClick(Sender: TObject);
+    procedure MenuItemRelCatProdutoClick(Sender: TObject);
     procedure MenuItemRelClientesClick(Sender: TObject);
     procedure MenuItemRelOrcamentoClick(Sender: TObject);
+    procedure MenuItemRelProdutoClick(Sender: TObject);
     procedure MenuItemSairClick(Sender: TObject);
     procedure MenuItemUsuarioClick(Sender: TObject);
     procedure MenuSobreClick(Sender: TObject);
@@ -78,6 +83,12 @@ begin
   cadProdutoF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.MenuItemRelCatProdutoClick(Sender: TObject);
+begin
+  relCatProdutoF := TrelCatProdutoF.Create(Self);
+  relCatProdutoF.ShowModal;
+end;
+
 procedure TMenuPrincipalF.MenuItemRelClientesClick(Sender: TObject);
 begin
   relClientesF := TrelClientesF.Create(Self);
@@ -88,6 +99,12 @@ procedure TMenuPrincipalF.MenuItemRelOrcamentoClick(Sender: TObject);
 begin
   relOrcamentoF := TrelOrcamentoF.Create(Self);
   relOrcamentoF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.MenuItemRelProdutoClick(Sender: TObject);
+begin
+  relProdutoF := TrelProdutoF.Create(Self);
+  relProdutoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);

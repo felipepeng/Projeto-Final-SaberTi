@@ -1,7 +1,7 @@
 object MenuPrincipalF: TMenuPrincipalF
-  Left = 696
+  Left = 703
   Height = 486
-  Top = 300
+  Top = 247
   Width = 567
   Caption = 'Menu Principal'
   Color = 15989758
@@ -43,13 +43,23 @@ object MenuPrincipalF: TMenuPrincipalF
     end
     object MenuRelatorios: TMenuItem
       Caption = 'Relatórios'
+      object MenuItemRelProduto: TMenuItem
+        Caption = 'Produto'
+        OnClick = MenuItemRelProdutoClick
+      end
+      object MenuItemRelCatProduto: TMenuItem
+        Caption = 'Categoria de Produto'
+        OnClick = MenuItemRelCatProdutoClick
+      end
       object MenuItemRelClientes: TMenuItem
         Caption = 'Clientes'
         OnClick = MenuItemRelClientesClick
       end
-      object MenuItemRelOrcamento: TMenuItem
-        Caption = 'Orcamento'
-        OnClick = MenuItemRelOrcamentoClick
+      object Separator2: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemRelUsuario: TMenuItem
+        Caption = 'Usuário'
       end
     end
     object MenuSobre: TMenuItem
