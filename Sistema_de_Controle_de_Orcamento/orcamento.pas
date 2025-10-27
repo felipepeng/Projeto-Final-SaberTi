@@ -6,14 +6,16 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  ExtCtrls, DBCtrls, DBGrids, DBExtCtrls, EditBtn, ZDataset, ZAbstractRODataset,
-  ZSqlUpdate, XCadPai, DB, pesqCliente, DataModule, cadItemOrc;
+  ExtCtrls, DBCtrls, DBGrids, DBExtCtrls, EditBtn, LR_DBSet, LR_Class, ZDataset,
+  ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, pesqCliente, DataModule,
+  cadItemOrc;
 
 type
 
   { TOrcamentoF }
 
   TOrcamentoF = class(TXCadPaiF)
+    btnImprimir: TBitBtn;
     btnAddItem: TBitBtn;
     btnExcluirItem: TBitBtn;
     btnPesqCliente: TSpeedButton;
@@ -28,6 +30,8 @@ type
     edtId: TDBEdit;
     dsOrcamento: TDataSource;
     edtPesquisa: TEdit;
+    frDBDataSet1: TfrDBDataSet;
+    frReport1: TfrReport;
     lblDataOrcamento: TLabel;
     lblDataValidade: TLabel;
     lblTotalOrcamento: TLabel;
@@ -68,6 +72,7 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnExcluirItemClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
+    procedure btnImprimirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
@@ -100,14 +105,7 @@ var
   tam, i: Integer;
   count : Double;
 begin
-  //ShowMessage(IntToStr(OrcamentoF.qryOrcItem.RecordCount));
-  //tam :=  OrcamentoF.qryOrcItem.RecordCount;
   count := 0;
-
-  //for i := 0 to tam do
-  //begin
-  //  count := count +
-  //end;
 
   if not qryOrcItem.IsEmpty then
   begin
@@ -236,6 +234,13 @@ begin
   inherited;
 end;
 
+procedure TOrcamentoF.btnImprimirClick(Sender: TObject);
+begin
+  frReport1.LoadFromFile('.\Relatorios\relOrcamento.lrf');
+  frReport1.PrepareReport;
+  frReport1.ShowReport;
+end;
+
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);
 begin
   inherited;
@@ -255,9 +260,10 @@ end;
 
 procedure TOrcamentoF.btnExcluirItemClick(Sender: TObject);
 begin
-  if not (OrcamentoF.qryOrcItem.IsEmpty) then
+  qryOrcItem.Refresh;
+  if not (qryOrcItem.IsEmpty) then
   begin
-    OrcamentoF.qryOrcItem.Delete;
+    qryOrcItem.Delete;
   end;
 
   SomaItens();
@@ -280,6 +286,8 @@ begin
   //Cadastro Item
   qryOrcItem.Insert;
   qryOrcItemorcamentoid.AsInteger := qryOrcamentoorcamentoid.AsInteger;
+
+  cadItemOrcF := TcadItemOrcF.Create(Self);
   cadItemOrcF.ShowModal;
 end;
 

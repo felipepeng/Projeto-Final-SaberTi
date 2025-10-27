@@ -29,6 +29,7 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqProdutoClick(Sender: TObject);
     procedure edtQuantidadeExit(Sender: TObject);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
   private
 
   public
@@ -79,6 +80,11 @@ begin
   OrcamentoF.qryOrcItemvl_total.AsFloat := OrcamentoF.qryOrcItemvl_unitario.AsFloat * OrcamentoF.qryOrcItemqt_produto.AsFloat;
 end;
 
+procedure TcadItemOrcF.FormClose(Sender: TObject; var CloseAction: TCloseAction
+  );
+begin
+  CloseAction:= caFree;
+end;
 
 end.
 

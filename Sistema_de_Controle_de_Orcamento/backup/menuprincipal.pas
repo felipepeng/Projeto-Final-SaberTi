@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
            cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre,
-           Orcamento, relClientes;
+           Orcamento, relClientes, relOrcamento;
 
 type
 
@@ -16,6 +16,7 @@ type
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
+    MenuItemRelOrcamento: TMenuItem;
     MenuItemRelClientes: TMenuItem;
     MenuRelatorios: TMenuItem;
     MenuSobre: TMenuItem;
@@ -34,6 +35,7 @@ type
     procedure MenuItemOrcamentoClick(Sender: TObject);
     procedure MenuItemProdutoClick(Sender: TObject);
     procedure MenuItemRelClientesClick(Sender: TObject);
+    procedure MenuItemRelOrcamentoClick(Sender: TObject);
     procedure MenuItemSairClick(Sender: TObject);
     procedure MenuItemUsuarioClick(Sender: TObject);
     procedure MenuSobreClick(Sender: TObject);
@@ -66,7 +68,7 @@ end;
 
 procedure TMenuPrincipalF.MenuItemOrcamentoClick(Sender: TObject);
 begin
-  OrcamentoF := TOrcamentoF.Create(Self);
+  //OrcamentoF := TOrcamentoF.Create(Self);
   OrcamentoF.ShowModal;
 end;
 
@@ -80,6 +82,12 @@ procedure TMenuPrincipalF.MenuItemRelClientesClick(Sender: TObject);
 begin
   relClientesF := TrelClientesF.Create(Self);
   relClientesF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.MenuItemRelOrcamentoClick(Sender: TObject);
+begin
+  relOrcamentoF := TrelOrcamentoF.Create(Self);
+  relOrcamentoF.ShowModal;
 end;
 
 procedure TMenuPrincipalF.MenuItemSairClick(Sender: TObject);

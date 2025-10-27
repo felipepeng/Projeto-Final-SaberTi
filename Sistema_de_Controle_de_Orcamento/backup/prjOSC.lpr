@@ -29,6 +29,7 @@ begin
   Application.CreateForm(TpesqCatProdutoF, pesqCatProdutoF);
   Application.CreateForm(TpesqClienteF, pesqClienteF);
   Application.CreateForm(TpesqProdutoF, pesqProdutoF);
+  Application.CreateForm(TOrcamentoF, OrcamentoF);
   Application.Run;
 end.
 

@@ -153,8 +153,17 @@
         <Filename Value="relclientes.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="relClientesF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="relClientes"/>
+      </Unit>
+      <Unit>
+        <Filename Value="relorcamento.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="relOrcamentoF"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="relOrcamento"/>
       </Unit>
     </Units>
   </ProjectOptions>

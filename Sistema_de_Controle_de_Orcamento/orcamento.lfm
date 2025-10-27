@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 452
+  Left = 535
   Height = 573
-  Top = 159
+  Top = 307
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -101,7 +101,15 @@ inherited OrcamentoF: TOrcamentoF
               FieldName = 'clienteid'
             end          
             item
-              PickList.Strings = (              )
+              PickList.Strings = (
+                'PEDRO DE OLIVEIRA'
+                'MARIA EDUARDA MEIRELES'
+                'SANDRAGOMES'
+                'JOSÉ DA SILVA'
+                'Peng Craft Roleplays'
+                'Pedro'
+                'Gabi Hahn'
+              )
               Title.Caption = 'Nome Cliente'
               Width = 190
               FieldName = 'nome_cliente'
@@ -148,6 +156,7 @@ inherited OrcamentoF: TOrcamentoF
           OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
+          Left = 360
           Top = 8
           OnClick = btnCancelarClick
         end
@@ -155,6 +164,54 @@ inherited OrcamentoF: TOrcamentoF
           Left = 1098
           Top = 8
           OnClick = btnExcluirClick
+        end
+        object btnImprimir: TBitBtn[4]
+          Left = 232
+          Height = 38
+          Top = 8
+          Width = 110
+          Caption = 'Imprimir'
+          Glyph.Data = {
+            8A040000424D22010000000000007600000028000000210000001D0000000100
+            0800000000001404000000000000000000001000000000000000000000000000
+            8000008000000080800080000000800080008080000080808000C0C0C0000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00080808080808
+            08080808080800000008080808080808080808080808080808080857535C0808
+            0808080808080808000008070700000808080808080808080808080808080857
+            535C080808080808080800000808080707070700000808080808080808080808
+            08080857535C0808080808080000080808080700000707070700000808080808
+            0808080808080857535C08080808000008080808070708070700000707070700
+            000808080808080808080857535C080800000808080807070807080707070700
+            00070707070000080808080808080857535C0800080808080707080808070807
+            0707070707000007070707000008080808080857535C08070808070708080808
+            080708070707070707070700000707070700080808080857535C080707070808
+            08080808080708070707070707070707070000070700080808080857535C0707
+            0807080808080808080708070707070707070707070707000000080808080857
+            535C070F080708080808080808070F0707070707070707070707070707000008
+            08080857535C070F08070808080808080F070708080707070707070707070707
+            0707000008080857535C070F0807080808080F0F080808070708080707070707
+            070707070707000700080857535C070F080708080F0F08080808080808070708
+            08070707070707070707000807000857535C070F08070F0F0808080909080807
+            0708080707080807070707070707000807070857535C070F0F070708080A0A08
+            080707080808080800070708080707070707000708080857535C07070F080807
+            0708080707080808080800000F080007070808070707000808080857535C0808
+            07070F08080707070708080800000F0F0F0F0008080707080807000808080857
+            535C0808080807070F080807070700000F0F0F0C0C0F08000708080707080808
+            08080857535C08080808080807070F080807070F0F0C0C0F0F0F0F0007070708
+            0808080808080857535C080808080808080807070F0808070F0F0F0F0C0C0F08
+            000808080808080808080857535C0808080808080808080807070F070F0F0C0C
+            0F0F0F0F080008080808080808080857535C0808080808080808080808080707
+            070F0F0F0F0C0C0F0F0800080808080808080857535C08080808080808080808
+            08080808070F0F0C0C0F0F0F0F0F08000808080808080857535C080808080808
+            080808080808080808070F0F0F0F0F0C0C0F0F080000080808080857535C0808
+            0808080808080808080808080808070F0F0C0C0F0F0F0F0F0707080808080857
+            535C0808080808080808080808080808080808070F0F0F0F0F0F070708080808
+            08080857535C080808080808080808080808080808080808070F0F0F07070808
+            0808080808080857535C08080808080808080808080808080808080808070707
+            080808080808080808080857535C
+          }
+          TabOrder = 4
+          OnClick = btnImprimirClick
         end
       end
       inherited PanelCadastroCenter: TPanel
@@ -196,6 +253,7 @@ inherited OrcamentoF: TOrcamentoF
             DataField = 'orcamentoid'
             DataSource = dsOrcamento
             ReadOnly = True
+            Alignment = taRightJustify
             Color = cl3DLight
             MaxLength = 0
             TabOrder = 0
@@ -222,6 +280,7 @@ inherited OrcamentoF: TOrcamentoF
             DataField = 'clienteid'
             DataSource = dsOrcamento
             ReadOnly = True
+            Alignment = taRightJustify
             Color = cl3DLight
             MaxLength = 0
             TabOrder = 1
@@ -276,6 +335,7 @@ inherited OrcamentoF: TOrcamentoF
             DataField = 'vl_total_orcamento'
             DataSource = dsOrcamento
             ReadOnly = True
+            Alignment = taRightJustify
             Font.CharSet = ANSI_CHARSET
             Font.Color = clBlue
             Font.Name = 'Segoe UI Semibold'
@@ -429,7 +489,7 @@ inherited OrcamentoF: TOrcamentoF
             NumGlyphs = 1
             MaxLength = 0
             TabOrder = 5
-            Text = 'DateEditDataOrcamento'
+            Text = '18/02/2022'
             DataField = 'dt_orcamento'
             DataSource = dsOrcamento
           end
@@ -444,7 +504,7 @@ inherited OrcamentoF: TOrcamentoF
             NumGlyphs = 1
             MaxLength = 0
             TabOrder = 6
-            Text = 'DateEditDataValidade'
+            Text = '19/02/2022'
             DataField = 'dt_validade_orcamento'
             DataSource = dsOrcamento
           end
@@ -871,5 +931,20 @@ inherited OrcamentoF: TOrcamentoF
       Required = True
       Size = 10
     end
+  end
+  object frDBDataSet1: TfrDBDataSet[8]
+    DataSet = qryOrcItem
+    DataSource = dsOrcItem
+    Left = 757
+    Top = 368
+  end
+  object frReport1: TfrReport[9]
+    Dataset = frDBDataSet1
+    InitialZoom = pzDefault
+    Options = []
+    PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
+    DataType = dtDataSet
+    Left = 672
+    Top = 368
   end
 end

@@ -47,6 +47,10 @@ object MenuPrincipalF: TMenuPrincipalF
         Caption = 'Clientes'
         OnClick = MenuItemRelClientesClick
       end
+      object MenuItemRelOrcamento: TMenuItem
+        Caption = 'Orcamento'
+        OnClick = MenuItemRelOrcamentoClick
+      end
     end
     object MenuSobre: TMenuItem
       Caption = 'Sobre'
