@@ -75,6 +75,8 @@ begin
   inherited; //Vai para Cadastro
   //Insert
   qryCatProduto.Insert;
+
+  edtDescricao.SetFocus;
 end;
 
 procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);

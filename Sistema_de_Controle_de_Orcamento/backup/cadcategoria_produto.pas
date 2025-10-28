@@ -34,7 +34,6 @@ type
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure PanelCadastroCenterClick(Sender: TObject);
     procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
   private
 
@@ -51,10 +50,6 @@ implementation
 
 { TcadCategoria_ProdutoF }
 
-procedure TcadCategoria_ProdutoF.PanelCadastroCenterClick(Sender: TObject);
-begin
-
-end;
 
 //After Insert
 procedure TcadCategoria_ProdutoF.qryCatProdutoAfterInsert(DataSet: TDataSet);
@@ -80,6 +75,8 @@ begin
   inherited; //Vai para Cadastro
   //Insert
   qryCatProduto.Insert;
+
+  //edtDescricao.SetFocus;
 end;
 
 procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);
@@ -138,6 +135,7 @@ procedure TcadCategoria_ProdutoF.btnExcluirClick(Sender: TObject);
 var
   existe: Boolean;
 begin
+  //Checa se existe algum Produto Cadastrado com esse ID
   with DataModule1.qryGenerica do
   begin
     SQL.Text := 'SELECT EXISTS (SELECT 1 FROM produto WHERE categoriaprodutoid = ' +  qryCatProduto.FieldByName('categoriaprodutoid').AsString + ');';
@@ -158,8 +156,6 @@ begin
            inherited; //Vai para Consulta
          end;
     end;
-
-
 
 end;
 

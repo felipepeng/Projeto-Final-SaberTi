@@ -102,6 +102,7 @@ begin
   qryCadProduto.Insert;
   qryCadProduto.FieldByName('dt_cadastro_produto').AsDateTime := Date;
 
+  edtDescricao.SetFocus;
 end;
 
 procedure TcadProdutoF.btnOpenCatProdClick(Sender: TObject);

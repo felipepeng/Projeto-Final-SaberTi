@@ -30,6 +30,7 @@ type
     procedure btnPesqProdutoClick(Sender: TObject);
     procedure edtQuantidadeExit(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormShow(Sender: TObject);
   private
 
   public
@@ -54,7 +55,6 @@ begin
   OrcamentoF.qryOrcItem.Cancel;
 
   //Decrementa a Sequence
-  ShowMessage('teste');
   DataModule1.decreaseSequence('orcamento_item_orcamentoitemid');
 
   Close;
@@ -89,6 +89,11 @@ procedure TcadItemOrcF.FormClose(Sender: TObject; var CloseAction: TCloseAction
   );
 begin
   CloseAction:= caFree;
+end;
+
+procedure TcadItemOrcF.FormShow(Sender: TObject);
+begin
+  edtQuantidade.SetFocus;
 end;
 
 end.

@@ -81,6 +81,8 @@ begin
   inherited; //Vai para Cadastro
   //Insert
   qryCadCliente.Insert;
+
+  edtNome.SetFocus;
 end;
 
 procedure TcadClienteF.btnPesquisaClick(Sender: TObject);

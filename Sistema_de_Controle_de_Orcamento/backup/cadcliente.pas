@@ -57,8 +57,6 @@ implementation
 
 { TcadClienteF }
 
-
-
 procedure TcadClienteF.FormShow(Sender: TObject);
 begin
   inherited;

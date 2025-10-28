@@ -81,6 +81,8 @@ begin
   inherited;
   //Insert
   qryCadUsuario.Insert;
+
+  edtUsuario.SetFocus;
 end;
 
 procedure TcadUsuarioF.edtPesquisaChange(Sender: TObject);

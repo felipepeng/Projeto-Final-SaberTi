@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 419
+  Left = 443
   Height = 573
-  Top = 199
+  Top = 180
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -11,8 +11,6 @@ inherited OrcamentoF: TOrcamentoF
   inherited PageControl1: TPageControl
     Height = 573
     Width = 1206
-    ActivePage = tbCadastro
-    TabIndex = 1
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
       ClientHeight = 540
@@ -199,11 +197,13 @@ inherited OrcamentoF: TOrcamentoF
         inherited btnCancelar: TBitBtn
           Left = 360
           Top = 8
+          TabOrder = 3
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
           Left = 1098
           Top = 8
+          TabOrder = 4
           OnClick = btnExcluirClick
         end
         object btnImprimir: TBitBtn[4]
@@ -251,7 +251,7 @@ inherited OrcamentoF: TOrcamentoF
             0808080808080857535C08080808080808080808080808080808080808070707
             080808080808080808080857535C
           }
-          TabOrder = 4
+          TabOrder = 2
           OnClick = btnImprimirClick
         end
       end
@@ -297,7 +297,7 @@ inherited OrcamentoF: TOrcamentoF
             Alignment = taRightJustify
             Color = cl3DLight
             MaxLength = 0
-            TabOrder = 0
+            TabOrder = 2
           end
           object lblCliente: TLabel
             Left = 16
@@ -324,7 +324,7 @@ inherited OrcamentoF: TOrcamentoF
             Alignment = taRightJustify
             Color = cl3DLight
             MaxLength = 0
-            TabOrder = 1
+            TabOrder = 3
           end
           object lblDataOrcamento: TLabel
             Left = 128
@@ -385,7 +385,7 @@ inherited OrcamentoF: TOrcamentoF
             Font.Style = [fsBold]
             MaxLength = 0
             ParentFont = False
-            TabOrder = 2
+            TabOrder = 6
           end
           object btnPesqCliente: TSpeedButton
             Left = 88
@@ -458,7 +458,7 @@ inherited OrcamentoF: TOrcamentoF
               7000777770C07777700077777000777770007777777777777000777777777777
               7000
             }
-            TabOrder = 3
+            TabOrder = 0
             OnClick = btnAddItemClick
           end
           object btnExcluirItem: TBitBtn
@@ -516,7 +516,7 @@ inherited OrcamentoF: TOrcamentoF
               3939393939393939393969390000393939393939393939393939393939393969
               00003939393939393939393939393939393939390000
             }
-            TabOrder = 4
+            TabOrder = 1
             OnClick = btnExcluirItemClick
           end
           object DateEditDataOrcamento: TDBDateEdit
@@ -529,7 +529,7 @@ inherited OrcamentoF: TOrcamentoF
             ButtonWidth = 29
             NumGlyphs = 1
             MaxLength = 0
-            TabOrder = 5
+            TabOrder = 4
             Text = '18/02/2022'
             DataField = 'dt_orcamento'
             DataSource = dsOrcamento
@@ -544,7 +544,7 @@ inherited OrcamentoF: TOrcamentoF
             ButtonWidth = 29
             NumGlyphs = 1
             MaxLength = 0
-            TabOrder = 6
+            TabOrder = 5
             Text = '19/02/2022'
             DataField = 'dt_validade_orcamento'
             DataSource = dsOrcamento
@@ -572,17 +572,24 @@ inherited OrcamentoF: TOrcamentoF
           Color = clWindow
           Columns = <          
             item
+              Alignment = taCenter
+              Title.Alignment = taCenter
               Title.Caption = 'Orc. Id'
+              Width = 60
               FieldName = 'orcamentoid'
             end          
             item
+              Alignment = taCenter
+              Title.Alignment = taCenter
               Title.Caption = 'Orc. Item Id'
-              Width = 100
+              Width = 90
               FieldName = 'orcamentoitemid'
             end          
             item
+              Alignment = taCenter
+              Title.Alignment = taCenter
               Title.Caption = 'Produto Id'
-              Width = 90
+              Width = 86
               FieldName = 'produtoid'
             end          
             item

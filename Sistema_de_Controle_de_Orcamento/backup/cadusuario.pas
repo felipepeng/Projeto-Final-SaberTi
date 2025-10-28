@@ -107,7 +107,6 @@ begin
   inherited;
   //Gravar
   qryCadUsuario.Post;
-  ShowMessage('Gravou');
 end;
 
 procedure TcadUsuarioF.btnEditarClick(Sender: TObject);

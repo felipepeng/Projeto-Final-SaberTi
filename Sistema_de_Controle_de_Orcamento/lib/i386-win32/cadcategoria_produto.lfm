@@ -5,8 +5,6 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       inherited PanelConsultaTop: TPanel
         object lblPesquisa: TLabel[0]

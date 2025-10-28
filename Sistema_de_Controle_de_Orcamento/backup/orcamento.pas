@@ -88,7 +88,6 @@ type
   public
     procedure AbreOrcItens(orcamentoid : Integer);
     procedure SomaItens();
-
   end;
 
 var

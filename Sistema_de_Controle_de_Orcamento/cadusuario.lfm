@@ -5,8 +5,6 @@ inherited cadUsuarioF: TcadUsuarioF
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       inherited PanelConsultaTop: TPanel
         object lblPesquisa: TLabel[0]
@@ -130,7 +128,7 @@ inherited cadUsuarioF: TcadUsuarioF
           ReadOnly = True
           Color = cl3DLight
           MaxLength = 0
-          TabOrder = 0
+          TabOrder = 3
         end
         object lblUsuario: TLabel[2]
           Left = 32
@@ -154,7 +152,7 @@ inherited cadUsuarioF: TcadUsuarioF
           DataField = 'usuario'
           DataSource = dsCadUsuario
           MaxLength = 0
-          TabOrder = 1
+          TabOrder = 0
         end
         object lblNomeComp: TLabel[4]
           Left = 32
@@ -178,7 +176,7 @@ inherited cadUsuarioF: TcadUsuarioF
           DataField = 'nome_completo'
           DataSource = dsCadUsuario
           MaxLength = 0
-          TabOrder = 2
+          TabOrder = 1
         end
         object lblSenha: TLabel[6]
           Left = 32
@@ -202,7 +200,7 @@ inherited cadUsuarioF: TcadUsuarioF
           DataField = 'senha'
           DataSource = dsCadUsuario
           MaxLength = 0
-          TabOrder = 3
+          TabOrder = 2
         end
       end
     end
