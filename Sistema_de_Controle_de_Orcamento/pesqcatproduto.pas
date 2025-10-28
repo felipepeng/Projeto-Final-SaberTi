@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
-  Buttons, StdCtrls, ZDataset, ZAbstractRODataset, DataModule;
+  Buttons, StdCtrls, ZDataset, ZAbstractRODataset, DataModule, LCLType;
 
 type
 
@@ -24,6 +24,8 @@ type
     qrypesqCatcategoriaprodutoid: TZIntegerField;
     qrypesqCatds_categoria_produto: TZRawStringField;
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -49,6 +51,8 @@ procedure TpesqCatProdutoF.FormShow(Sender: TObject);
 begin
   //Abre a Query
   qrypesqCat.Open;
+
+  DBGrid1.SetFocus;
 end;
 
 procedure TpesqCatProdutoF.FormClose(Sender: TObject;
@@ -81,6 +85,13 @@ procedure TpesqCatProdutoF.DBGrid1DblClick(Sender: TObject);
 begin
   cadProdutoF.qryCadProdutocategoriaprodutoid.AsInteger := qrypesqCatcategoriaprodutoid.AsInteger;
   Close;
+end;
+
+procedure TpesqCatProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    DBGrid1DblClick(Sender);
 end;
 
 end.

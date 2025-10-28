@@ -25,7 +25,6 @@ begin
   {$POP}
   Application.Initialize;
   Application.CreateForm(TLoginF, LoginF);
-  Application.CreateForm(TMenuPrincipalF, MenuPrincipalF);
   Application.CreateForm(TXCadPaiF, XCadPaiF);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.CreateForm(TpesqCatProdutoF, pesqCatProdutoF);

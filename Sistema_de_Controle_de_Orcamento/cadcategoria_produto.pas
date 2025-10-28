@@ -119,6 +119,14 @@ end;
 
 procedure TcadCategoria_ProdutoF.btnGravarClick(Sender: TObject);
 begin
+
+  if qryCatProdutods_categoria_produto.AsString = '' then
+  begin
+    ShowMessage('Descrição deve ser Preenchida');
+    edtDescricao.SetFocus;
+    Abort;
+  end;
+
   inherited; //Vai para Consulta
   //Confirma o Insert
   qryCatProduto.Post;

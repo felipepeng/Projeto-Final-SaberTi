@@ -1,7 +1,7 @@
 object pesqCatProdutoF: TpesqCatProdutoF
-  Left = 1142
+  Left = 753
   Height = 464
-  Top = 306
+  Top = 276
   Width = 533
   Caption = 'Pesquisar Categorias'
   ClientHeight = 464
@@ -98,6 +98,7 @@ object pesqCatProdutoF: TpesqCatProdutoF
     ReadOnly = True
     TabOrder = 2
     OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
   end
   object qrypesqCat: TZQuery
     Connection = DataModule1.ZConnection1

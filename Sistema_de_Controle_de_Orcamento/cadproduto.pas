@@ -6,14 +6,15 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, DBExtCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB,
-  cadCategoria_Produto, pesqCatProduto,DataModule;
+  DBCtrls, DBExtCtrls, ExtCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate,
+  XCadPai, DB, cadCategoria_Produto, pesqCatProduto, DataModule, LCLType;
 
 type
 
   { TcadProdutoF }
 
   TcadProdutoF = class(TXCadPaiF)
+    btnOpenCatProd: TSpeedButton;
     btnPesquisa: TSpeedButton;
     cbStatus: TDBComboBox;
     dateCadastro: TDBDateEdit;
@@ -42,7 +43,6 @@ type
     qryCadProdutoprodutoid: TZIntegerField;
     qryCadProdutostatus_produto: TZRawStringField;
     qryCadProdutovl_venda_produto: TZBCDField;
-    btnOpenCatProd: TSpeedButton;
     qryCatProdutocategoriaprodutoid: TZIntegerField;
     qryCatProdutods_categoria_produto: TStringField;
     updtCadProduto: TZUpdateSQL;
@@ -80,7 +80,6 @@ begin
   qryCadProduto.Open;
   qryCatProduto.Open;
 end;
-
 
 procedure TcadProdutoF.qryCadProdutoAfterInsert(DataSet: TDataSet);
 begin
@@ -155,6 +154,44 @@ end;
 
 procedure TcadProdutoF.btnGravarClick(Sender: TObject);
 begin
+
+  if qryCadProdutods_produto.AsString = '' then
+  begin
+    ShowMessage('Descrição deve ser Preenchida');
+    edtDescricao.SetFocus;
+    Abort;
+  end;
+
+  if qryCadProdutoobs_produto.AsString = '' then
+  begin
+    ShowMessage('Observação deve ser Preenchida');
+    edtObservacao.SetFocus;
+    Abort;
+  end;
+
+  if qryCadProdutovl_venda_produto.AsString = '' then
+  begin
+    ShowMessage('Valor de Venda deve ser Preenchida');
+    edtValorVenda.SetFocus;
+    Abort;
+  end;
+
+  if qryCadProdutocategoriaprodutoid.AsString = '' then
+  begin
+    ShowMessage('Uma Categoria deve ser escolhida');
+    //edtCatId.SetFocus;
+    btnOpenCatProdClick(Sender);
+    cbStatus.SetFocus;
+    Abort;
+  end;
+
+  if qryCadProdutostatus_produto.AsString = '' then
+  begin
+    ShowMessage('Status deve ser Preenchida');
+    cbStatus.SetFocus;
+    Abort;
+  end;
+
   inherited; //Vai para Consulta
   qryCadProduto.Post;
 end;

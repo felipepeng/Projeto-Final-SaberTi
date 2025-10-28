@@ -11,6 +11,8 @@ inherited OrcamentoF: TOrcamentoF
   inherited PageControl1: TPageControl
     Height = 573
     Width = 1206
+    ActivePage = tbCadastro
+    TabIndex = 1
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
       ClientHeight = 540
