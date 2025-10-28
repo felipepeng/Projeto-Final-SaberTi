@@ -1,13 +1,14 @@
 object LoginF: TLoginF
-  Left = 457
+  Left = 776
   Height = 233
-  Top = 169
+  Top = 284
   Width = 525
   Caption = 'Login'
   ClientHeight = 233
   ClientWidth = 525
   Color = 16316664
   DesignTimePPI = 120
+  Position = poScreenCenter
   LCLVersion = '4.2.0.0'
   object Image1: TImage
     Left = 24

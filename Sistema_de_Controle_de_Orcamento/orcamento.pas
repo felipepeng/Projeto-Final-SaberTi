@@ -160,12 +160,13 @@ end;
 
 procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
 begin
-  //Sequence
+  //Sequence Orcamento
   qryOrcamento.FieldByName('orcamentoid').AsInteger := StrToInt(DataModule1.getSequence('orcamento_orcamentoid_seq'));
 end;
 
 procedure TOrcamentoF.qryOrcItemAfterInsert(DataSet: TDataSet);
 begin
+  //Sequence Orcamento Item
   qryOrcItem.FieldByName('orcamentoitemid').AsInteger := StrToInt(DataModule1.getSequence('orcamento_item_orcamentoitemid'));
 end;
 

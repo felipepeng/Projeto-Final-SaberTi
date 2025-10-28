@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, DBCtrls,
-  Buttons, pesqProduto, DB;
+  Buttons, pesqProduto, DB, DataModule;
 
 type
 
@@ -52,6 +52,10 @@ procedure TcadItemOrcF.btnCancelarClick(Sender: TObject);
 begin
   //Cancel
   OrcamentoF.qryOrcItem.Cancel;
+
+  //Decrementa a Sequence
+  DataModule1.decreaseSequence('orcamento_item_orcamentoitemid');
+
   Close;
 end;
 

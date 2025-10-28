@@ -943,7 +943,6 @@ inherited OrcamentoF: TOrcamentoF
   end
   object frDBDataSet1: TfrDBDataSet[9]
     DataSet = qryOrcItem
-    DataSource = dsOrcItem
     Left = 768
     Top = 312
   end
