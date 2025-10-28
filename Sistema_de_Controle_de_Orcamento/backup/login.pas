@@ -15,14 +15,17 @@ type
 
   TLoginF = class(TForm)
     btnEntrar: TBitBtn;
+    btnSair: TBitBtn;
     edtUsuario: TEdit;
     edtSenha: TEdit;
     Image1: TImage;
     lblUsuario: TLabel;
     lblSenha: TLabel;
     procedure btnEntrarClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtUsuarioChange(Sender: TObject);
     procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     function validaUsuario(pUsuario: String; pSenha: String): Boolean;
@@ -94,6 +97,11 @@ begin
   end;
 end;
 
+procedure TLoginF.btnSairClick(Sender: TObject);
+begin
+  Application.Terminate;
+end;
+
 procedure TLoginF.edtSenhaKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -103,6 +111,11 @@ begin
     if Key = VK_RETURN then
       btnEntrarClick(Sender);
   end;
+
+end;
+
+procedure TLoginF.edtUsuarioChange(Sender: TObject);
+begin
 
 end;
 

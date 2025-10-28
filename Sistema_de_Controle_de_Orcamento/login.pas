@@ -15,12 +15,14 @@ type
 
   TLoginF = class(TForm)
     btnEntrar: TBitBtn;
+    btnSair: TBitBtn;
     edtUsuario: TEdit;
     edtSenha: TEdit;
     Image1: TImage;
     lblUsuario: TLabel;
     lblSenha: TLabel;
     procedure btnEntrarClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure edtUsuarioChange(Sender: TObject);
@@ -93,6 +95,11 @@ begin
     edtSenha.Text := '';
     edtUsuario.SetFocus;
   end;
+end;
+
+procedure TLoginF.btnSairClick(Sender: TObject);
+begin
+  Application.Terminate;
 end;
 
 procedure TLoginF.edtSenhaKeyDown(Sender: TObject; var Key: Word;
