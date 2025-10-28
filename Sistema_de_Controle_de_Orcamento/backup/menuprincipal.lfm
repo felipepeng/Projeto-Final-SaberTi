@@ -43,10 +43,6 @@ object MenuPrincipalF: TMenuPrincipalF
     end
     object MenuRelatorios: TMenuItem
       Caption = 'Relatórios'
-      object MenuItemRelClientes: TMenuItem
-        Caption = 'Clientes'
-        OnClick = MenuItemRelClientesClick
-      end
       object MenuItemRelProduto: TMenuItem
         Caption = 'Produto'
         OnClick = MenuItemRelProdutoClick
@@ -54,6 +50,16 @@ object MenuPrincipalF: TMenuPrincipalF
       object MenuItemRelCatProduto: TMenuItem
         Caption = 'Categoria de Produto'
         OnClick = MenuItemRelCatProdutoClick
+      end
+      object MenuItemRelClientes: TMenuItem
+        Caption = 'Clientes'
+        OnClick = MenuItemRelClientesClick
+      end
+      object Separator2: TMenuItem
+        Caption = '-'
+      end
+      object MenuItemRelUsuario: TMenuItem
+        Caption = 'Usuário'
       end
     end
     object MenuSobre: TMenuItem

@@ -9,6 +9,7 @@ object MenuPrincipalF: TMenuPrincipalF
   Menu = MainMenu1
   LCLVersion = '4.2.0.0'
   WindowState = wsMaximized
+  OnClose = FormClose
   object MainMenu1: TMainMenu
     Left = 488
     Top = 32
@@ -70,6 +71,7 @@ object MenuPrincipalF: TMenuPrincipalF
       Caption = 'Sair'
       object MenuItemEncerrarSes: TMenuItem
         Caption = 'Encerrar Sessão'
+        OnClick = MenuItemEncerrarSesClick
       end
       object MenuItemSair: TMenuItem
         Caption = 'Sair'

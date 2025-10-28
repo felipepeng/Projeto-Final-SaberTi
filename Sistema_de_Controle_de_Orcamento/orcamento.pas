@@ -78,9 +78,9 @@ type
     procedure DBGrid1DblClick(Sender: TObject);
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
+    procedure qryOrcamentoAfterCancel(DataSet: TDataSet);
     procedure qryOrcamentoAfterInsert(DataSet: TDataSet);
     procedure qryOrcItemAfterInsert(DataSet: TDataSet);
   private
@@ -88,7 +88,6 @@ type
   public
     procedure AbreOrcItens(orcamentoid : Integer);
     procedure SomaItens();
-
   end;
 
 var
@@ -158,6 +157,12 @@ begin
     AbreOrcItens(qryOrcamentoorcamentoid.AsInteger);
 end;
 
+procedure TOrcamentoF.qryOrcamentoAfterCancel(DataSet: TDataSet);
+begin
+  //Troca ícone editar
+  btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+end;
+
 procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
 begin
   //Sequence Orcamento
@@ -179,14 +184,19 @@ begin
   qryProduto.Close;
 end;
 
-procedure TOrcamentoF.FormCreate(Sender: TObject);
-begin
-
-end;
-
 procedure TOrcamentoF.btnPesqClienteClick(Sender: TObject);
 begin
-  pesqClienteF.ShowModal;
+
+  If qryOrcamento.State <> dsBrowse then
+  begin
+    pesqClienteF.ShowModal;
+  end
+  else
+  begin
+    ShowMessage('Para escolher outro Cliente, primeiro ative o modo de edição.');
+  end;
+
+
 end;
 
 procedure TOrcamentoF.DBGrid1DblClick(Sender: TObject);
@@ -229,10 +239,22 @@ end;
 
 procedure TOrcamentoF.btnGravarClick(Sender: TObject);
 begin
-  //Gravar
-  qryOrcamento.Post;
-  qryOrcamento.Refresh;
-  inherited;
+  if qryOrcamento.State <> dsBrowse then
+  begin
+    //Gravar
+    qryOrcamento.Post;
+    qryOrcamento.Refresh;
+    inherited;
+
+    //Troca ícone editar
+    btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  end
+  else
+  begin
+    ShowMessage('Para gravar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
+
 end;
 
 procedure TOrcamentoF.btnImprimirClick(Sender: TObject);
@@ -250,8 +272,14 @@ end;
 procedure TOrcamentoF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  //Edit
-  qryOrcamento.Edit;
+
+  if (qryOrcamento.State <> dsInsert) then
+  begin
+    //Edit
+    qryOrcamento.Edit;
+    btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+  end;
+
 end;
 
 procedure TOrcamentoF.btnExcluirClick(Sender: TObject);
@@ -259,25 +287,57 @@ begin
   //Exclui
   If  MessageDlg('Atenção', 'Você tem certeza que deseja excluir o registro?', mtConfirmation,[mbyes,mbno],0) = mryes then
   begin
+    if not qryOrcItem.IsEmpty then
+    begin
+      qryOrcItem.First;
+      while not qryOrcItem.Eof do
+      begin
+        qryOrcItem.Next;
+        qryOrcItem.Delete;
+      end;
+    end;
     qryOrcamento.Delete;
     inherited; //Vai para Consulta
   end;
+
 end;
 
 procedure TOrcamentoF.btnExcluirItemClick(Sender: TObject);
 begin
-  qryOrcItem.Refresh;
-  if not (qryOrcItem.IsEmpty) then
+
+  if (qryOrcamento.State = dsInsert) or (qryOrcamento.State = dsEdit) then
   begin
-    qryOrcItem.Delete;
+    qryOrcItem.Refresh;
+    if not (qryOrcItem.IsEmpty) then
+    begin
+      qryOrcItem.Delete;
+      SomaItens();
+    end;
+  end
+  else
+  begin
+    ShowMessage('Para Excluir Itens, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
   end;
 
-  SomaItens();
 end;
 
 procedure TOrcamentoF.btnCancelarClick(Sender: TObject);
 begin
   inherited;
+
+   if qryOrcamento.State = dsInsert then
+   begin
+     if not qryOrcItem.IsEmpty then
+     begin
+       qryOrcItem.First;
+        while not qryOrcItem.Eof do
+        begin
+          qryOrcItem.Next;
+          qryOrcItem.Delete;
+        end;
+     end;
+   end;
 
   //Decrementa a Sequence
   if qryOrcamento.State = dsInsert then
@@ -285,16 +345,28 @@ begin
 
   //Cancel
   qryOrcamento.Cancel;
+  qryOrcamento.Refresh;
+
 end;
 
 procedure TOrcamentoF.btnAddItemClick(Sender: TObject);
 begin
-  //Cadastro Item
-  qryOrcItem.Insert;
-  qryOrcItemorcamentoid.AsInteger := qryOrcamentoorcamentoid.AsInteger;
+  if (qryOrcamento.State = dsInsert) or (qryOrcamento.State = dsEdit) then
+  begin
 
-  cadItemOrcF := TcadItemOrcF.Create(Self);
-  cadItemOrcF.ShowModal;
+    //Cadastro Item
+    qryOrcItem.Insert;
+    qryOrcItemorcamentoid.AsInteger := qryOrcamentoorcamentoid.AsInteger;
+
+    cadItemOrcF := TcadItemOrcF.Create(Self);
+    cadItemOrcF.ShowModal;
+  end
+  else
+  begin
+    ShowMessage('Para Adicionar Itens, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
+
 end;
 
 end.

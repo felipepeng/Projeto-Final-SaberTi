@@ -2,8 +2,6 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   Left = 468
   Top = 257
   Caption = 'Categoria de Produto'
-  ClientHeight = 0
-  ClientWidth = 0
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
@@ -97,7 +95,6 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        OnClick = PanelCadastroCenterClick
         object lblId: TLabel[0]
           Left = 44
           Height = 23

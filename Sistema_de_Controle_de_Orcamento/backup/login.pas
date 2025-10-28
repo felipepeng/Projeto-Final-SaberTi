@@ -87,6 +87,10 @@ begin
   begin
     MenuPrincipalF := TMenuPrincipalF.Create(Self);
     MenuPrincipalF.ShowModal;
+
+    edtUsuario.Text := '';
+    edtSenha.Text := '';
+    edtUsuario.SetFocus;
   end;
 end;
 

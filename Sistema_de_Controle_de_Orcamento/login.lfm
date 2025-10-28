@@ -1,5 +1,5 @@
 object LoginF: TLoginF
-  Left = 776
+  Left = 767
   Height = 233
   Top = 284
   Width = 525
@@ -2084,6 +2084,7 @@ object LoginF: TLoginF
     Top = 56
     Width = 160
     TabOrder = 0
+    OnChange = edtUsuarioChange
     OnKeyDown = edtUsuarioKeyDown
   end
   object lblUsuario: TLabel

@@ -23,6 +23,7 @@ type
     procedure btnEntrarClick(Sender: TObject);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtUsuarioChange(Sender: TObject);
     procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     function validaUsuario(pUsuario: String; pSenha: String): Boolean;
@@ -87,6 +88,10 @@ begin
   begin
     MenuPrincipalF := TMenuPrincipalF.Create(Self);
     MenuPrincipalF.ShowModal;
+
+    edtUsuario.Text := '';
+    edtSenha.Text := '';
+    edtUsuario.SetFocus;
   end;
 end;
 
@@ -99,6 +104,11 @@ begin
     if Key = VK_RETURN then
       btnEntrarClick(Sender);
   end;
+
+end;
+
+procedure TLoginF.edtUsuarioChange(Sender: TObject);
+begin
 
 end;
 
