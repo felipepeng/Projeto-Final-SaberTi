@@ -1,7 +1,7 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 529
+  Left = 486
   Height = 583
-  Top = 130
+  Top = 110
   Width = 661
   Caption = 'Cadastro de Produto'
   ClientHeight = 583
@@ -183,7 +183,7 @@ inherited cadProdutoF: TcadProdutoF
           ReadOnly = True
           Color = cl3DLight
           MaxLength = 0
-          TabOrder = 5
+          TabOrder = 6
         end
         object lblDescricao: TLabel[2]
           Left = 32
@@ -285,7 +285,8 @@ inherited cadProdutoF: TcadProdutoF
           )
           MaxLength = 0
           Style = csDropDownList
-          TabOrder = 4
+          TabOrder = 5
+          OnKeyDown = cbStatusKeyDown
         end
         object lblCategoria: TLabel[10]
           Left = 32
@@ -311,7 +312,7 @@ inherited cadProdutoF: TcadProdutoF
           ReadOnly = True
           Color = cl3DLight
           MaxLength = 0
-          TabOrder = 6
+          TabOrder = 7
         end
         object lblData: TLabel[12]
           Left = 208
@@ -372,14 +373,13 @@ inherited cadProdutoF: TcadProdutoF
           Font.Quality = fqDraft
           MaxLength = 0
           ParentFont = False
-          TabOrder = 7
-          OnChange = edtCatDescChange
+          TabOrder = 8
         end
-        object btnOpenCatProd: TSpeedButton[16]
+        object btnPesqCat: TBitBtn[16]
           Left = 272
-          Height = 28
+          Height = 26
           Top = 336
-          Width = 29
+          Width = 32
           Glyph.Data = {
             86050000424D8605000000000000360000002800000016000000140000000100
             1800000000005005000000000000000000000000000000000000BFBFBFBFBFBF
@@ -427,7 +427,9 @@ inherited cadProdutoF: TcadProdutoF
             7F00007F00007FBFBFBF00007F00007F00007F00007F00007FBFBFBFBFBFBFBF
             BFBFBFBFBFBFBFBF0000
           }
-          OnClick = btnOpenCatProdClick
+          Margin = 2
+          TabOrder = 4
+          OnClick = btnPesqCatClick
         end
       end
     end

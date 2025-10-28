@@ -14,7 +14,7 @@ type
   { TcadProdutoF }
 
   TcadProdutoF = class(TXCadPaiF)
-    btnOpenCatProd: TSpeedButton;
+    btnPesqCat: TBitBtn;
     btnPesquisa: TSpeedButton;
     cbStatus: TDBComboBox;
     dateCadastro: TDBDateEdit;
@@ -35,7 +35,6 @@ type
     lblValorVenda: TLabel;
     lblPesquisa: TLabel;
     lblStatus: TLabel;
-    Panel1: TPanel;
     qryCadProduto: TZQuery;
     qryCadProdutocategoriaprodutoid: TZIntegerField;
     qryCadProdutods_produto: TZRawStringField;
@@ -48,14 +47,15 @@ type
     qryCatProdutods_categoria_produto: TStringField;
     updtCadProduto: TZUpdateSQL;
     qryCatProduto: TZQuery;
+    procedure btnPesqCatClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
-    procedure btnOpenCatProdClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
-    procedure edtCatDescChange(Sender: TObject);
+    procedure cbStatusKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -105,11 +105,6 @@ begin
   edtDescricao.SetFocus;
 end;
 
-procedure TcadProdutoF.btnOpenCatProdClick(Sender: TObject);
-begin
-  pesqCatProdutoF.ShowModal;
-end;
-
 procedure TcadProdutoF.btnPesquisaClick(Sender: TObject);
 begin
   //Fecha a Query
@@ -129,8 +124,17 @@ begin
   qryCadProduto.Open;
 end;
 
-procedure TcadProdutoF.edtCatDescChange(Sender: TObject);
+procedure TcadProdutoF.cbStatusKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
 begin
+
+  if qryCadProduto.State <> dsBrowse then
+  begin
+    if Key = VK_RETURN then
+    begin
+      btnGravar.SetFocus;
+    end;
+  end;
 
 end;
 
@@ -181,7 +185,7 @@ begin
   begin
     ShowMessage('Uma Categoria deve ser escolhida');
     //edtCatId.SetFocus;
-    btnOpenCatProdClick(Sender);
+    btnPesqCatClick(Sender);
     cbStatus.SetFocus;
     Abort;
   end;
@@ -223,6 +227,11 @@ begin
 
   //Cancel
   qryCadProduto.Cancel;
+end;
+
+procedure TcadProdutoF.btnPesqCatClick(Sender: TObject);
+begin
+  pesqCatProdutoF.ShowModal;
 end;
 
 end.
