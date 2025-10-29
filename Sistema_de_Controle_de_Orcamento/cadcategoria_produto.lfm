@@ -5,6 +5,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    TabStop = False
     inherited tbConsulta: TTabSheet
       inherited PanelConsultaTop: TPanel
         object lblPesquisa: TLabel[0]
@@ -74,6 +75,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
             end>
           DataSource = dsCatProduto
           ReadOnly = False
+          TabStop = False
         end
       end
     end

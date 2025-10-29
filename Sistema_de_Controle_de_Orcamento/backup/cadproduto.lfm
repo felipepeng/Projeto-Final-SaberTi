@@ -1,7 +1,7 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 486
+  Left = 528
   Height = 583
-  Top = 110
+  Top = 154
   Width = 661
   Caption = 'Cadastro de Produto'
   ClientHeight = 583
@@ -11,8 +11,6 @@ inherited cadProdutoF: TcadProdutoF
   inherited PageControl1: TPageControl
     Height = 583
     Width = 661
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 550
       ClientWidth = 653
@@ -130,6 +128,7 @@ inherited cadProdutoF: TcadProdutoF
               FieldName = 'categoriaprodutoid'
             end>
           DataSource = dsCadProduto
+          TabStop = False
         end
       end
     end
@@ -184,6 +183,7 @@ inherited cadProdutoF: TcadProdutoF
           Color = cl3DLight
           MaxLength = 0
           TabOrder = 6
+          TabStop = False
         end
         object lblDescricao: TLabel[2]
           Left = 32
@@ -313,6 +313,7 @@ inherited cadProdutoF: TcadProdutoF
           Color = cl3DLight
           MaxLength = 0
           TabOrder = 7
+          TabStop = False
         end
         object lblData: TLabel[12]
           Left = 208
@@ -374,6 +375,7 @@ inherited cadProdutoF: TcadProdutoF
           MaxLength = 0
           ParentFont = False
           TabOrder = 8
+          TabStop = False
         end
         object btnPesqCat: TBitBtn[16]
           Left = 272

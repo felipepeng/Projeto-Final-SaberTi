@@ -15,6 +15,7 @@ type
   TcadItemOrcF = class(TForm)
     btnInserir: TBitBtn;
     btnCancelar: TBitBtn;
+    btnPesqProd: TBitBtn;
     edtVlTotal: TDBEdit;
     edtVlUnidade: TDBEdit;
     edtQuantidade: TDBEdit;
@@ -24,10 +25,9 @@ type
     lblQnt: TLabel;
     lblVlUnidade: TLabel;
     lblVlTotal: TLabel;
-    btnPesqProduto: TSpeedButton;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
-    procedure btnPesqProdutoClick(Sender: TObject);
+    procedure btnPesqProdClick(Sender: TObject);
     procedure edtQuantidadeExit(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -62,20 +62,28 @@ end;
 
 procedure TcadItemOrcF.btnInserirClick(Sender: TObject);
 begin
-  //Post
-  if OrcamentoF.qryOrcItemqt_produto.AsFloat = 0 then
+
+  if OrcamentoF.qryOrcItemprodutoid.AsString = '' then
   begin
-    ShowMessage('Quantidade deve ser Preenchida');
-    edtQuantidade.SetFocus;
-    Exit;
+    ShowMessage('Um produto deve ser escolhido.');
+    btnPesqProdClick(Sender);
+    Abort;
   end;
 
+  if OrcamentoF.qryOrcItemqt_produto.AsFloat = 0 then
+  begin
+    ShowMessage('Quantidade deve ser Preenchida.');
+    edtQuantidade.SetFocus;
+    Abort;
+  end;
+
+  //Post
   OrcamentoF.qryOrcItem.Post;
   OrcamentoF.SomaItens();
   Close;
 end;
 
-procedure TcadItemOrcF.btnPesqProdutoClick(Sender: TObject);
+procedure TcadItemOrcF.btnPesqProdClick(Sender: TObject);
 begin
   pesqProdutoF.ShowModal;
 end;
@@ -93,7 +101,7 @@ end;
 
 procedure TcadItemOrcF.FormShow(Sender: TObject);
 begin
-  edtQuantidade.SetFocus;
+  btnPesqProd.SetFocus;
 end;
 
 end.

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, Buttons,
-  StdCtrls, DBGrids, ZDataset, ZAbstractRODataset;
+  StdCtrls, DBGrids, ZDataset, ZAbstractRODataset, LCLType;
 
 type
 
@@ -25,6 +25,8 @@ type
     qryPesqClientenome_cliente: TZRawStringField;
     qryPesqClientetipo_cliente: TZRawStringField;
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -49,6 +51,8 @@ uses
 procedure TpesqClienteF.FormShow(Sender: TObject);
 begin
   qryPesqCliente.Open;
+
+  DBGrid1.SetFocus;
 end;
 
 procedure TpesqClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -82,6 +86,13 @@ begin
   OrcamentoF.qryOrcamentoclienteid.AsInteger := qryPesqClienteclienteid.AsInteger;
 
   Close;
+end;
+
+procedure TpesqClienteF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    DBGrid1DblClick(Sender);
 end;
 
 end.

@@ -115,6 +115,7 @@ object pesqProdutoF: TpesqProdutoF
     DataSource = dsProduto
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
   end
   object qryProduto: TZQuery
     Connection = DataModule1.ZConnection1

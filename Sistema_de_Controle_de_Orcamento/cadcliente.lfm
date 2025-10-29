@@ -8,6 +8,7 @@ inherited cadClienteF: TcadClienteF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Width = 590
+    TabStop = False
     inherited tbConsulta: TTabSheet
       ClientWidth = 582
       inherited PanelConsultaTop: TPanel
@@ -101,6 +102,7 @@ inherited cadClienteF: TcadClienteF
               FieldName = 'cpf_cnpj_cliente'
             end>
           DataSource = dsCadCliente
+          TabStop = False
         end
       end
     end
@@ -175,6 +177,7 @@ inherited cadClienteF: TcadClienteF
           Color = cl3DLight
           MaxLength = 0
           TabOrder = 3
+          TabStop = False
         end
         object lblCPF_CNPJ: TLabel[4]
           Left = 32
@@ -217,6 +220,7 @@ inherited cadClienteF: TcadClienteF
           MaxLength = 0
           Style = csDropDownList
           TabOrder = 2
+          OnKeyDown = cbTipoKeyDown
         end
         object lblTipo: TLabel[7]
           Left = 312

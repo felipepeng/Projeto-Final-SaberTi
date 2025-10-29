@@ -100,6 +100,7 @@ object pesqClienteF: TpesqClienteF
     ReadOnly = True
     TabOrder = 1
     OnDblClick = DBGrid1DblClick
+    OnKeyDown = DBGrid1KeyDown
   end
   object qryPesqCliente: TZQuery
     Connection = DataModule1.ZConnection1

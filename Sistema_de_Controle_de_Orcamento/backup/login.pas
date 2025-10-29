@@ -21,6 +21,7 @@ type
     Image1: TImage;
     lblUsuario: TLabel;
     lblSenha: TLabel;
+    btnShowSenha: TSpeedButton;
     procedure btnEntrarClick(Sender: TObject);
     procedure btnSairClick(Sender: TObject);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -28,6 +29,7 @@ type
     procedure edtUsuarioChange(Sender: TObject);
     procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
+    procedure btnShowSenhaClick(Sender: TObject);
     function validaUsuario(pUsuario: String; pSenha: String): Boolean;
   private
 
@@ -128,6 +130,21 @@ begin
     if Key = VK_RETURN then
     edtSenha.SetFocus;
   end;
+
+end;
+
+procedure TLoginF.btnShowSenhaClick(Sender: TObject);
+begin
+  if edtSenha.EchoMode <> emNormal then
+  begin
+    btnShowSenha.Glyph.LoadFromFile('./icons/view.bmp');
+    edtSenha.EchoMode := emNormal;
+  end
+  else
+  begin
+    edtSenha.EchoMode := emPassword;
+  end;
+
 
 end;
 

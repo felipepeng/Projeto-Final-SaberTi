@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule;
+  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule, LCLType;
 
 type
 
@@ -37,6 +37,8 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
@@ -60,6 +62,8 @@ begin
   inherited;
   //Abre a Query
   qryCadUsuario.Open;
+
+  edtPesquisa.SetFocus;
 end;
 
 procedure TcadUsuarioF.qryCadUsuarioAfterInsert(DataSet: TDataSet);
@@ -102,6 +106,15 @@ begin
 
   //Reabre a Query
   qryCadUsuario.Open;
+end;
+
+procedure TcadUsuarioF.edtSenhaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    btnGravar.SetFocus;
+  end;
 end;
 
 procedure TcadUsuarioF.btnGravarClick(Sender: TObject);

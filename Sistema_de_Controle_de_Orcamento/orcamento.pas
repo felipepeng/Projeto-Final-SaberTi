@@ -18,7 +18,7 @@ type
     btnImprimir: TBitBtn;
     btnAddItem: TBitBtn;
     btnExcluirItem: TBitBtn;
-    btnPesqCliente: TSpeedButton;
+    btnPesqCliente: TBitBtn;
     btnPesquisa: TSpeedButton;
     DateEditDataOrcamento: TDBDateEdit;
     DateEditDataValidade: TDBDateEdit;
@@ -150,6 +150,8 @@ begin
   qryOrcamento.Open;
   qryOrcItem.Open;
   qryProduto.Open;
+
+  edtPesquisa.SetFocus;
 end;
 
 procedure TOrcamentoF.PageControl1Change(Sender: TObject);
@@ -182,21 +184,6 @@ begin
   qryOrcamento.Close;
   qryOrcItem.Close;
   qryProduto.Close;
-end;
-
-procedure TOrcamentoF.btnPesqClienteClick(Sender: TObject);
-begin
-
-  If qryOrcamento.State <> dsBrowse then
-  begin
-    pesqClienteF.ShowModal;
-  end
-  else
-  begin
-    ShowMessage('Para escolher outro Cliente, primeiro ative o modo de edição.');
-  end;
-
-
 end;
 
 procedure TOrcamentoF.DBGrid1DblClick(Sender: TObject);
@@ -235,6 +222,21 @@ begin
   //Datas
   qryOrcamento.FieldByName('dt_orcamento').AsDateTime := Date;
   qryOrcamento.FieldByName('dt_validade_orcamento').AsDateTime:= Date + 15;
+
+  btnPesqCliente.SetFocus;
+  btnImprimir.Enabled := false;
+end;
+
+procedure TOrcamentoF.btnPesqClienteClick(Sender: TObject);
+begin
+  If qryOrcamento.State <> dsBrowse then
+  begin
+    pesqClienteF.ShowModal;
+  end
+  else
+  begin
+    ShowMessage('Para escolher outro Cliente, primeiro ative o modo de edição.');
+  end;
 end;
 
 procedure TOrcamentoF.btnGravarClick(Sender: TObject);

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, DB, Forms, Controls, Graphics, Dialogs, ExtCtrls, DBGrids,
-  Buttons, StdCtrls, ZDataset, ZAbstractRODataset;
+  Buttons, StdCtrls, ZDataset, ZAbstractRODataset, LCLType;
 
 type
 
@@ -28,6 +28,8 @@ type
     qryProdutostatus_produto: TZRawStringField;
     qryProdutovl_venda_produto: TZBCDField;
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
@@ -52,6 +54,7 @@ uses
 procedure TpesqProdutoF.FormShow(Sender: TObject);
 begin
   qryProduto.Open;
+  DBGrid1.SetFocus;
 end;
 
 procedure TpesqProdutoF.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -84,6 +87,13 @@ begin
   OrcamentoF.qryOrcItemprodutoid.AsInteger := qryProdutoprodutoid.AsInteger;
   OrcamentoF.qryOrcItemvl_unitario.AsFloat := qryProdutovl_venda_produto.AsFloat;
   Close;
+end;
+
+procedure TpesqProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    DBGrid1DblClick(Sender);
 end;
 
 

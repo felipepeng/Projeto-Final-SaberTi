@@ -63,6 +63,7 @@ procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCatProduto.Open;
+  edtPesquisa.SetFocus;
 end;
 
 procedure TcadCategoria_ProdutoF.FormClose(Sender: TObject;
