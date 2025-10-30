@@ -12,6 +12,8 @@ inherited cadProdutoF: TcadProdutoF
     Height = 583
     Width = 661
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 550
       ClientWidth = 653
@@ -183,7 +185,7 @@ inherited cadProdutoF: TcadProdutoF
           ReadOnly = True
           Color = cl3DLight
           MaxLength = 0
-          TabOrder = 6
+          TabOrder = 7
           TabStop = False
         end
         object lblDescricao: TLabel[2]
@@ -313,7 +315,7 @@ inherited cadProdutoF: TcadProdutoF
           ReadOnly = True
           Color = cl3DLight
           MaxLength = 0
-          TabOrder = 7
+          TabOrder = 6
           TabStop = False
         end
         object lblData: TLabel[12]

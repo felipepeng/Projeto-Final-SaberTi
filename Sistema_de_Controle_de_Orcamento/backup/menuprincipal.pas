@@ -33,8 +33,10 @@ type
     MenuItemUsuario: TMenuItem;
     Separator1: TMenuItem;
     Separator2: TMenuItem;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure MenuItemCategoriaClick(Sender: TObject);
     procedure MenuItemClienteClick(Sender: TObject);
+    procedure MenuItemEncerrarSesClick(Sender: TObject);
     procedure MenuItemOrcamentoClick(Sender: TObject);
     procedure MenuItemProdutoClick(Sender: TObject);
     procedure MenuItemRelCatProdutoClick(Sender: TObject);
@@ -65,10 +67,21 @@ begin
   cadCategoria_ProdutoF.ShowModal;
 end;
 
+procedure TMenuPrincipalF.FormClose(Sender: TObject;
+  var CloseAction: TCloseAction);
+begin
+  CloseAction := caFree;
+end;
+
 procedure TMenuPrincipalF.MenuItemClienteClick(Sender: TObject);
 begin
   cadClienteF := TcadClienteF.Create(Self);
   cadClienteF.ShowModal;
+end;
+
+procedure TMenuPrincipalF.MenuItemEncerrarSesClick(Sender: TObject);
+begin
+  Close;
 end;
 
 procedure TMenuPrincipalF.MenuItemOrcamentoClick(Sender: TObject);

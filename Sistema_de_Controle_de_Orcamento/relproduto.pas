@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, LR_DBSet,
-  LR_Class, ZDataset;
+  LR_Class, ZDataset, ZAbstractRODataset;
 
 type
 
@@ -17,6 +17,13 @@ type
     frDBDataSet1: TfrDBDataSet;
     frReport1: TfrReport;
     qryProduto: TZQuery;
+    qryProdutocategoriaprodutoid: TZIntegerField;
+    qryProdutods_produto: TZRawStringField;
+    qryProdutodt_cadastro_produto: TZDateTimeField;
+    qryProdutoobs_produto: TZRawStringField;
+    qryProdutoprodutoid: TZIntegerField;
+    qryProdutostatus_produto: TZRawStringField;
+    qryProdutovl_venda_produto: TZBCDField;
     procedure btnRelClientesClick(Sender: TObject);
   private
 

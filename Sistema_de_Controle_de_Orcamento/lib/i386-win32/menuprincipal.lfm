@@ -56,12 +56,6 @@ object MenuPrincipalF: TMenuPrincipalF
         Caption = 'Clientes'
         OnClick = MenuItemRelClientesClick
       end
-      object Separator2: TMenuItem
-        Caption = '-'
-      end
-      object MenuItemRelUsuario: TMenuItem
-        Caption = 'Usuário'
-      end
     end
     object MenuSobre: TMenuItem
       Caption = 'Sobre'

@@ -12,8 +12,6 @@ inherited OrcamentoF: TOrcamentoF
     Height = 573
     Width = 1206
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
       ClientHeight = 540
@@ -638,6 +636,7 @@ inherited OrcamentoF: TOrcamentoF
   object qryOrcamento: TZQuery[1]
     Connection = DataModule1.ZConnection1
     AfterInsert = qryOrcamentoAfterInsert
+    BeforePost = qryOrcamentoBeforePost
     AfterCancel = qryOrcamentoAfterCancel
     UpdateObject = updtOrcamento
     SQL.Strings = (

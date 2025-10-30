@@ -1,18 +1,19 @@
 object relProdutoF: TrelProdutoF
-  Left = 559
-  Height = 216
-  Top = 207
-  Width = 532
+  Left = 833
+  Height = 163
+  Top = 235
+  Width = 395
   Caption = 'Relatório de Produtos'
-  ClientHeight = 216
-  ClientWidth = 532
+  ClientHeight = 163
+  ClientWidth = 395
   Color = 10084282
   DesignTimePPI = 120
+  Position = poScreenCenter
   LCLVersion = '4.2.0.0'
   object btnRelClientes: TBitBtn
-    Left = 144
+    Left = 80
     Height = 80
-    Top = 48
+    Top = 32
     Width = 232
     Caption = 'Imprimir Rel. Produtos'
     Glyph.Data = {
@@ -64,13 +65,13 @@ object relProdutoF: TrelProdutoF
       'select * from produto;'
     )
     Params = <>
-    Left = 336
-    Top = 144
+    Left = 352
+    Top = 16
   end
   object frDBDataSet1: TfrDBDataSet
     DataSet = qryProduto
-    Left = 240
-    Top = 144
+    Left = 56
+    Top = 129
   end
   object frReport1: TfrReport
     Dataset = frDBDataSet1
@@ -78,7 +79,6 @@ object relProdutoF: TrelProdutoF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 144
-    Top = 144
+    Top = 128
   end
 end

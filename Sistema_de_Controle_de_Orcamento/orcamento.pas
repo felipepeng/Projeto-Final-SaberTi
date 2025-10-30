@@ -82,6 +82,7 @@ type
     procedure PageControl1Change(Sender: TObject);
     procedure qryOrcamentoAfterCancel(DataSet: TDataSet);
     procedure qryOrcamentoAfterInsert(DataSet: TDataSet);
+    procedure qryOrcamentoBeforePost(DataSet: TDataSet);
     procedure qryOrcItemAfterInsert(DataSet: TDataSet);
   private
 
@@ -169,6 +170,12 @@ procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
 begin
   //Sequence Orcamento
   qryOrcamento.FieldByName('orcamentoid').AsInteger := StrToInt(DataModule1.getSequence('orcamento_orcamentoid_seq'));
+end;
+
+procedure TOrcamentoF.qryOrcamentoBeforePost(DataSet: TDataSet);
+begin
+  if PageControl1.ActivePage = tbConsulta then
+    qryOrcamento.Cancel;
 end;
 
 procedure TOrcamentoF.qryOrcItemAfterInsert(DataSet: TDataSet);

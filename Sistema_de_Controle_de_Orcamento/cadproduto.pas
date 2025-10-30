@@ -208,13 +208,34 @@ begin
 end;
 
 procedure TcadProdutoF.btnExcluirClick(Sender: TObject);
+var
+  existe: Boolean;
 begin
-  //Exclui
-  If  MessageDlg('Atenção', 'Você tem certeza que deseja excluir o registro?', mtConfirmation,[mbyes,mbno],0) = mryes then
+
+  //Checa se existe algum Produto Cadastrado com esse ID
+  with DataModule1.qryGenerica do
   begin
-    qryCadProduto.Delete;
-    inherited; //Vai para Consulta
+    SQL.Text := 'SELECT EXISTS (SELECT 1 FROM orcamento_item WHERE produtoid = ' +  qryCadProduto.FieldByName('produtoid').AsString + ');';
+    Open;
+    existe := Fields[0].AsBoolean;
+    Close;
   end;
+
+  if existe then
+    ShowMessage('Não é possível Excluir, existe pelo menos um item de orçamento com este produto!')
+  else
+    begin
+         ShowMessage('Nenhum item de orçamento com este produto.');
+         //Exclui
+         If  MessageDlg('Atenção', 'Você tem certeza que deseja excluir o registro?', mtConfirmation,[mbyes,mbno],0) = mryes then
+         begin
+           qryCadProduto.Delete;
+           inherited; //Vai para Consulta
+         end;
+    end;
+
+
+
 end;
 
 procedure TcadProdutoF.btnCancelarClick(Sender: TObject);

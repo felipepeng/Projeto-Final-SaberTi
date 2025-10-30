@@ -16,7 +16,6 @@ type
   TMenuPrincipalF = class(TForm)
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
-    MenuItemRelUsuario: TMenuItem;
     MenuItemRelCatProduto: TMenuItem;
     MenuItemRelProduto: TMenuItem;
     MenuItemRelClientes: TMenuItem;
@@ -32,7 +31,6 @@ type
     MenuItemProduto: TMenuItem;
     MenuItemUsuario: TMenuItem;
     Separator1: TMenuItem;
-    Separator2: TMenuItem;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure MenuItemCategoriaClick(Sender: TObject);
     procedure MenuItemClienteClick(Sender: TObject);
