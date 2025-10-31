@@ -31,10 +31,15 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtDescricaoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
   private
@@ -73,6 +78,15 @@ begin
   qryCatProduto.Close;
 end;
 
+procedure TcadCategoria_ProdutoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  if (PageControl1.ActivePage = tbCadastro) and Key = VK_ESCAPE then
+    PageControl1.ActivePage := tbConsulta;
+
+end;
+
 procedure TcadCategoria_ProdutoF.btnInserirClick(Sender: TObject);
 begin
   inherited; //Vai para Cadastro
@@ -99,6 +113,22 @@ begin
 
   //Reabre a Query
   qryCatProduto.Open;
+end;
+
+procedure TcadCategoria_ProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+
 end;
 
 procedure TcadCategoria_ProdutoF.edtDescricaoKeyDown(Sender: TObject;
@@ -132,6 +162,17 @@ begin
 
   //Reabre a Query
   qryCatProduto.Open;
+end;
+
+procedure TcadCategoria_ProdutoF.edtPesquisaKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
+
 end;
 
 procedure TcadCategoria_ProdutoF.btnGravarClick(Sender: TObject);

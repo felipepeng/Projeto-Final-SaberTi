@@ -211,12 +211,6 @@ procedure TcadProdutoF.btnExcluirClick(Sender: TObject);
 var
   existe: Boolean;
 begin
-  //Exclui
-  //If  MessageDlg('Atenção', 'Você tem certeza que deseja excluir o registro?', mtConfirmation,[mbyes,mbno],0) = mryes then
-  //begin
-  //  qryCadProduto.Delete;
-  //  inherited; //Vai para Consulta
-  //end;
 
   //Checa se existe algum Produto Cadastrado com esse ID
   with DataModule1.qryGenerica do

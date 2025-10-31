@@ -2,7 +2,9 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   Left = 952
   Top = 335
   Caption = 'Categoria de Produto'
+  KeyPreview = True
   OnClose = FormClose
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   inherited PageControl1: TPageControl
     TabStop = False
@@ -30,6 +32,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           NumbersOnly = True
           TabOrder = 0
           OnChange = edtPesquisaChange
+          OnKeyDown = edtPesquisaKeyDown
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
@@ -76,6 +79,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           DataSource = dsCatProduto
           ReadOnly = False
           TabStop = False
+          OnKeyDown = DBGrid1KeyDown
         end
       end
     end
