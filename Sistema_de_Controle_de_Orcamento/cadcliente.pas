@@ -38,9 +38,14 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
     procedure cbTipoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
     procedure qryCadClienteBeforePost(DataSet: TDataSet);
@@ -86,6 +91,13 @@ begin
   qryCadCliente.Close;
 end;
 
+procedure TcadClienteF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
+end;
+
 procedure TcadClienteF.btnInserirClick(Sender: TObject);
 begin
   inherited; //Vai para Cadastro
@@ -123,6 +135,20 @@ begin
     end;
 end;
 
+procedure TcadClienteF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
 begin
   //Só permite números e backspace
@@ -147,6 +173,15 @@ begin
 
   //Reabre a Query
   qryCadCliente.Open;
+end;
+
+procedure TcadClienteF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TcadClienteF.btnGravarClick(Sender: TObject);

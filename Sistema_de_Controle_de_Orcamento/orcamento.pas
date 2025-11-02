@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
   ExtCtrls, DBCtrls, DBGrids, DBExtCtrls, EditBtn, LR_DBSet, LR_Class, ZDataset,
   ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, pesqCliente, DataModule,
-  cadItemOrc;
+  cadItemOrc, LCLType;
 
 type
 
@@ -76,12 +76,18 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
     procedure qryOrcamentoAfterCancel(DataSet: TDataSet);
     procedure qryOrcamentoAfterInsert(DataSet: TDataSet);
+    procedure qryOrcamentoBeforeEdit(DataSet: TDataSet);
     procedure qryOrcamentoBeforePost(DataSet: TDataSet);
     procedure qryOrcItemAfterInsert(DataSet: TDataSet);
   private
@@ -173,6 +179,11 @@ begin
   qryOrcamento.FieldByName('orcamentoid').AsInteger := StrToInt(DataModule1.getSequence('orcamento_orcamentoid_seq'));
 end;
 
+procedure TOrcamentoF.qryOrcamentoBeforeEdit(DataSet: TDataSet);
+begin
+  btnPesqCliente.SetFocus;
+end;
+
 procedure TOrcamentoF.qryOrcamentoBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
@@ -194,11 +205,32 @@ begin
   qryProduto.Close;
 end;
 
+procedure TOrcamentoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
+end;
+
 procedure TOrcamentoF.DBGrid1DblClick(Sender: TObject);
 begin
   inherited;
   //Abre Orcamento Itens
   AbreOrcItens(qryOrcamentoorcamentoid.AsInteger);
+end;
+
+procedure TOrcamentoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
 end;
 
 procedure TOrcamentoF.edtPesquisaChange(Sender: TObject);
@@ -218,6 +250,15 @@ begin
 
   //Reabre a Query
   qryOrcamento.Open;
+end;
+
+procedure TOrcamentoF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TOrcamentoF.btnInserirClick(Sender: TObject);

@@ -13,6 +13,8 @@ inherited cadProdutoF: TcadProdutoF
     Height = 583
     Width = 661
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 555
       ClientWidth = 653

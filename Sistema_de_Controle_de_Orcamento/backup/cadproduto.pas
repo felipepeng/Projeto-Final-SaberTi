@@ -239,8 +239,8 @@ begin
     Abort;
   end;
 
+  qryCadProduto.Post; //Post
   inherited; //Vai para Consulta
-  qryCadProduto.Post;
 end;
 
 procedure TcadProdutoF.btnEditarClick(Sender: TObject);

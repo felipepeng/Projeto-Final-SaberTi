@@ -1,17 +1,18 @@
 inherited cadUsuarioF: TcadUsuarioF
-  Left = 198
-  Top = 239
+  Left = 631
+  Height = 387
+  Top = 265
   Caption = 'Cadastro de Usuário'
+  ClientHeight = 387
+  KeyPreview = True
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
-    Height = 394
+    Height = 387
     Width = 458
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
-      ClientHeight = 366
+      ClientHeight = 359
       ClientWidth = 450
       inherited PanelConsultaTop: TPanel
         Width = 450
@@ -38,6 +39,7 @@ inherited cadUsuarioF: TcadUsuarioF
           NumbersOnly = True
           TabOrder = 0
           OnChange = edtPesquisaChange
+          OnKeyDown = edtPesquisaKeyDown
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
@@ -60,7 +62,7 @@ inherited cadUsuarioF: TcadUsuarioF
         end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 322
+        Top = 315
         Width = 450
         ClientWidth = 450
         inherited btnInserir: TBitBtn
@@ -71,13 +73,13 @@ inherited cadUsuarioF: TcadUsuarioF
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 277
+        Height = 270
         Top = 45
         Width = 450
-        ClientHeight = 277
+        ClientHeight = 270
         ClientWidth = 450
         inherited DBGrid1: TDBGrid
-          Height = 275
+          Height = 268
           Width = 448
           Columns = <          
             item
@@ -108,14 +110,15 @@ inherited cadUsuarioF: TcadUsuarioF
             end>
           DataSource = dsCadUsuario
           TabStop = False
+          OnKeyDown = DBGrid1KeyDown
         end
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 366
+      ClientHeight = 359
       ClientWidth = 450
       inherited PanelCadastroBottom: TPanel
-        Top = 316
+        Top = 309
         Width = 450
         ClientWidth = 450
         inherited btnGravar: TBitBtn
@@ -133,9 +136,9 @@ inherited cadUsuarioF: TcadUsuarioF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 316
+        Height = 309
         Width = 450
-        ClientHeight = 316
+        ClientHeight = 309
         ClientWidth = 450
         object lblId: TLabel[0]
           Left = 32

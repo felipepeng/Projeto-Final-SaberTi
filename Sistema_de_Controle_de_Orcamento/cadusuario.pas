@@ -36,10 +36,15 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
     procedure qryCadUsuarioBeforePost(DataSet: TDataSet);
@@ -87,6 +92,13 @@ begin
   qryCadUsuario.Close;
 end;
 
+procedure TcadUsuarioF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
+end;
+
 procedure TcadUsuarioF.btnInserirClick(Sender: TObject);
 begin
   inherited;
@@ -94,6 +106,20 @@ begin
   qryCadUsuario.Insert;
 
   edtUsuario.SetFocus;
+end;
+
+procedure TcadUsuarioF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
 end;
 
 procedure TcadUsuarioF.edtPesquisaChange(Sender: TObject);
@@ -113,6 +139,15 @@ begin
 
   //Reabre a Query
   qryCadUsuario.Open;
+end;
+
+procedure TcadUsuarioF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TcadUsuarioF.edtSenhaKeyDown(Sender: TObject; var Key: Word;

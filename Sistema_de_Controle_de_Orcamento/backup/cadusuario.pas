@@ -36,7 +36,11 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -96,6 +100,20 @@ begin
   edtUsuario.SetFocus;
 end;
 
+procedure TcadUsuarioF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadUsuarioF.edtPesquisaChange(Sender: TObject);
 begin
   //Fecha a Query
@@ -115,6 +133,15 @@ begin
   qryCadUsuario.Open;
 end;
 
+procedure TcadUsuarioF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
+end;
+
 procedure TcadUsuarioF.edtSenhaKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -131,6 +158,20 @@ begin
   begin
     ShowMessage('Usuário deve ser Preenchido');
     edtUsuario.SetFocus;
+    Abort;
+  end;
+
+  if qryCadUsuarionome_completo.AsString = '' then
+  begin
+    ShowMessage('Nome Completo deve ser Preenchido');
+    edtNomeComp.SetFocus;
+    Abort;
+  end;
+
+  if qryCadUsuariosenha.AsString = '' then
+  begin
+    ShowMessage('Senha deve ser Preenchida');
+    edtSenha.SetFocus;
     Abort;
   end;
 

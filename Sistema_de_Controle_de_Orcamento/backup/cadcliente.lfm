@@ -1,18 +1,16 @@
 inherited cadClienteF: TcadClienteF
-  Left = 601
-  Top = 241
+  Left = 687
+  Top = 243
   Width = 590
   Caption = 'Cliente'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientWidth = 590
+  KeyPreview = True
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 394
     Width = 590
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 366
       ClientWidth = 582
@@ -41,6 +39,7 @@ inherited cadClienteF: TcadClienteF
           NumbersOnly = True
           TabOrder = 0
           OnChange = edtPesquisaChange
+          OnKeyDown = edtPesquisaKeyDown
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
@@ -113,6 +112,7 @@ inherited cadClienteF: TcadClienteF
             end>
           DataSource = dsCadCliente
           TabStop = False
+          OnKeyDown = DBGrid1KeyDown
         end
       end
     end

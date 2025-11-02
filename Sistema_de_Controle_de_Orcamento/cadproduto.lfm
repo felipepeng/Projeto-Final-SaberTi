@@ -6,6 +6,7 @@ inherited cadProdutoF: TcadProdutoF
   Caption = 'Cadastro de Produto'
   ClientHeight = 583
   ClientWidth = 661
+  KeyPreview = True
   OnClose = FormClose
   OnKeyDown = FormKeyDown
   OnShow = FormShow
@@ -13,8 +14,6 @@ inherited cadProdutoF: TcadProdutoF
     Height = 583
     Width = 661
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 555
       ClientWidth = 653

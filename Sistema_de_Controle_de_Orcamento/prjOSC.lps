@@ -11,7 +11,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="5"/>
         <CursorPos X="87" Y="5"/>
-        <UsageCount Value="92"/>
+        <UsageCount Value="93"/>
       </Unit>
       <Unit>
         <Filename Value="xcadpai.pas"/>
@@ -23,7 +23,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
         <CursorPos X="5" Y="95"/>
-        <UsageCount Value="92"/>
+        <UsageCount Value="93"/>
       </Unit>
       <Unit>
         <Filename Value="menuprincipal.pas"/>
@@ -35,7 +35,7 @@
         <EditorIndex Value="14"/>
         <TopLine Value="113"/>
         <CursorPos X="73" Y="118"/>
-        <UsageCount Value="89"/>
+        <UsageCount Value="90"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -47,10 +47,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCategoria_Produto"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="176"/>
-        <CursorPos X="82" Y="187"/>
-        <UsageCount Value="89"/>
+        <TopLine Value="88"/>
+        <CursorPos X="90" Y="103"/>
+        <UsageCount Value="90"/>
         <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="datamodule.pas"/>
@@ -61,7 +62,7 @@
         <UnitName Value="DataModule"/>
         <EditorIndex Value="13"/>
         <CursorPos X="10" Y="5"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="89"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -73,10 +74,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCliente"/>
         <EditorIndex Value="9"/>
-        <TopLine Value="147"/>
-        <CursorPos X="78" Y="153"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="87"/>
+        <TopLine Value="94"/>
+        <CursorPos X="81" Y="101"/>
+        <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -88,9 +88,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadProduto"/>
         <EditorIndex Value="8"/>
-        <TopLine Value="201"/>
-        <CursorPos X="21" Y="227"/>
-        <UsageCount Value="85"/>
+        <TopLine Value="111"/>
+        <CursorPos X="54" Y="135"/>
+        <UsageCount Value="86"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -102,10 +102,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadUsuario"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="124"/>
-        <CursorPos X="60" Y="136"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="82"/>
+        <TopLine Value="95"/>
+        <CursorPos X="78" Y="107"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -117,9 +116,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqCatProduto"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="73"/>
-        <CursorPos Y="79"/>
-        <UsageCount Value="77"/>
+        <TopLine Value="66"/>
+        <CursorPos X="14" Y="73"/>
+        <UsageCount Value="78"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -132,7 +131,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="58" Y="33"/>
-        <UsageCount Value="75"/>
+        <UsageCount Value="76"/>
       </Unit>
       <Unit>
         <Filename Value="orcamento.pas"/>
@@ -141,11 +140,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Orcamento"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="163"/>
-        <CursorPos X="46" Y="184"/>
-        <UsageCount Value="72"/>
+        <TopLine Value="185"/>
+        <CursorPos X="68" Y="212"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -157,8 +155,9 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqCliente"/>
         <EditorIndex Value="5"/>
-        <CursorPos Y="14"/>
-        <UsageCount Value="67"/>
+        <TopLine Value="65"/>
+        <CursorPos X="13" Y="71"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -172,7 +171,7 @@
         <EditorIndex Value="6"/>
         <TopLine Value="63"/>
         <CursorPos Y="79"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="62"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -183,10 +182,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="pesqProduto"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
-        <TopLine Value="75"/>
-        <CursorPos X="9" Y="89"/>
-        <UsageCount Value="60"/>
+        <TopLine Value="67"/>
+        <CursorPos X="8" Y="73"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -199,7 +199,7 @@
         <UnitName Value="relClientes"/>
         <TopLine Value="28"/>
         <CursorPos Y="35"/>
-        <UsageCount Value="54"/>
+        <UsageCount Value="55"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -213,7 +213,7 @@
         <EditorIndex Value="3"/>
         <TopLine Value="21"/>
         <CursorPos Y="36"/>
-        <UsageCount Value="51"/>
+        <UsageCount Value="52"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -227,7 +227,7 @@
         <EditorIndex Value="1"/>
         <TopLine Value="20"/>
         <CursorPos X="58" Y="30"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -241,7 +241,7 @@
         <EditorIndex Value="15"/>
         <TopLine Value="17"/>
         <CursorPos X="9" Y="23"/>
-        <UsageCount Value="45"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -255,100 +255,12 @@
         <EditorIndex Value="11"/>
         <TopLine Value="124"/>
         <CursorPos X="23" Y="131"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="44"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="cadproduto.pas"/>
-        <Caret Line="54" Column="8" TopLine="46"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="118" Column="11" TopLine="97"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="85" Column="3" TopLine="81"/>
-      </Position>
-      <Position>
-        <Filename Value="cadproduto.pas"/>
-        <Caret Line="153" Column="18" TopLine="149"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="86" Column="8" TopLine="81"/>
-      </Position>
-      <Position>
-        <Filename Value="cadproduto.pas"/>
-        <Caret Line="108" Column="13" TopLine="104"/>
-      </Position>
-      <Position>
-        <Filename Value="orcamento.pas"/>
-        <Caret Line="187" Column="14" TopLine="172"/>
-      </Position>
-      <Position>
-        <Filename Value="cadproduto.pas"/>
-        <Caret Line="195" Column="54" TopLine="192"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="177" Column="3" TopLine="173"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="73" Column="66" TopLine="62"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="197" Column="33" TopLine="182"/>
-      </Position>
-      <Position>
-        <Filename Value="cadproduto.pas"/>
-        <Caret Line="103" Column="69" TopLine="97"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcliente.pas"/>
-        <Caret Line="155" Column="22" TopLine="142"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcliente.pas"/>
-        <Caret Line="79" Column="29" TopLine="70"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcliente.pas"/>
-        <Caret Line="159" Column="35" TopLine="149"/>
-      </Position>
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="121" Column="8" TopLine="103"/>
-      </Position>
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="79" Column="18" TopLine="76"/>
-      </Position>
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="131" Column="13" TopLine="124"/>
-      </Position>
-      <Position>
-        <Filename Value="cadusuario.pas"/>
-        <Caret Line="129" Column="95" TopLine="124"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="82" Column="65" TopLine="68"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcliente.pas"/>
-        <Caret Line="156" Column="38" TopLine="149"/>
-      </Position>
-      <Position>
-        <Filename Value="cadcliente.pas"/>
-        <Caret Line="161" Column="29" TopLine="149"/>
-      </Position>
       <Position>
         <Filename Value="cadusuario.pas"/>
         <Caret Line="129" Column="95" TopLine="124"/>
@@ -380,6 +292,94 @@
       <Position>
         <Filename Value="orcamento.pas"/>
         <Caret Line="234" Column="13" TopLine="222"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcategoria_produto.pas"/>
+        <Caret Line="187" Column="82" TopLine="176"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcategoria_produto.pas"/>
+        <Caret Line="191" Column="41" TopLine="171"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcategoria_produto.pas"/>
+        <Caret Line="144" Column="59" TopLine="125"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="227" Column="21" TopLine="201"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="196" Column="3" TopLine="193"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="163" Column="3" TopLine="160"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="161" Column="78" TopLine="149"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="168" Column="17" TopLine="157"/>
+      </Position>
+      <Position>
+        <Filename Value="cadcliente.pas"/>
+        <Caret Line="148" Column="10" TopLine="137"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="144" Column="60" TopLine="132"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="134" Column="22" TopLine="128"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="120" Column="18" TopLine="110"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="191" Column="61" TopLine="165"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="231" Column="8" TopLine="225"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="12" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="224" Column="70" TopLine="215"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="217" Column="14" TopLine="208"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="198" Column="15" TopLine="179"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqcliente.pas"/>
+        <Caret Line="14"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqcliente.pas"/>
+        <Caret Line="20" Column="44"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqcatproduto.pas"/>
+        <Caret Line="79" Column="14" TopLine="72"/>
+      </Position>
+      <Position>
+        <Filename Value="pesqproduto.pas"/>
+        <Caret Line="96" Column="9" TopLine="75"/>
       </Position>
     </JumpHistory>
     <RunParams>

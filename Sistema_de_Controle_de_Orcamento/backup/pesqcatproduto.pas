@@ -51,6 +51,8 @@ procedure TpesqCatProdutoF.FormShow(Sender: TObject);
 begin
   //Abre a Query
   qrypesqCat.Open;
+
+  DBGrid1.SetFocus;
 end;
 
 procedure TpesqCatProdutoF.FormClose(Sender: TObject;

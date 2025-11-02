@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
   ExtCtrls, DBCtrls, DBGrids, DBExtCtrls, EditBtn, LR_DBSet, LR_Class, ZDataset,
   ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, pesqCliente, DataModule,
-  cadItemOrc;
+  cadItemOrc, LCLType;
 
 type
 
@@ -76,8 +76,13 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure PageControl1Change(Sender: TObject);
     procedure qryOrcamentoAfterCancel(DataSet: TDataSet);
@@ -164,6 +169,7 @@ procedure TOrcamentoF.qryOrcamentoAfterCancel(DataSet: TDataSet);
 begin
   //Troca ícone editar
   btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnImprimir.Enabled := true;
 end;
 
 procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
@@ -193,11 +199,32 @@ begin
   qryProduto.Close;
 end;
 
+procedure TOrcamentoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
+end;
+
 procedure TOrcamentoF.DBGrid1DblClick(Sender: TObject);
 begin
   inherited;
   //Abre Orcamento Itens
   AbreOrcItens(qryOrcamentoorcamentoid.AsInteger);
+end;
+
+procedure TOrcamentoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
 end;
 
 procedure TOrcamentoF.edtPesquisaChange(Sender: TObject);
@@ -219,6 +246,15 @@ begin
   qryOrcamento.Open;
 end;
 
+procedure TOrcamentoF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
+end;
+
 procedure TOrcamentoF.btnInserirClick(Sender: TObject);
 begin
   //Insert
@@ -231,6 +267,7 @@ begin
   qryOrcamento.FieldByName('dt_validade_orcamento').AsDateTime:= Date + 15;
 
   btnPesqCliente.SetFocus;
+  //Imprimir
   btnImprimir.Enabled := false;
 end;
 

@@ -38,8 +38,12 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
     procedure cbTipoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
@@ -123,6 +127,20 @@ begin
     end;
 end;
 
+procedure TcadClienteF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
 begin
   //Só permite números e backspace
@@ -149,6 +167,15 @@ begin
   qryCadCliente.Open;
 end;
 
+procedure TcadClienteF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
+end;
+
 procedure TcadClienteF.btnGravarClick(Sender: TObject);
 begin
 
@@ -159,6 +186,19 @@ begin
     Abort;
   end;
 
+  if qryCadClientecpf_cnpj_cliente.AsString = '' then
+  begin
+    ShowMessage('CPF/CNPJ deve ser Preenchido');
+    edtCPF_CNPJ.SetFocus;
+    Abort;
+  end;
+
+  if qryCadClientetipo_cliente.AsString = '' then
+  begin
+    ShowMessage('Tipo deve ser Preenchido');
+    cbTipo.SetFocus;
+    Abort;
+  end;
 
   //Confirma o Insert
   qryCadCliente.Post;

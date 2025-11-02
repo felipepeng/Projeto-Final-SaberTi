@@ -1,6 +1,6 @@
 inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
-  Left = 952
-  Top = 335
+  Left = 754
+  Top = 317
   Caption = 'Categoria de Produto'
   KeyPreview = True
   OnClose = FormClose
@@ -10,8 +10,6 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Height = 394
     Width = 458
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 366
       ClientWidth = 450
