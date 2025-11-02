@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 561
+  Left = 588
   Height = 573
-  Top = 213
+  Top = 302
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -14,14 +14,14 @@ inherited OrcamentoF: TOrcamentoF
     TabStop = False
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
-      ClientHeight = 540
+      ClientHeight = 545
       ClientWidth = 1198
       inherited PanelConsultaTop: TPanel
         Width = 1198
         ClientWidth = 1198
         object edtPesquisa: TEdit[0]
           Left = 136
-          Height = 28
+          Height = 23
           Top = 16
           Width = 128
           NumbersOnly = True
@@ -63,7 +63,7 @@ inherited OrcamentoF: TOrcamentoF
         end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 485
+        Top = 501
         Width = 1198
         ClientWidth = 1198
         inherited btnInserir: TBitBtn
@@ -74,12 +74,13 @@ inherited OrcamentoF: TOrcamentoF
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 429
+        Height = 456
+        Top = 45
         Width = 1198
-        ClientHeight = 429
+        ClientHeight = 456
         ClientWidth = 1198
         inherited DBGrid1: TDBGrid
-          Height = 427
+          Height = 454
           Width = 1196
           Columns = <          
             item
@@ -138,11 +139,11 @@ inherited OrcamentoF: TOrcamentoF
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 540
+      ClientHeight = 545
       ClientWidth = 1198
       inherited PanelCadastroBottom: TPanel
         Height = 55
-        Top = 485
+        Top = 490
         Width = 1198
         ClientHeight = 55
         ClientWidth = 1198
@@ -258,9 +259,9 @@ inherited OrcamentoF: TOrcamentoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 485
+        Height = 490
         Width = 1198
-        ClientHeight = 485
+        ClientHeight = 490
         ClientWidth = 1198
         object PanelCadastroTop: TPanel[0]
           Left = 1
@@ -290,7 +291,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtId: TDBEdit
             Left = 16
-            Height = 28
+            Height = 23
             Top = 40
             Width = 64
             DataField = 'orcamentoid'
@@ -318,7 +319,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtClienteId: TDBEdit
             Left = 16
-            Height = 28
+            Height = 23
             Top = 104
             Width = 64
             DataField = 'clienteid'
@@ -374,7 +375,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtTotalOrcamento: TDBEdit
             Left = 432
-            Height = 28
+            Height = 23
             Top = 40
             Width = 131
             DataField = 'vl_total_orcamento'
@@ -472,7 +473,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object DateEditDataOrcamento: TDBDateEdit
             Left = 128
-            Height = 28
+            Height = 23
             Top = 40
             Width = 129
             CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -488,7 +489,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object DateEditDataValidade: TDBDateEdit
             Left = 280
-            Height = 28
+            Height = 23
             Top = 40
             Width = 129
             CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -574,7 +575,7 @@ inherited OrcamentoF: TOrcamentoF
         end
         object DBGridOrcItem: TDBGrid[1]
           Left = 1
-          Height = 324
+          Height = 329
           Top = 160
           Width = 1196
           Align = alClient

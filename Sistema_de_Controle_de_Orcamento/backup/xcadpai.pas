@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ComCtrls,
-  ExtCtrls, Buttons, DBGrids;
+  ExtCtrls, Buttons, DBGrids, LCLType;
 
 type
 
@@ -35,6 +35,8 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
   private
@@ -91,7 +93,21 @@ end;
 
 procedure TXCadPaiF.DBGrid1DblClick(Sender: TObject);
 begin
-  PageControl1.ActivePage := tbConsulta;
+  PageControl1.ActivePage := tbCadastro;
+end;
+
+procedure TXCadPaiF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+    if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
 end;
 
 procedure TXCadPaiF.FormClose(Sender: TObject; var CloseAction: TCloseAction);

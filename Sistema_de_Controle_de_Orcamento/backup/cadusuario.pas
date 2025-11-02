@@ -42,6 +42,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
+    procedure qryCadUsuarioBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -70,6 +71,12 @@ procedure TcadUsuarioF.qryCadUsuarioAfterInsert(DataSet: TDataSet);
 begin
   //Aplica Sequence
   qryCadUsuario.FieldByName('id').AsInteger := StrToInt(DataModule1.getSequence('usuarios_id_seq'));
+end;
+
+procedure TcadUsuarioF.qryCadUsuarioBeforePost(DataSet: TDataSet);
+begin
+  if PageControl1.ActivePage = tbConsulta then
+    qryCadUsuario.Cancel;
 end;
 
 procedure TcadUsuarioF.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -119,9 +126,17 @@ end;
 
 procedure TcadUsuarioF.btnGravarClick(Sender: TObject);
 begin
-  inherited;
+
+  if qryCadUsuariousuario.AsString = '' then
+  begin
+    ShowMessage('Usuário deve ser Preenchido');
+    edtUsuario.SetFocus;
+    Abort;
+  end;
+
   //Gravar
   qryCadUsuario.Post;
+  inherited;
 end;
 
 procedure TcadUsuarioF.btnEditarClick(Sender: TObject);

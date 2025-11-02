@@ -1,15 +1,19 @@
 inherited cadClienteF: TcadClienteF
-  Left = 601
-  Top = 241
+  Left = 26
+  Top = 234
   Width = 590
   Caption = 'Cliente'
   ClientWidth = 590
   OnClose = FormClose
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    Height = 394
     Width = 590
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
+      ClientHeight = 366
       ClientWidth = 582
       inherited PanelConsultaTop: TPanel
         Width = 582
@@ -30,7 +34,7 @@ inherited cadClienteF: TcadClienteF
         end
         object edtPesquisa: TEdit[1]
           Left = 136
-          Height = 28
+          Height = 23
           Top = 16
           Width = 128
           NumbersOnly = True
@@ -59,6 +63,7 @@ inherited cadClienteF: TcadClienteF
         end
       end
       inherited PanelConsultaBottom: TPanel
+        Top = 322
         Width = 582
         ClientWidth = 582
         inherited btnInserir: TBitBtn
@@ -69,9 +74,13 @@ inherited cadClienteF: TcadClienteF
         end
       end
       inherited PanelConsultaCenter: TPanel
+        Height = 277
+        Top = 45
         Width = 582
+        ClientHeight = 277
         ClientWidth = 582
         inherited DBGrid1: TDBGrid
+          Height = 275
           Width = 580
           Columns = <          
             item
@@ -107,8 +116,10 @@ inherited cadClienteF: TcadClienteF
       end
     end
     inherited tbCadastro: TTabSheet
+      ClientHeight = 366
       ClientWidth = 582
       inherited PanelCadastroBottom: TPanel
+        Top = 316
         Width = 582
         ClientWidth = 582
         inherited btnGravar: TBitBtn
@@ -126,7 +137,9 @@ inherited cadClienteF: TcadClienteF
         end
       end
       inherited PanelCadastroCenter: TPanel
+        Height = 316
         Width = 582
+        ClientHeight = 316
         ClientWidth = 582
         object lblId: TLabel[0]
           Left = 32
@@ -158,7 +171,7 @@ inherited cadClienteF: TcadClienteF
         end
         object edtNome: TDBEdit[2]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 120
           Width = 352
           DataField = 'nome_cliente'
@@ -168,7 +181,7 @@ inherited cadClienteF: TcadClienteF
         end
         object edtId: TDBEdit[3]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 48
           Width = 56
           DataField = 'clienteid'
@@ -195,7 +208,7 @@ inherited cadClienteF: TcadClienteF
         end
         object edtCPF_CNPJ: TDBEdit[5]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 192
           Width = 252
           DataField = 'cpf_cnpj_cliente'
@@ -206,13 +219,13 @@ inherited cadClienteF: TcadClienteF
         end
         object cbTipo: TDBComboBox[6]
           Left = 312
-          Height = 28
+          Height = 23
           Top = 192
           Width = 72
           CharCase = ecUppercase
           DataField = 'tipo_cliente'
           DataSource = dsCadCliente
-          ItemHeight = 20
+          ItemHeight = 15
           Items.Strings = (
             'F'
             'J'
@@ -242,6 +255,7 @@ inherited cadClienteF: TcadClienteF
   object qryCadCliente: TZQuery[1]
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadClienteAfterInsert
+    BeforePost = qryCadClienteBeforePost
     UpdateObject = updtCadCliente
     SQL.Strings = (
       'select * from cliente c'

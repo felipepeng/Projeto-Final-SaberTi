@@ -43,6 +43,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
+    procedure qryCadClienteBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -70,6 +71,12 @@ procedure TcadClienteF.qryCadClienteAfterInsert(DataSet: TDataSet);
 begin
   //Aplica Sequence
   qryCadCliente.FieldByName('clienteid').AsInteger := StrToInt(DataModule1.getSequence('cliente_clienteid'));
+end;
+
+procedure TcadClienteF.qryCadClienteBeforePost(DataSet: TDataSet);
+begin
+  if PageControl1.ActivePage = tbConsulta then
+    qryCadCliente.Cancel;
 end;
 
 procedure TcadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
@@ -144,9 +151,31 @@ end;
 
 procedure TcadClienteF.btnGravarClick(Sender: TObject);
 begin
-  inherited; //Vai para Consulta
+
+  if qryCadClientenome_cliente.AsString = '' then
+  begin
+    ShowMessage('Nome Completo deve ser Preenchido');
+    edtNome.SetFocus;
+    Abort;
+  end;
+
+  if qryCadClientecpf_cnpj_cliente.AsString = '' then
+  begin
+    ShowMessage('CPF/CNPJ deve ser Preenchido');
+    edtCPF_CNPJ.SetFocus;
+    Abort;
+  end;
+
+  if qryCadClientetipo_cliente.AsString = '' then
+  begin
+    ShowMessage('Tipo deve ser Preenchido');
+    cbTipo.SetFocus;
+    Abort;
+  end;
+
   //Confirma o Insert
   qryCadCliente.Post;
+  inherited; //Vai para Consulta
 end;
 
 procedure TcadClienteF.btnEditarClick(Sender: TObject);
@@ -158,7 +187,6 @@ end;
 
 procedure TcadClienteF.btnExcluirClick(Sender: TObject);
 begin
-  inherited; //Vai para Consulta
   //Exclui
   If  MessageDlg('Atenção', 'Você tem certeza que deseja excluir o registro?', mtConfirmation,[mbyes,mbno],0) = mryes then
   begin

@@ -7,15 +7,14 @@ inherited cadProdutoF: TcadProdutoF
   ClientHeight = 583
   ClientWidth = 661
   OnClose = FormClose
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 583
     Width = 661
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
-      ClientHeight = 550
+      ClientHeight = 555
       ClientWidth = 653
       inherited PanelConsultaTop: TPanel
         Width = 653
@@ -36,12 +35,13 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtPesquisa: TEdit[1]
           Left = 136
-          Height = 28
+          Height = 23
           Top = 16
           Width = 128
           NumbersOnly = True
           TabOrder = 0
           OnChange = edtPesquisaChange
+          OnKeyDown = edtPesquisaKeyDown
         end
         object btnPesquisa: TSpeedButton[2]
           Left = 272
@@ -65,7 +65,7 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 495
+        Top = 511
         Width = 653
         ClientWidth = 653
         inherited btnInserir: TBitBtn
@@ -76,12 +76,13 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 439
+        Height = 466
+        Top = 45
         Width = 653
-        ClientHeight = 439
+        ClientHeight = 466
         ClientWidth = 653
         inherited DBGrid1: TDBGrid
-          Height = 437
+          Height = 464
           Width = 651
           Columns = <          
             item
@@ -132,14 +133,15 @@ inherited cadProdutoF: TcadProdutoF
             end>
           DataSource = dsCadProduto
           TabStop = False
+          OnKeyDown = DBGrid1KeyDown
         end
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 550
+      ClientHeight = 555
       ClientWidth = 653
       inherited PanelCadastroBottom: TPanel
-        Top = 487
+        Top = 505
         Width = 653
         ClientWidth = 653
         inherited btnGravar: TBitBtn
@@ -157,9 +159,9 @@ inherited cadProdutoF: TcadProdutoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 487
+        Height = 505
         Width = 653
-        ClientHeight = 487
+        ClientHeight = 505
         ClientWidth = 653
         object lblId: TLabel[0]
           Left = 32
@@ -177,7 +179,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtId: TDBEdit[1]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 48
           Width = 77
           DataField = 'produtoid'
@@ -204,7 +206,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtDescricao: TDBEdit[3]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 120
           Width = 302
           DataField = 'ds_produto'
@@ -228,7 +230,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtObservacao: TDBEdit[5]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 192
           Width = 302
           DataField = 'obs_produto'
@@ -252,7 +254,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtValorVenda: TDBEdit[7]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 264
           Width = 136
           DataField = 'vl_venda_produto'
@@ -276,12 +278,12 @@ inherited cadProdutoF: TcadProdutoF
         end
         object cbStatus: TDBComboBox[9]
           Left = 32
-          Height = 28
+          Height = 23
           Top = 408
           Width = 120
           DataField = 'status_produto'
           DataSource = dsCadProduto
-          ItemHeight = 20
+          ItemHeight = 15
           Items.Strings = (
             'ATIVO'
             'INATIVO'
@@ -307,7 +309,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object edtCatId: TDBEdit[11]
           Left = 56
-          Height = 28
+          Height = 23
           Top = 336
           Width = 38
           DataField = 'categoriaprodutoid'
@@ -334,7 +336,7 @@ inherited cadProdutoF: TcadProdutoF
         end
         object dateCadastro: TDBDateEdit[13]
           Left = 208
-          Height = 28
+          Height = 23
           Top = 264
           Width = 158
           CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -442,6 +444,7 @@ inherited cadProdutoF: TcadProdutoF
   object qryCadProduto: TZQuery[1]
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadProdutoAfterInsert
+    BeforePost = qryCadProdutoBeforePost
     UpdateObject = updtCadProduto
     SQL.Strings = (
       'select * from produto;'

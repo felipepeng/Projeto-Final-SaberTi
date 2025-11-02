@@ -42,6 +42,7 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
+    procedure qryCatProdutoBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -62,6 +63,12 @@ implementation
 procedure TcadCategoria_ProdutoF.qryCatProdutoAfterInsert(DataSet: TDataSet);
 begin
   qryCatProdutocategoriaprodutoid.AsInteger := StrToInt(DataModule1.getSequence('categoria_produto_categoriaprodutoid_seq'));
+end;
+
+procedure TcadCategoria_ProdutoF.qryCatProdutoBeforePost(DataSet: TDataSet);
+begin
+  if PageControl1.ActivePage = tbConsulta then
+    qryCatProduto.Cancel;
 end;
 
 procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
@@ -185,9 +192,9 @@ begin
     Abort;
   end;
 
-  inherited; //Vai para Consulta
   //Confirma o Insert
   qryCatProduto.Post;
+  inherited; //Vai para Consulta
 end;
 
 procedure TcadCategoria_ProdutoF.btnEditarClick(Sender: TObject);

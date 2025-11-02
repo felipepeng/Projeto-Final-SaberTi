@@ -174,7 +174,6 @@ end;
 
 procedure TOrcamentoF.qryOrcamentoBeforePost(DataSet: TDataSet);
 begin
-
   if PageControl1.ActivePage = tbConsulta then
     qryOrcamento.Cancel;
 end;
@@ -249,6 +248,21 @@ end;
 
 procedure TOrcamentoF.btnGravarClick(Sender: TObject);
 begin
+  if qryOrcamentoclienteid.AsString = '' then
+  begin
+    ShowMessage('Um Cliente deve ser escolhido');
+    btnPesqClienteClick(Sender);
+    btnAddItem.SetFocus;
+    Abort;
+  end;
+
+  if qryOrcItem.IsEmpty then
+  begin
+    ShowMessage('Pelo menos um Item deve ser escolhido');
+    btnAddItemClick(Sender);
+    Abort;
+  end;
+
   if qryOrcamento.State <> dsBrowse then
   begin
     //Gravar

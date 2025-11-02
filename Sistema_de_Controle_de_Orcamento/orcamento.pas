@@ -164,6 +164,7 @@ procedure TOrcamentoF.qryOrcamentoAfterCancel(DataSet: TDataSet);
 begin
   //Troca ícone editar
   btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnImprimir.Enabled := true;
 end;
 
 procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
@@ -231,6 +232,7 @@ begin
   qryOrcamento.FieldByName('dt_validade_orcamento').AsDateTime:= Date + 15;
 
   btnPesqCliente.SetFocus;
+  //Imprimir
   btnImprimir.Enabled := false;
 end;
 
@@ -248,6 +250,21 @@ end;
 
 procedure TOrcamentoF.btnGravarClick(Sender: TObject);
 begin
+  if qryOrcamentoclienteid.AsString = '' then
+  begin
+    ShowMessage('Um Cliente deve ser escolhido');
+    btnPesqClienteClick(Sender);
+    btnAddItem.SetFocus;
+    Abort;
+  end;
+
+  if qryOrcItem.IsEmpty then
+  begin
+    ShowMessage('Pelo menos um Item deve ser escolhido');
+    btnAddItemClick(Sender);
+    Abort;
+  end;
+
   if qryOrcamento.State <> dsBrowse then
   begin
     //Gravar

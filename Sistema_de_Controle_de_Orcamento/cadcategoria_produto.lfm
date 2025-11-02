@@ -7,9 +7,17 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   inherited PageControl1: TPageControl
+    Height = 394
+    Width = 458
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
+      ClientHeight = 366
+      ClientWidth = 450
       inherited PanelConsultaTop: TPanel
+        Width = 450
+        ClientWidth = 450
         object lblPesquisa: TLabel[0]
           Left = 8
           Height = 23
@@ -26,7 +34,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtPesquisa: TEdit[1]
           Left = 136
-          Height = 28
+          Height = 23
           Top = 16
           Width = 128
           NumbersOnly = True
@@ -56,12 +64,25 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
       end
       inherited PanelConsultaBottom: TPanel
+        Top = 322
+        Width = 450
+        ClientWidth = 450
         inherited btnInserir: TBitBtn
           OnClick = btnInserirClick
         end
+        inherited btnFechar: TBitBtn
+          Left = 369
+        end
       end
       inherited PanelConsultaCenter: TPanel
+        Height = 277
+        Top = 45
+        Width = 450
+        ClientHeight = 277
+        ClientWidth = 450
         inherited DBGrid1: TDBGrid
+          Height = 275
+          Width = 448
           Columns = <          
             item
               Alignment = taCenter
@@ -84,7 +105,12 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
       end
     end
     inherited tbCadastro: TTabSheet
+      ClientHeight = 366
+      ClientWidth = 450
       inherited PanelCadastroBottom: TPanel
+        Top = 316
+        Width = 450
+        ClientWidth = 450
         inherited btnGravar: TBitBtn
           OnClick = btnGravarClick
         end
@@ -95,10 +121,15 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
+          Left = 370
           OnClick = btnExcluirClick
         end
       end
       inherited PanelCadastroCenter: TPanel
+        Height = 316
+        Width = 450
+        ClientHeight = 316
+        ClientWidth = 450
         object lblId: TLabel[0]
           Left = 44
           Height = 23
@@ -129,7 +160,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtId: TDBEdit[2]
           Left = 44
-          Height = 28
+          Height = 23
           Top = 58
           Width = 52
           DataField = 'categoriaprodutoid'
@@ -141,7 +172,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtDescricao: TDBEdit[3]
           Left = 44
-          Height = 28
+          Height = 23
           Top = 130
           Width = 204
           DataField = 'ds_categoria_produto'
@@ -156,6 +187,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
   object qryCatProduto: TZQuery[1]
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCatProdutoAfterInsert
+    BeforePost = qryCatProdutoBeforePost
     UpdateObject = updtCatProduto
     SQL.Strings = (
       'select * from categoria_produto cp'

@@ -56,10 +56,16 @@ type
     procedure btnPesquisaClick(Sender: TObject);
     procedure cbStatusKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
+    procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCadProdutoAfterInsert(DataSet: TDataSet);
+    procedure qryCadProdutoBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -88,12 +94,25 @@ begin
   qryCadProduto.FieldByName('produtoid').AsInteger := StrToInt(DataModule1.getSequence('produto_produtoid'));
 end;
 
+procedure TcadProdutoF.qryCadProdutoBeforePost(DataSet: TDataSet);
+begin
+  if PageControl1.ActivePage = tbConsulta then
+    qryCadProduto.Cancel;
+end;
+
 procedure TcadProdutoF.FormClose(Sender: TObject; var CloseAction: TCloseAction
   );
 begin
   inherited;
   qryCadProduto.Close;
   qryCatProduto.Close;
+end;
+
+procedure TcadProdutoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadProdutoF.btnInserirClick(Sender: TObject);
@@ -138,6 +157,20 @@ begin
 
 end;
 
+procedure TcadProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    PageControl1.ActivePage := tbCadastro;
+  end;
+
+  if Key = VK_ESCAPE then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadProdutoF.edtPesquisaChange(Sender: TObject);
 begin
   //Fecha a Query
@@ -155,6 +188,15 @@ begin
 
   //Reabre a Query
   qryCadProduto.Open;
+end;
+
+procedure TcadProdutoF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+  begin
+    DBGrid1.SetFocus;
+  end;
 end;
 
 procedure TcadProdutoF.btnGravarClick(Sender: TObject);
