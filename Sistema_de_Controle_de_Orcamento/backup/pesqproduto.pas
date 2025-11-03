@@ -32,6 +32,7 @@ type
       );
     procedure edtPesquisaChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
   private
 
@@ -61,6 +62,15 @@ procedure TpesqProdutoF.FormClose(Sender: TObject; var CloseAction: TCloseAction
   );
 begin
   qryProduto.Close;
+end;
+
+procedure TpesqProdutoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+  begin
+    Close;
+  end;
 end;
 
 procedure TpesqProdutoF.edtPesquisaChange(Sender: TObject);

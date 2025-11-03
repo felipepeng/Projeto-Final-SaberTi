@@ -44,10 +44,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCategoria_Produto"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="200"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="201"/>
         <CursorPos X="80" Y="201"/>
         <UsageCount Value="96"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="datamodule.pas"/>
@@ -91,10 +94,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadUsuario"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="166"/>
-        <CursorPos X="50" Y="191"/>
+        <TopLine Value="250"/>
+        <CursorPos X="63" Y="260"/>
         <UsageCount Value="89"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -115,12 +117,14 @@
         <Filename Value="sobre.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="SobreF"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Sobre"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="2"/>
         <TopLine Value="16"/>
-        <CursorPos X="58" Y="33"/>
+        <CursorPos X="50" Y="21"/>
         <UsageCount Value="82"/>
+        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="orcamento.pas"/>
@@ -231,7 +235,7 @@
         <UsageCount Value="50"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="16">
+    <JumpHistory HistoryIndex="18">
       <Position>
         <Filename Value="cadcliente.pas"/>
         <Caret Line="229" Column="16" TopLine="213"/>
@@ -299,6 +303,14 @@
       <Position>
         <Filename Value="cadusuario.pas"/>
         <Caret Line="191" Column="49" TopLine="167"/>
+      </Position>
+      <Position>
+        <Filename Value="sobre.pas"/>
+        <Caret Line="33" Column="58" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="sobre.pas"/>
+        <Caret Line="26" Column="34" TopLine="16"/>
       </Position>
     </JumpHistory>
     <RunParams>

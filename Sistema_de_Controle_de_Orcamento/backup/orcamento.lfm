@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 293
+  Left = 448
   Height = 573
-  Top = 130
+  Top = 222
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
@@ -14,30 +14,49 @@ inherited OrcamentoF: TOrcamentoF
     Height = 573
     Width = 1206
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
-      ClientHeight = 545
+      ClientHeight = 540
       ClientWidth = 1198
       inherited PanelConsultaTop: TPanel
         Width = 1198
         ClientWidth = 1198
         object edtPesquisa: TEdit[0]
-          Left = 136
-          Height = 23
+          Left = 256
+          Height = 28
           Top = 16
           Width = 128
-          NumbersOnly = True
           TabOrder = 0
           OnChange = edtPesquisaChange
           OnKeyDown = edtPesquisaKeyDown
         end
-        object btnPesquisa: TSpeedButton[1]
-          Left = 272
+        object lblPesquisa: TLabel[1]
+          Left = 8
+          Height = 23
+          Top = 16
+          Width = 102
+          Caption = 'Pesquisar por'
+          Font.CharSet = ANSI_CHARSET
+          Font.Height = -17
+          Font.Name = 'Segoe UI Semibold'
+          Font.Pitch = fpVariable
+          Font.Quality = fqDraft
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object CombFiltro: TComboBox[2]
+          Left = 120
           Height = 28
           Top = 16
-          Width = 29
+          Width = 128
+          ItemHeight = 20
+          TabOrder = 1
+        end
+        object btnPesquisa: TSpeedButton[3]
+          Left = 384
+          Height = 22
+          Top = 16
+          Width = 24
           Glyph.Data = {
             42010000424D4201000000000000760000002800000011000000110000000100
             040000000000CC00000000000000000000001000000010000000000000000000
@@ -52,40 +71,25 @@ inherited OrcamentoF: TOrcamentoF
             DDDDD0000000
           }
         end
-        object lblPesquisa: TLabel[2]
-          Left = 8
-          Height = 23
-          Top = 16
-          Width = 125
-          Caption = 'Pesquisar por id:'
-          Font.CharSet = ANSI_CHARSET
-          Font.Height = -17
-          Font.Name = 'Segoe UI Semibold'
-          Font.Pitch = fpVariable
-          Font.Quality = fqDraft
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 501
+        Top = 485
         Width = 1198
         ClientWidth = 1198
         inherited btnInserir: TBitBtn
           OnClick = btnInserirClick
         end
         inherited btnFechar: TBitBtn
-          Left = 1097
+          Left = 1088
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 456
-        Top = 45
+        Height = 429
         Width = 1198
-        ClientHeight = 456
+        ClientHeight = 429
         ClientWidth = 1198
         inherited DBGrid1: TDBGrid
-          Height = 454
+          Height = 427
           Width = 1196
           Columns = <          
             item
@@ -145,11 +149,11 @@ inherited OrcamentoF: TOrcamentoF
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 545
+      ClientHeight = 540
       ClientWidth = 1198
       inherited PanelCadastroBottom: TPanel
         Height = 55
-        Top = 490
+        Top = 485
         Width = 1198
         ClientHeight = 55
         ClientWidth = 1198
@@ -159,6 +163,7 @@ inherited OrcamentoF: TOrcamentoF
         end
         inherited btnEditar: TBitBtn
           Top = 8
+          Width = 120
           Font.Color = clBlack
           Font.Height = -15
           Glyph.Data = {
@@ -206,19 +211,19 @@ inherited OrcamentoF: TOrcamentoF
           OnClick = btnEditarClick
         end
         inherited btnCancelar: TBitBtn
-          Left = 360
+          Left = 384
           Top = 8
           TabOrder = 3
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
-          Left = 1098
+          Left = 1088
           Top = 8
           TabOrder = 4
           OnClick = btnExcluirClick
         end
         object btnImprimir: TBitBtn[4]
-          Left = 232
+          Left = 256
           Height = 38
           Top = 8
           Width = 110
@@ -267,9 +272,9 @@ inherited OrcamentoF: TOrcamentoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 490
+        Height = 485
         Width = 1198
-        ClientHeight = 490
+        ClientHeight = 485
         ClientWidth = 1198
         object PanelCadastroTop: TPanel[0]
           Left = 1
@@ -299,7 +304,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtId: TDBEdit
             Left = 16
-            Height = 23
+            Height = 28
             Top = 40
             Width = 64
             DataField = 'orcamentoid'
@@ -327,7 +332,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtClienteId: TDBEdit
             Left = 16
-            Height = 23
+            Height = 28
             Top = 104
             Width = 64
             DataField = 'clienteid'
@@ -383,7 +388,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object edtTotalOrcamento: TDBEdit
             Left = 432
-            Height = 23
+            Height = 28
             Top = 40
             Width = 131
             DataField = 'vl_total_orcamento'
@@ -481,7 +486,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object DateEditDataOrcamento: TDBDateEdit
             Left = 128
-            Height = 23
+            Height = 28
             Top = 40
             Width = 129
             CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -499,7 +504,7 @@ inherited OrcamentoF: TOrcamentoF
           end
           object DateEditDataValidade: TDBDateEdit
             Left = 280
-            Height = 23
+            Height = 28
             Top = 40
             Width = 129
             CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
@@ -587,7 +592,7 @@ inherited OrcamentoF: TOrcamentoF
         end
         object DBGridOrcItem: TDBGrid[1]
           Left = 1
-          Height = 329
+          Height = 324
           Top = 160
           Width = 1196
           Align = alClient

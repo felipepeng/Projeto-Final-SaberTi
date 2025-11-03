@@ -1,7 +1,7 @@
 object relOrcamentoF: TrelOrcamentoF
-  Left = 799
+  Left = 1132
   Height = 159
-  Top = 412
+  Top = 754
   Width = 436
   Caption = 'Relatório de Orçamento'
   ClientHeight = 159

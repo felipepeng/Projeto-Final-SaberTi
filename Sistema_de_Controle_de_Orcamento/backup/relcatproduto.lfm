@@ -13,7 +13,7 @@ object relCatProdutoF: TrelCatProdutoF
   object btnRelClientes: TBitBtn
     Left = 104
     Height = 80
-    Top = 56
+    Top = 48
     Width = 256
     Caption = 'Imprimir Rel. Cat. Produtos'
     Glyph.Data = {

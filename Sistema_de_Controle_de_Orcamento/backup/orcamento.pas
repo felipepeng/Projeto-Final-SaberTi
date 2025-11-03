@@ -20,6 +20,7 @@ type
     btnExcluirItem: TBitBtn;
     btnPesqCliente: TBitBtn;
     btnPesquisa: TSpeedButton;
+    CombFiltro: TComboBox;
     DateEditDataOrcamento: TDBDateEdit;
     DateEditDataValidade: TDBDateEdit;
     DBTextClienteNome: TDBText;
@@ -165,6 +166,13 @@ begin
   qryProduto.Open;
 
   edtPesquisa.SetFocus;
+
+  //Inicia ComboBox
+  CombFiltro.Items.Add('ID');
+  CombFiltro.Items.Add('Cliente ID');
+  CombFiltro.Items.Add('Valor Total');
+  //CombFiltro.Items.Add('Nome Cliente');
+  CombFiltro.ItemIndex := 0;  // seleciona o primeiro item;
 end;
 
 procedure TOrcamentoF.PageControl1Change(Sender: TObject);
@@ -247,22 +255,63 @@ begin
 end;
 
 procedure TOrcamentoF.edtPesquisaChange(Sender: TObject);
+var
+  campo, filtro: string;
 begin
-  //Fecha a Query
-  qryOrcamento.Close;
+  //filtagem da pesquisa
+  if CombFiltro.ItemIndex = -1 then
+    Exit;
 
-  //Edita o comando SQL
-  if edtPesquisa.Text <> '' then
-  begin
-    qryOrcamento.SQL.Text:= ('select * from orcamento o' +
-                              ' where o.orcamentoid::text LIKE ''' + edtPesquisa.Text + '%'';');
-  end else
-  begin
-    qryOrcamento.SQL.Text:= ('select * from orcamento order by  orcamentoid;');
+  campo:= edtPesquisa.Text;
+  //pega cada insert do EditConsulta
+
+ case CombFiltro.ItemIndex of
+    0: filtro := 'orcamentoid::text';
+    1: filtro := 'clienteid::text';
+    2: filtro := 'vl_total_orcamento::text';
+    //3: filtro := 'nome_cliente';
+  else
+    filtro := '';
   end;
+  //Busca pelo index do Combobox qual coluna da tabela quero buscar
+  // enquanto estiver ativo busca no mesmo
+  // obs data não funciona ainda
 
-  //Reabre a Query
+  if filtro = '' then
+    Exit;
+  //garante que não busca nada se não tiver o filtro
+
+  qryOrcamento.Close;
+  qryOrcamento.SQL.Clear;
+
+  if campo = '' then
+  begin
+    qryOrcamento.SQL.Add('SELECT * FROM orcamento ORDER BY orcamentoid');
+  end else begin
+    qryOrcamento.SQL.Add('SELECT * FROM orcamento WHERE ' + filtro + ' ILIKE :campo');
+    qryOrcamento.ParamByName('campo').AsString := campo + '%';
+  end;
+  //se campo estiver vazio mostra tudo
+  //concatena cada insert de campo com a query
   qryOrcamento.Open;
+
+
+
+  ////Fecha a Query
+  //qryOrcamento.Close;
+  //
+  ////Edita o comando SQL
+  //if edtPesquisa.Text <> '' then
+  //begin
+  //  qryOrcamento.SQL.Text:= ('select * from orcamento o' +
+  //                            ' where o.orcamentoid::text LIKE ''' + edtPesquisa.Text + '%'';');
+  //end else
+  //begin
+  //  qryOrcamento.SQL.Text:= ('select * from orcamento order by  orcamentoid;');
+  //end;
+  //
+  ////Reabre a Query
+  //qryOrcamento.Open;
 end;
 
 procedure TOrcamentoF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;

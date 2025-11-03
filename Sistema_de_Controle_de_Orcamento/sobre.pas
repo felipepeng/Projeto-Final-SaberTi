@@ -15,7 +15,9 @@ type
     GroupBoxEmpresa: TGroupBox;
     GroupBoxSistema: TGroupBox;
     Image1: TImage;
+    Image2: TImage;
     lblDataDesenvolv: TLabel;
+    lblDataDesenvolv1: TLabel;
     lblLinguagem: TLabel;
     lblBD: TLabel;
     lblDev: TLabel;

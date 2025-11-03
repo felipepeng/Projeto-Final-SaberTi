@@ -8,6 +8,7 @@ object relClientesF: TrelClientesF
   ClientWidth = 458
   Color = 10084282
   DesignTimePPI = 120
+  Position = poScreenCenter
   LCLVersion = '4.2.0.0'
   OnClose = FormClose
   OnShow = FormShow
@@ -61,6 +62,7 @@ object relClientesF: TrelClientesF
   end
   object qryClientes: TZQuery
     Connection = DataModule1.ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from cliente;'
     )
