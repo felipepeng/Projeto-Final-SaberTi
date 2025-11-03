@@ -195,7 +195,10 @@ end;
 procedure TOrcamentoF.qryOrcamentoBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
+  begin
     qryOrcamento.Cancel;
+    DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
+  end;
 end;
 
 procedure TOrcamentoF.qryOrcItemAfterInsert(DataSet: TDataSet);

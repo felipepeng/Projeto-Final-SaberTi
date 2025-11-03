@@ -44,6 +44,7 @@ type
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
     procedure qryCadUsuarioBeforePost(DataSet: TDataSet);
@@ -89,6 +90,13 @@ begin
   inherited;
   //Fecha a Query
   qryCadUsuario.Close;
+end;
+
+procedure TcadUsuarioF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadUsuarioF.btnInserirClick(Sender: TObject);

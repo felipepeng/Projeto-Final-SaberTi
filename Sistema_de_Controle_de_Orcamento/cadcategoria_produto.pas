@@ -41,6 +41,7 @@ type
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure qryCatProdutoAfterCancel(DataSet: TDataSet);
     procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
     procedure qryCatProdutoBeforePost(DataSet: TDataSet);
   private
@@ -68,7 +69,10 @@ end;
 procedure TcadCategoria_ProdutoF.qryCatProdutoBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
+  begin
     qryCatProduto.Cancel;
+    DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+  end;
 end;
 
 procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
@@ -76,6 +80,14 @@ begin
   inherited;
   qryCatProduto.Open;
   edtPesquisa.SetFocus;
+end;
+
+procedure TcadCategoria_ProdutoF.qryCatProdutoAfterCancel(DataSet: TDataSet);
+begin
+  btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnEditar.Enabled := true;
+  btnEditar.Font.Style := [];
+  btnEditar.Font.Color := clBlack;
 end;
 
 procedure TcadCategoria_ProdutoF.FormClose(Sender: TObject;
@@ -101,6 +113,7 @@ begin
   qryCatProduto.Insert;
 
   edtDescricao.SetFocus;
+  btnEditar.Enabled := false;
 end;
 
 procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);
@@ -141,6 +154,13 @@ end;
 procedure TcadCategoria_ProdutoF.edtDescricaoKeyDown(Sender: TObject;
   var Key: Word; Shift: TShiftState);
 begin
+
+  if qryCatProduto.State = dsBrowse then
+  begin
+    ShowMessage('Para Alterar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+    Abort;
+  end;
 
   if qryCatProduto.State <> dsBrowse then
   begin
@@ -192,16 +212,38 @@ begin
     Abort;
   end;
 
-  //Confirma o Insert
-  qryCatProduto.Post;
-  inherited; //Vai para Consulta
+  if qryCatProduto.State <> dsBrowse then
+  begin
+    //Gravar
+    qryCatProduto.Post;
+    qryCatProduto.Refresh;
+    inherited;
+
+    //Troca ìcone Editar
+    btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+    btnEditar.Font.Style := [];
+    btnEditar.Font.Color := clBlack;
+  end
+  else
+  begin
+    ShowMessage('Para gravar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
+
 end;
 
 procedure TcadCategoria_ProdutoF.btnEditarClick(Sender: TObject);
 begin
   inherited; //Faz Nada
-  //Edit
-  qryCatProduto.Edit;
+
+  if (qryCatProduto.State <> dsInsert) then
+  begin
+    //Edit
+    qryCatProduto.Edit;
+    btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+    btnEditar.Font.Style := [fsBold];
+    btnEditar.Font.Color := clBlue;
+  end;
 end;
 
 procedure TcadCategoria_ProdutoF.btnExcluirClick(Sender: TObject);

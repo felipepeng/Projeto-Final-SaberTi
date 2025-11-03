@@ -1,6 +1,6 @@
 inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
-  Left = 952
-  Top = 335
+  Left = 754
+  Top = 317
   Caption = 'Categoria de Produto'
   KeyPreview = True
   OnClose = FormClose
@@ -188,6 +188,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCatProdutoAfterInsert
     BeforePost = qryCatProdutoBeforePost
+    AfterCancel = qryCatProdutoAfterCancel
     UpdateObject = updtCatProduto
     SQL.Strings = (
       'select * from categoria_produto cp'

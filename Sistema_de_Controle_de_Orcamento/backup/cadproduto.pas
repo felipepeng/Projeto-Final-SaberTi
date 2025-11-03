@@ -54,22 +54,33 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure cbStatusClick(Sender: TObject);
     procedure cbStatusKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure dateCadastroButtonClick(Sender: TObject);
+    procedure dateCadastroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtDescricaoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtObservacaoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtPesquisaChange(Sender: TObject);
     procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
+    procedure edtValorVendaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure qryCadProdutoAfterCancel(DataSet: TDataSet);
     procedure qryCadProdutoAfterInsert(DataSet: TDataSet);
     procedure qryCadProdutoBeforePost(DataSet: TDataSet);
   private
 
   public
-
+    procedure checkEdit(Sender: TObject ;qry: TZQuery);
   end;
 
 var
@@ -81,11 +92,29 @@ implementation
 
 { TcadProdutoF }
 
+procedure TcadProdutoF.checkEdit(Sender: TObject ;qry: TZQuery);
+begin
+  if qry.State = dsBrowse then
+    begin
+      ShowMessage('Para Alterar o campo, primeiro ative o modo de Edição.');
+      btnEditar.SetFocus;
+      Abort;
+    end;
+end;
+
 procedure TcadProdutoF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadProduto.Open;
   qryCatProduto.Open;
+end;
+
+procedure TcadProdutoF.qryCadProdutoAfterCancel(DataSet: TDataSet);
+begin
+  btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnEditar.Enabled := true;
+  btnEditar.Font.Style := [];
+  btnEditar.Font.Color := clBlack;
 end;
 
 procedure TcadProdutoF.qryCadProdutoAfterInsert(DataSet: TDataSet);
@@ -122,6 +151,7 @@ begin
   qryCadProduto.FieldByName('dt_cadastro_produto').AsDateTime := Date;
 
   edtDescricao.SetFocus;
+  btnEditar.Enabled := false;
 end;
 
 procedure TcadProdutoF.btnPesquisaClick(Sender: TObject);
@@ -143,9 +173,18 @@ begin
   qryCadProduto.Open;
 end;
 
+procedure TcadProdutoF.cbStatusClick(Sender: TObject);
+begin
+  checkEdit(Sender, qryCadProduto);
+end;
+
 procedure TcadProdutoF.cbStatusKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+  if Key <> VK_TAB then
+  begin
+    checkEdit(Sender, qryCadProduto);
+  end;
 
   if qryCadProduto.State <> dsBrowse then
   begin
@@ -155,6 +194,18 @@ begin
     end;
   end;
 
+end;
+
+procedure TcadProdutoF.dateCadastroButtonClick(Sender: TObject);
+begin
+  checkEdit(Sender, qryCadProduto);
+end;
+
+procedure TcadProdutoF.dateCadastroKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+  checkEdit(Sender, qryCadProduto);
 end;
 
 procedure TcadProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
@@ -169,6 +220,20 @@ begin
   begin
     edtPesquisa.SetFocus;
   end;
+end;
+
+procedure TcadProdutoF.edtDescricaoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+  checkEdit(Sender, qryCadProduto);
+end;
+
+procedure TcadProdutoF.edtObservacaoKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+  checkEdit(Sender, qryCadProduto);
 end;
 
 procedure TcadProdutoF.edtPesquisaChange(Sender: TObject);
@@ -197,6 +262,13 @@ begin
   begin
     DBGrid1.SetFocus;
   end;
+end;
+
+procedure TcadProdutoF.edtValorVendaKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+  checkEdit(Sender, qryCadProduto);
 end;
 
 procedure TcadProdutoF.btnGravarClick(Sender: TObject);
@@ -239,14 +311,38 @@ begin
     Abort;
   end;
 
-  qryCadProduto.Post; //Post
-  inherited; //Vai para Consulta
+
+  if qryCadProduto.State <> dsBrowse then
+  begin
+    //Gravar
+    qryCadProduto.Post;
+    qryCadProduto.Refresh;
+    inherited;
+
+    //Troca ìcone Editar
+    btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+    btnEditar.Font.Style := [];
+    btnEditar.Font.Color := clBlack;
+  end
+  else
+  begin
+    ShowMessage('Para gravar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
 end;
 
 procedure TcadProdutoF.btnEditarClick(Sender: TObject);
 begin
   inherited; //Faz nada
-  qryCadProduto.Edit;
+
+  if (qryCadProduto.State <> dsInsert) then
+  begin
+    //Edit
+    qryCadProduto.Edit;
+    btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+    btnEditar.Font.Style := [fsBold];
+    btnEditar.Font.Color := clBlue;
+  end;
 end;
 
 procedure TcadProdutoF.btnExcluirClick(Sender: TObject);
@@ -276,8 +372,6 @@ begin
          end;
     end;
 
-
-
 end;
 
 procedure TcadProdutoF.btnCancelarClick(Sender: TObject);
@@ -294,6 +388,7 @@ end;
 
 procedure TcadProdutoF.btnPesqCatClick(Sender: TObject);
 begin
+  checkEdit(Sender, qryCadProduto);
   pesqCatProdutoF.ShowModal;
 end;
 

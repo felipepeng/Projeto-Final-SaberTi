@@ -10,6 +10,8 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Height = 394
     Width = 458
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 366
       ClientWidth = 450
@@ -186,6 +188,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCatProdutoAfterInsert
     BeforePost = qryCatProdutoBeforePost
+    AfterCancel = qryCatProdutoAfterCancel
     UpdateObject = updtCatProduto
     SQL.Strings = (
       'select * from categoria_produto cp'

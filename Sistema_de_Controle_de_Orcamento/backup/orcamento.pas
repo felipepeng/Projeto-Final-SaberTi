@@ -77,7 +77,6 @@ type
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DateEditDataOrcamentoButtonClick(Sender: TObject);
     procedure DateEditDataOrcamentoClick(Sender: TObject);
-    procedure DateEditDataOrcamentoEnter(Sender: TObject);
     procedure DateEditDataValidadeButtonClick(Sender: TObject);
     procedure DateEditDataValidadeClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
@@ -318,11 +317,6 @@ begin
     btnEditar.SetFocus;
     Abort;
   end;
-end;
-
-procedure TOrcamentoF.DateEditDataOrcamentoEnter(Sender: TObject);
-begin
-
 end;
 
 procedure TOrcamentoF.DateEditDataValidadeButtonClick(Sender: TObject);

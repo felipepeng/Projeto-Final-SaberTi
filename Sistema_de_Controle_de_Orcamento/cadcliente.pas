@@ -81,7 +81,10 @@ end;
 procedure TcadClienteF.qryCadClienteBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
+  begin
     qryCadCliente.Cancel;
+    DataModule1.decreaseSequence('cliente_clienteid');
+  end;
 end;
 
 procedure TcadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction

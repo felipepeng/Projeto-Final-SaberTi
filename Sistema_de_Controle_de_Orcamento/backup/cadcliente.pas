@@ -45,6 +45,7 @@ type
     procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
     procedure qryCadClienteBeforePost(DataSet: TDataSet);
@@ -88,6 +89,13 @@ procedure TcadClienteF.FormClose(Sender: TObject; var CloseAction: TCloseAction
 begin
   inherited;
   qryCadCliente.Close;
+end;
+
+procedure TcadClienteF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (PageControl1.ActivePage = tbCadastro) and (Key = VK_ESCAPE) then
+    PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadClienteF.btnInserirClick(Sender: TObject);

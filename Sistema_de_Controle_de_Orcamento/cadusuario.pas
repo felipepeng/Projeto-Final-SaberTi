@@ -81,7 +81,10 @@ end;
 procedure TcadUsuarioF.qryCadUsuarioBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
+  begin
     qryCadUsuario.Cancel;
+    DataModule1.decreaseSequence('usuarios_id_seq');
+  end;
 end;
 
 procedure TcadUsuarioF.FormClose(Sender: TObject; var CloseAction: TCloseAction

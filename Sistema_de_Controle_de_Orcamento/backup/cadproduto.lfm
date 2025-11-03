@@ -1,11 +1,12 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 528
+  Left = 439
   Height = 583
-  Top = 154
+  Top = 155
   Width = 661
   Caption = 'Cadastro de Produto'
   ClientHeight = 583
   ClientWidth = 661
+  KeyPreview = True
   OnClose = FormClose
   OnKeyDown = FormKeyDown
   OnShow = FormShow
@@ -215,6 +216,7 @@ inherited cadProdutoF: TcadProdutoF
           DataSource = dsCadProduto
           MaxLength = 0
           TabOrder = 0
+          OnKeyDown = edtDescricaoKeyDown
         end
         object lblObservacao: TLabel[4]
           Left = 32
@@ -239,6 +241,7 @@ inherited cadProdutoF: TcadProdutoF
           DataSource = dsCadProduto
           MaxLength = 0
           TabOrder = 1
+          OnKeyDown = edtObservacaoKeyDown
         end
         object lblValorVenda: TLabel[6]
           Left = 32
@@ -263,6 +266,7 @@ inherited cadProdutoF: TcadProdutoF
           DataSource = dsCadProduto
           MaxLength = 0
           TabOrder = 2
+          OnKeyDown = edtValorVendaKeyDown
         end
         object lblStatus: TLabel[8]
           Left = 32
@@ -293,6 +297,7 @@ inherited cadProdutoF: TcadProdutoF
           MaxLength = 0
           Style = csDropDownList
           TabOrder = 5
+          OnClick = cbStatusClick
           OnKeyDown = cbStatusKeyDown
         end
         object lblCategoria: TLabel[10]
@@ -348,6 +353,8 @@ inherited cadProdutoF: TcadProdutoF
           MaxLength = 0
           TabOrder = 3
           Text = 'dateCadastro'
+          OnButtonClick = dateCadastroButtonClick
+          OnKeyDown = dateCadastroKeyDown
           DataField = 'dt_cadastro_produto'
           DataSource = dsCadProduto
         end
@@ -447,6 +454,7 @@ inherited cadProdutoF: TcadProdutoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadProdutoAfterInsert
     BeforePost = qryCadProdutoBeforePost
+    AfterCancel = qryCadProdutoAfterCancel
     UpdateObject = updtCadProduto
     SQL.Strings = (
       'select * from produto;'

@@ -5,7 +5,7 @@ unit DataModule;
 interface
 
 uses
-  Classes, SysUtils, ZConnection, ZDataset;
+  Classes, SysUtils, ZConnection, ZDataset, DB, Dialogs;
 
 type
 
@@ -21,6 +21,7 @@ type
   public
     function getSequence(const pNomeSequence: String): String;
     procedure decreaseSequence(const pNomeSequence: String);
+    procedure checkEdit(Sender: TObject ;qry: TZQuery);
 
   end;
 
@@ -32,6 +33,16 @@ implementation
 {$R *.lfm}
 
 { TDataModule1 }
+
+procedure TDataModule1.checkEdit(Sender: TObject ;qry: TZQuery);
+begin
+  if qry.State = dsBrowse then
+    begin
+      ShowMessage('Para Alterar o campo, primeiro ative o modo de Edição.');
+      btnEditar.SetFocus;
+      Abort;
+    end;
+end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 begin

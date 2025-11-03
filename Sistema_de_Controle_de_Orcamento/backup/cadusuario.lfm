@@ -6,6 +6,7 @@ inherited cadUsuarioF: TcadUsuarioF
   ClientHeight = 387
   KeyPreview = True
   OnClose = FormClose
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 387
