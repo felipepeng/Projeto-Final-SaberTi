@@ -14,6 +14,8 @@ inherited OrcamentoF: TOrcamentoF
     Height = 573
     Width = 1206
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     OnChange = PageControl1Change
     inherited tbConsulta: TTabSheet
       ClientHeight = 545
@@ -157,6 +159,8 @@ inherited OrcamentoF: TOrcamentoF
         end
         inherited btnEditar: TBitBtn
           Top = 8
+          Font.Color = clBlack
+          Font.Height = -15
           Glyph.Data = {
             E6040000424DE604000000000000360000002800000014000000140000000100
             180000000000B004000064000000640000000000000000000000800080800080
@@ -488,6 +492,9 @@ inherited OrcamentoF: TOrcamentoF
             TabStop = False
             TabOrder = 3
             Text = '18/02/2022'
+            OnButtonClick = DateEditDataOrcamentoButtonClick
+            OnClick = DateEditDataOrcamentoClick
+            OnEnter = DateEditDataOrcamentoEnter
             DataField = 'dt_orcamento'
             DataSource = dsOrcamento
           end
@@ -504,6 +511,8 @@ inherited OrcamentoF: TOrcamentoF
             TabStop = False
             TabOrder = 4
             Text = '19/02/2022'
+            OnButtonClick = DateEditDataValidadeButtonClick
+            OnClick = DateEditDataValidadeClick
             DataField = 'dt_validade_orcamento'
             DataSource = dsOrcamento
           end
@@ -641,6 +650,7 @@ inherited OrcamentoF: TOrcamentoF
   object qryOrcamento: TZQuery[1]
     Connection = DataModule1.ZConnection1
     AfterInsert = qryOrcamentoAfterInsert
+    BeforeEdit = qryOrcamentoBeforeEdit
     BeforePost = qryOrcamentoBeforePost
     AfterCancel = qryOrcamentoAfterCancel
     UpdateObject = updtOrcamento

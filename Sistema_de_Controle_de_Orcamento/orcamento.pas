@@ -75,6 +75,10 @@ type
     procedure btnImprimirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
+    procedure DateEditDataOrcamentoButtonClick(Sender: TObject);
+    procedure DateEditDataOrcamentoClick(Sender: TObject);
+    procedure DateEditDataValidadeButtonClick(Sender: TObject);
+    procedure DateEditDataValidadeClick(Sender: TObject);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
@@ -170,6 +174,10 @@ procedure TOrcamentoF.qryOrcamentoAfterCancel(DataSet: TDataSet);
 begin
   //Troca ícone editar
   btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnEditar.Enabled := true;
+  btnEditar.Font.Style := [];
+  btnEditar.Font.Color := clBlack;
+
   btnImprimir.Enabled := true;
 end;
 
@@ -275,6 +283,8 @@ begin
   btnPesqCliente.SetFocus;
   //Imprimir
   btnImprimir.Enabled := false;
+  //Editar
+  btnEditar.Enabled := false;
 end;
 
 procedure TOrcamentoF.btnPesqClienteClick(Sender: TObject);
@@ -286,6 +296,46 @@ begin
   else
   begin
     ShowMessage('Para escolher outro Cliente, primeiro ative o modo de edição.');
+  end;
+end;
+
+procedure TOrcamentoF.DateEditDataOrcamentoButtonClick(Sender: TObject);
+begin
+  if qryOrcamento.State = dsBrowse then
+  begin
+    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+    Abort;
+  end;
+end;
+
+procedure TOrcamentoF.DateEditDataOrcamentoClick(Sender: TObject);
+begin
+  if qryOrcamento.State = dsBrowse then
+  begin
+    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+    Abort;
+  end;
+end;
+
+procedure TOrcamentoF.DateEditDataValidadeButtonClick(Sender: TObject);
+begin
+  if qryOrcamento.State = dsBrowse then
+  begin
+    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+    Abort;
+  end;
+end;
+
+procedure TOrcamentoF.DateEditDataValidadeClick(Sender: TObject);
+begin
+  if qryOrcamento.State = dsBrowse then
+  begin
+    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+    Abort;
   end;
 end;
 
@@ -313,8 +363,10 @@ begin
     qryOrcamento.Refresh;
     inherited;
 
-    //Troca ícone editar
+    //Troca ìcone Editar
     btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+    btnEditar.Font.Style := [];
+    btnEditar.Font.Color := clBlack;
   end
   else
   begin
@@ -345,6 +397,8 @@ begin
     //Edit
     qryOrcamento.Edit;
     btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+    btnEditar.Font.Style := [fsBold];
+    btnEditar.Font.Color := clBlue;
   end;
 
 end;
