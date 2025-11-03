@@ -1643,6 +1643,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           Width = 108
           ItemHeight = 20
           TabOrder = 0
+          OnKeyDown = CombFiltroKeyDown
         end
       end
       inherited PanelConsultaBottom: TPanel

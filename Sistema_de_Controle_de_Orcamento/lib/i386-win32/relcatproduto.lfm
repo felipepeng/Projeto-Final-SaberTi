@@ -1,10 +1,10 @@
 object relCatProdutoF: TrelCatProdutoF
-  Left = 658
-  Height = 187
-  Top = 185
+  Left = 732
+  Height = 188
+  Top = 225
   Width = 451
   Caption = 'Relatório de Categoria de Produto'
-  ClientHeight = 187
+  ClientHeight = 188
   ClientWidth = 451
   Color = 10084282
   DesignTimePPI = 120
@@ -1599,8 +1599,10 @@ object relCatProdutoF: TrelCatProdutoF
     AF8AAC92F52EE0584B096BFF7D822088ADA1E304D0F68C4C022008A24BF87FA5
     CC9A4C5A2DF96A0000000049454E44AE426082
   }
+  KeyPreview = True
   Position = poScreenCenter
   LCLVersion = '4.2.0.0'
+  OnKeyDown = FormKeyDown
   object btnRelClientes: TBitBtn
     Left = 104
     Height = 80

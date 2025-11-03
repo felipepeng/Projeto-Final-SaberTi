@@ -31,6 +31,8 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure edtDescricaoKeyDown(Sender: TObject; var Key: Word;
@@ -124,6 +126,15 @@ end;
 procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);
 begin
 
+end;
+
+procedure TcadCategoria_ProdutoF.CombFiltroKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
+begin
+  if Key = VK_RIGHT then
+  begin
+    edtPesquisa.SetFocus;
+  end;
 end;
 
 procedure TcadCategoria_ProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
@@ -231,6 +242,10 @@ begin
     DBGrid1.SetFocus;
   end;
 
+  if Key = VK_LEFT then
+  begin
+    CombFiltro.SetFocus;
+  end;
 end;
 
 procedure TcadCategoria_ProdutoF.btnGravarClick(Sender: TObject);

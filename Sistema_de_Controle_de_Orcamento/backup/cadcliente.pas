@@ -74,7 +74,7 @@ procedure TcadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadCliente.Open;
-  edtPesquisa.SetFocus;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');

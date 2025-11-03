@@ -5,7 +5,7 @@ unit Sobre;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls, LCLType;
 
 type
 
@@ -23,6 +23,7 @@ type
     lblLinguagem: TLabel;
     lblBD: TLabel;
     lblSistema: TLabel;
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
 
   public
@@ -39,6 +40,15 @@ implementation
 { TSobreF }
 
 
+
+procedure TSobreF.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+  );
+begin
+  if Key = VK_ESCAPE then
+  begin
+    Close;
+  end;
+end;
 
 end.
 

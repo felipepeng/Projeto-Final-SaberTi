@@ -1,12 +1,12 @@
 object SobreF: TSobreF
-  Left = 705
+  Left = 724
   Height = 431
-  Top = 209
-  Width = 462
+  Top = 261
+  Width = 481
   Caption = 'Sobre'
   ClientHeight = 431
-  ClientWidth = 462
-  Color = 15989758
+  ClientWidth = 481
+  Color = 10084282
   DesignTimePPI = 120
   Icon.Data = {
     8FC60000000001000100000000000100200079C600001600000089504E470D0A
@@ -1599,8 +1599,10 @@ object SobreF: TSobreF
     AF8AAC92F52EE0584B096BFF7D822088ADA1E304D0F68C4C022008A24BF87FA5
     CC9A4C5A2DF96A0000000049454E44AE426082
   }
+  KeyPreview = True
   Position = poScreenCenter
   LCLVersion = '4.2.0.0'
+  OnKeyDown = FormKeyDown
   object GroupBoxSistema: TGroupBox
     Left = 8
     Height = 168

@@ -1605,6 +1605,8 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Height = 528
     Width = 892
     TabStop = False
+    ActivePage = tbConsulta
+    TabIndex = 0
     inherited tbConsulta: TTabSheet
       ClientHeight = 495
       ClientWidth = 884
@@ -1641,6 +1643,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           Width = 108
           ItemHeight = 20
           TabOrder = 0
+          OnKeyDown = CombFiltroKeyDown
         end
       end
       inherited PanelConsultaBottom: TPanel

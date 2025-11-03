@@ -39,6 +39,8 @@ type
     procedure btnPesquisaClick(Sender: TObject);
     procedure cbTipoClick(Sender: TObject);
     procedure cbTipoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure edtCPF_CNPJKeyDown(Sender: TObject; var Key: Word;
@@ -164,6 +166,15 @@ begin
     end;
 end;
 
+procedure TcadClienteF.CombFiltroKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RIGHT then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadClienteF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -248,6 +259,11 @@ begin
   if Key = VK_RETURN then
   begin
     DBGrid1.SetFocus;
+  end;
+
+  if Key = VK_LEFT then
+  begin
+    CombFiltro.SetFocus;
   end;
 end;
 

@@ -57,6 +57,8 @@ type
     procedure cbStatusClick(Sender: TObject);
     procedure cbStatusKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure dateCadastroButtonClick(Sender: TObject);
     procedure dateCadastroKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -118,6 +120,8 @@ begin
   inherited;
   qryCadProduto.Open;
   qryCatProduto.Open;
+  CombFiltro.SetFocus;
+
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');
@@ -175,6 +179,7 @@ begin
   qryCadProduto.FieldByName('dt_cadastro_produto').AsDateTime := Date;
 
   edtDescricao.SetFocus;
+  cbStatus.ItemIndex := 0;
   btnEditar.Enabled := false;
 end;
 
@@ -220,9 +225,18 @@ begin
 
 end;
 
+procedure TcadProdutoF.CombFiltroKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RIGHT then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadProdutoF.dateCadastroButtonClick(Sender: TObject);
 begin
-  checkEdit(Sender, qryCadProduto);
+  checkEdit(Sender, qryCadProduto);   _
 end;
 
 procedure TcadProdutoF.dateCadastroKeyDown(Sender: TObject; var Key: Word;
@@ -329,6 +343,11 @@ begin
   if Key = VK_RETURN then
   begin
     DBGrid1.SetFocus;
+  end;
+
+  if Key = VK_LEFT then
+  begin
+    CombFiltro.SetFocus;
   end;
 end;
 

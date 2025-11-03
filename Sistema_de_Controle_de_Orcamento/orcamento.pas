@@ -75,6 +75,8 @@ type
     procedure btnImprimirClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
+    procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DateEditDataOrcamentoButtonClick(Sender: TObject);
     procedure DateEditDataOrcamentoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
@@ -320,6 +322,11 @@ begin
   begin
     DBGrid1.SetFocus;
   end;
+
+  if Key = VK_LEFT then
+  begin
+    CombFiltro.SetFocus;
+  end;
 end;
 
 procedure TOrcamentoF.btnInserirClick(Sender: TObject);
@@ -349,6 +356,15 @@ begin
   else
   begin
     ShowMessage('Para escolher outro Cliente, primeiro ative o modo de edição.');
+  end;
+end;
+
+procedure TOrcamentoF.CombFiltroKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RIGHT then
+  begin
+    edtPesquisa.SetFocus;
   end;
 end;
 

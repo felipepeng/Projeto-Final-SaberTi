@@ -74,7 +74,7 @@ begin
   //Abre a Query
   qryCadUsuario.Open;
 
-  edtPesquisa.SetFocus;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');
