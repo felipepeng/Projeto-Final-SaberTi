@@ -1,7 +1,7 @@
 inherited OrcamentoF: TOrcamentoF
-  Left = 588
+  Left = 293
   Height = 573
-  Top = 302
+  Top = 130
   Width = 1206
   Caption = 'Orçamento'
   ClientHeight = 573
