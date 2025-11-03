@@ -3,6 +3,7 @@ object LoginF: TLoginF
   Height = 233
   Top = 284
   Width = 525
+  BorderIcons = []
   Caption = 'Login'
   ClientHeight = 233
   ClientWidth = 525

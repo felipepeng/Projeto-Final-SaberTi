@@ -15,7 +15,6 @@ type
 
   TcadProdutoF = class(TXCadPaiF)
     btnPesqCat: TBitBtn;
-    btnPesquisa: TSpeedButton;
     cbStatus: TDBComboBox;
     CombFiltro: TComboBox;
     dateCadastro: TDBDateEdit;

@@ -13,7 +13,6 @@ type
   { TcadUsuarioF }
 
   TcadUsuarioF = class(TXCadPaiF)
-    btnPesquisa: TSpeedButton;
     CombFiltro: TComboBox;
     dsCadUsuario: TDataSource;
     edtSenha: TDBEdit;

@@ -5,7 +5,7 @@ unit MenuPrincipal;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Menus, ExtCtrls,
            cadCategoria_Produto, cadCliente, cadProduto, cadUsuario, Sobre,
            Orcamento, relClientes, relOrcamento, relProduto, relCatProduto;
 
@@ -14,6 +14,7 @@ type
   { TMenuPrincipalF }
 
   TMenuPrincipalF = class(TForm)
+    Image1: TImage;
     MainMenu1: TMainMenu;
     MenuCadastros: TMenuItem;
     MenuItemRelCatProduto: TMenuItem;

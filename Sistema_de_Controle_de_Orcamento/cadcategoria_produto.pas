@@ -21,7 +21,6 @@ type
     lblId: TLabel;
     lblDescricao: TLabel;
     lblPesquisa: TLabel;
-    btnPesquisa: TSpeedButton;
     qryCatProduto: TZQuery;
     qryCatProdutocategoriaprodutoid: TZIntegerField;
     qryCatProdutods_categoria_produto: TZRawStringField;
@@ -80,7 +79,7 @@ procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCatProduto.Open;
-  edtPesquisa.SetFocus;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');

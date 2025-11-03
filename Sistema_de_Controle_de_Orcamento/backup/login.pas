@@ -142,6 +142,7 @@ begin
   end
   else
   begin
+     btnShowSenha.Glyph.LoadFromFile('./icons/hide_view.bmp');
     edtSenha.EchoMode := emPassword;
   end;
 

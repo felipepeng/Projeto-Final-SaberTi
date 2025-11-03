@@ -137,7 +137,6 @@ object XCadPaiF: TXCadPaiF
           ReadOnly = True
           TabOrder = 0
           OnDblClick = DBGrid1DblClick
-          OnKeyDown = DBGrid1KeyDown
         end
       end
     end

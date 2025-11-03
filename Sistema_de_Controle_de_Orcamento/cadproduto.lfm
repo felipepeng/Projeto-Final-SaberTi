@@ -1,11 +1,11 @@
 inherited cadProdutoF: TcadProdutoF
   Left = 608
   Height = 661
-  Top = 218
-  Width = 844
+  Top = 204
+  Width = 847
   Caption = 'Cadastro de Produto'
   ClientHeight = 661
-  ClientWidth = 844
+  ClientWidth = 847
   Icon.Data = {
     8FC60000000001000100000000000100200079C600001600000089504E470D0A
     1A0A0000000D49484452000002000000020008020000007B1A43AD0000C64049
@@ -1603,16 +1603,14 @@ inherited cadProdutoF: TcadProdutoF
   OnShow = FormShow
   inherited PageControl1: TPageControl
     Height = 661
-    Width = 844
+    Width = 847
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 628
-      ClientWidth = 836
+      ClientWidth = 839
       inherited PanelConsultaTop: TPanel
-        Width = 836
-        ClientWidth = 836
+        Width = 839
+        ClientWidth = 839
         object lblPesquisa: TLabel[0]
           Left = 8
           Height = 23
@@ -1632,7 +1630,7 @@ inherited cadProdutoF: TcadProdutoF
           Height = 28
           Top = 16
           Width = 128
-          TabOrder = 0
+          TabOrder = 1
           OnChange = edtPesquisaChange
           OnKeyDown = edtPesquisaKeyDown
         end
@@ -1642,60 +1640,40 @@ inherited cadProdutoF: TcadProdutoF
           Top = 16
           Width = 128
           ItemHeight = 20
-          TabOrder = 1
-        end
-        object btnPesquisa: TSpeedButton[3]
-          Left = 384
-          Height = 22
-          Top = 16
-          Width = 24
-          Glyph.Data = {
-            42010000424D4201000000000000760000002800000011000000110000000100
-            040000000000CC00000000000000000000001000000010000000000000000000
-            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-            DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
-            0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
-            0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
-            7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
-            077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
-            0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
-            DDDDD0000000
-          }
-          OnClick = btnPesquisaClick
+          TabOrder = 0
         end
       end
       inherited PanelConsultaBottom: TPanel
         Top = 573
-        Width = 836
-        ClientWidth = 836
+        Width = 839
+        ClientWidth = 839
         inherited btnInserir: TBitBtn
           OnClick = btnInserirClick
         end
         inherited btnFechar: TBitBtn
-          Left = 735
+          Left = 738
         end
       end
       inherited PanelConsultaCenter: TPanel
         Height = 517
-        Width = 836
+        Width = 839
         ClientHeight = 517
-        ClientWidth = 836
+        ClientWidth = 839
         inherited DBGrid1: TDBGrid
           Height = 515
-          Width = 834
+          Width = 837
           Columns = <          
             item
               Alignment = taCenter
               PickList.Strings = (              )
               Title.Alignment = taCenter
-              Title.Caption = 'id'
+              Title.Caption = 'ID'
               Width = 40
               FieldName = 'produtoid'
             end          
             item
               PickList.Strings = (              )
-              Title.Caption = 'descrição'
+              Title.Caption = 'Descrição'
               Width = 200
               FieldName = 'ds_produto'
             end          
@@ -1739,11 +1717,11 @@ inherited cadProdutoF: TcadProdutoF
     end
     inherited tbCadastro: TTabSheet
       ClientHeight = 628
-      ClientWidth = 836
+      ClientWidth = 839
       inherited PanelCadastroBottom: TPanel
         Top = 565
-        Width = 836
-        ClientWidth = 836
+        Width = 839
+        ClientWidth = 839
         inherited btnGravar: TBitBtn
           OnClick = btnGravarClick
         end
@@ -1756,15 +1734,15 @@ inherited cadProdutoF: TcadProdutoF
           OnClick = btnCancelarClick
         end
         inherited btnExcluir: TBitBtn
-          Left = 736
+          Left = 739
           OnClick = btnExcluirClick
         end
       end
       inherited PanelCadastroCenter: TPanel
         Height = 565
-        Width = 836
+        Width = 839
         ClientHeight = 565
-        ClientWidth = 836
+        ClientWidth = 839
         object lblId: TLabel[0]
           Left = 32
           Height = 23
@@ -2056,7 +2034,8 @@ inherited cadProdutoF: TcadProdutoF
     AfterCancel = qryCadProdutoAfterCancel
     UpdateObject = updtCadProduto
     SQL.Strings = (
-      'select * from produto;'
+      'select * from produto'
+      'order by produtoid;'
     )
     Params = <>
     Left = 728

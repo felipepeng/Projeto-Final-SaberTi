@@ -19,7 +19,6 @@ type
     btnAddItem: TBitBtn;
     btnExcluirItem: TBitBtn;
     btnPesqCliente: TBitBtn;
-    btnPesquisa: TSpeedButton;
     CombFiltro: TComboBox;
     DateEditDataOrcamento: TDBDateEdit;
     DateEditDataValidade: TDBDateEdit;
@@ -165,7 +164,7 @@ begin
   qryOrcItem.Open;
   qryProduto.Open;
 
-  edtPesquisa.SetFocus;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');

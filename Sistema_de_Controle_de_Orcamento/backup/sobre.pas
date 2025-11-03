@@ -18,11 +18,11 @@ type
     Image2: TImage;
     lblDataDesenvolv: TLabel;
     lblDataDesenvolv1: TLabel;
+    lblDesenvolvidoPor: TLabel;
+    lblDev: TLabel;
     lblLinguagem: TLabel;
     lblBD: TLabel;
-    lblDev: TLabel;
     lblSistema: TLabel;
-    lblDesenvolvidoPor: TLabel;
   private
 
   public

@@ -1605,8 +1605,6 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Height = 528
     Width = 892
     TabStop = False
-    ActivePage = tbCadastro
-    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 495
       ClientWidth = 884
@@ -1632,37 +1630,17 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           Height = 28
           Top = 16
           Width = 128
-          TabOrder = 0
+          TabOrder = 1
           OnChange = edtPesquisaChange
           OnKeyDown = edtPesquisaKeyDown
         end
-        object btnPesquisa: TSpeedButton[2]
-          Left = 368
-          Height = 22
-          Top = 16
-          Width = 24
-          Glyph.Data = {
-            42010000424D4201000000000000760000002800000011000000110000000100
-            040000000000CC00000000000000000000001000000010000000000000000000
-            BF0000BF000000BFBF00BF000000BF00BF00BFBF0000C0C0C000808080000000
-            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00DDDDDDDDDDDD
-            DDDDD0000000D00DDDDDDDDDDDDDD0000000D000DDDDDDDDDDDDD0000000DD00
-            0DDDDDDDDDDDD0000000DDD000D800008DDDD0000000DDDD0000777700DDD000
-            0000DDDDD08EE777780DD0000000DDDD807E77777708D0000000DDDD07E77777
-            7770D0000000DDDD077777777770D0000000DDDD077777777E70D0000000DDDD
-            077777777E70D0000000DDDD80777777EE08D0000000DDDDD08777EEE80DD000
-            0000DDDDDD00777700DDD0000000DDDDDDD800008DDDD0000000DDDDDDDDDDDD
-            DDDDD0000000
-          }
-          OnClick = btnPesquisaClick
-        end
-        object CombFiltro: TComboBox[3]
+        object CombFiltro: TComboBox[2]
           Left = 120
           Height = 28
           Top = 16
           Width = 108
           ItemHeight = 20
-          TabOrder = 1
+          TabOrder = 0
         end
       end
       inherited PanelConsultaBottom: TPanel
@@ -1673,7 +1651,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
           OnClick = btnInserirClick
         end
         inherited btnFechar: TBitBtn
-          Left = 803
+          Left = 776
         end
       end
       inherited PanelConsultaCenter: TPanel
@@ -1689,7 +1667,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
               Alignment = taCenter
               PickList.Strings = (              )
               Title.Alignment = taCenter
-              Title.Caption = 'id'
+              Title.Caption = 'ID'
               Width = 40
               FieldName = 'categoriaprodutoid'
             end          

@@ -13,7 +13,6 @@ type
   { TcadUsuarioF }
 
   TcadUsuarioF = class(TXCadPaiF)
-    btnPesquisa: TSpeedButton;
     CombFiltro: TComboBox;
     dsCadUsuario: TDataSource;
     edtSenha: TDBEdit;
@@ -75,7 +74,7 @@ begin
   //Abre a Query
   qryCadUsuario.Open;
 
-  edtPesquisa.SetFocus;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');

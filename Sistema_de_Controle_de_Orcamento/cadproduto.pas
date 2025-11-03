@@ -15,7 +15,6 @@ type
 
   TcadProdutoF = class(TXCadPaiF)
     btnPesqCat: TBitBtn;
-    btnPesquisa: TSpeedButton;
     cbStatus: TDBComboBox;
     CombFiltro: TComboBox;
     dateCadastro: TDBDateEdit;
@@ -119,6 +118,7 @@ begin
   inherited;
   qryCadProduto.Open;
   qryCatProduto.Open;
+  CombFiltro.SetFocus;
 
   //Inicia ComboBox
   CombFiltro.Items.Add('ID');

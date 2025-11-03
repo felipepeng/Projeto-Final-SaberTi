@@ -13,7 +13,6 @@ type
   { TcadClienteF }
 
   TcadClienteF = class(TXCadPaiF)
-    btnPesquisa: TSpeedButton;
     cbTipo: TDBComboBox;
     CombFiltro: TComboBox;
     dsCadCliente: TDataSource;
