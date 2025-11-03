@@ -7,7 +7,7 @@
     <KeyWords Value=""/>
     <Comments Value=""/>
     <ReportCreateDate Value="1899-12-30 00:00:00"/>
-    <ReportLastChange Value="2025-10-29 17:42:09"/>
+    <ReportLastChange Value="2025-11-03 13:57:18"/>
     <ReportVersionBuild Value=""/>
     <ReportVersionMajor Value=""/>
     <ReportVersionMinor Value=""/>
@@ -1054,8 +1054,8 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="497"/>
-            <Top Value="307"/>
+            <Left Value="536"/>
+            <Top Value="327"/>
             <Width Value="68"/>
             <Height Value="22"/>
           </Size>
@@ -1110,8 +1110,8 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="562"/>
-            <Top Value="307"/>
+            <Left Value="604"/>
+            <Top Value="327"/>
             <Width Value="124"/>
             <Height Value="20"/>
           </Size>
@@ -1143,7 +1143,7 @@
           <Font>
             <Name Value="Arial"/>
             <Size Value="15"/>
-            <Color Value="clBlack"/>
+            <Color Value="clRed"/>
             <Charset Value="0"/>
             <Style Value="fsBold"/>
           </Font>
@@ -1166,7 +1166,7 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="8"/>
+            <Left Value="27"/>
             <Top Value="120"/>
             <Width Value="68"/>
             <Height Value="18"/>
@@ -1222,7 +1222,7 @@
           <Typ Value="gtMemo"/>
           <StreamMode Value="0"/>
           <Size>
-            <Left Value="80"/>
+            <Left Value="99"/>
             <Top Value="120"/>
             <Width Value="296"/>
             <Height Value="20"/>
@@ -1749,7 +1749,33 @@
             <GapY Value="0"/>
           </Data>
         </Object42>
-        <ObjectCount Value="42"/>
+        <Object43>
+          <Name Value="Line15"/>
+          <ClassName Value="TfrLineView"/>
+          <Visible Value="True"/>
+          <Typ Value="gtLine"/>
+          <StreamMode Value="0"/>
+          <Size>
+            <Left Value="531"/>
+            <Top Value="324"/>
+            <Width Value="232"/>
+            <Height Value="0"/>
+          </Size>
+          <Flags Value="0"/>
+          <Frames>
+            <FrameColor Value="clBlack"/>
+            <FrameStyle Value="frsSolid"/>
+            <FrameWidth Value="2"/>
+            <Restrictions Value=""/>
+          </Frames>
+          <Tag Value=""/>
+          <FURLInfo Value=""/>
+          <Data>
+            <GapX Value="0"/>
+            <GapY Value="0"/>
+          </Data>
+        </Object43>
+        <ObjectCount Value="43"/>
       </Page1>
       <FVal>
         <Count Value="0"/>

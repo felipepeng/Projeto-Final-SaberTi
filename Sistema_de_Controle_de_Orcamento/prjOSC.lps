@@ -125,10 +125,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Sobre"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="13"/>
         <TopLine Value="16"/>
-        <CursorPos X="57" Y="27"/>
+        <CursorPos X="12" Y="22"/>
         <UsageCount Value="82"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -140,9 +139,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Orcamento"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="263"/>
-        <CursorPos X="29" Y="276"/>
+        <TopLine Value="267"/>
+        <CursorPos X="5" Y="274"/>
         <UsageCount Value="79"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -211,11 +211,10 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="relOrcamento"/>
         <EditorIndex Value="10"/>
-        <TopLine Value="17"/>
-        <CursorPos Y="36"/>
+        <TopLine Value="18"/>
+        <CursorPos X="60" Y="26"/>
         <UsageCount Value="58"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="relproduto.pas"/>
@@ -258,7 +257,7 @@
         <UsageCount Value="50"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="18">
+    <JumpHistory HistoryIndex="20">
       <Position>
         <Filename Value="cadcliente.pas"/>
         <Caret Line="229" Column="16" TopLine="213"/>
@@ -334,6 +333,14 @@
       <Position>
         <Filename Value="sobre.pas"/>
         <Caret Line="26" Column="34" TopLine="16"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="276" Column="29" TopLine="263"/>
+      </Position>
+      <Position>
+        <Filename Value="orcamento.pas"/>
+        <Caret Line="273" Column="10" TopLine="266"/>
       </Position>
     </JumpHistory>
     <RunParams>
