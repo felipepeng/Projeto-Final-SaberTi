@@ -493,7 +493,6 @@ inherited OrcamentoF: TOrcamentoF
             TabOrder = 3
             Text = '18/02/2022'
             OnButtonClick = DateEditDataOrcamentoButtonClick
-            OnClick = DateEditDataOrcamentoClick
             OnKeyDown = DateEditDataOrcamentoKeyDown
             DataField = 'dt_orcamento'
             DataSource = dsOrcamento

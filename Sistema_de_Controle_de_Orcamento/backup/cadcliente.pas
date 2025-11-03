@@ -15,6 +15,7 @@ type
   TcadClienteF = class(TXCadPaiF)
     btnPesquisa: TSpeedButton;
     cbTipo: TDBComboBox;
+    CombFiltro: TComboBox;
     dsCadCliente: TDataSource;
     edtCPF_CNPJ: TDBEdit;
     edtNome: TDBEdit;
@@ -74,8 +75,13 @@ procedure TcadClienteF.FormShow(Sender: TObject);
 begin
   inherited;
   qryCadCliente.Open;
-
   edtPesquisa.SetFocus;
+
+  //Inicia ComboBox
+  CombFiltro.Items.Add('ID');
+  CombFiltro.Items.Add('Tipo_Cliente');
+  CombFiltro.Items.Add('CPF/CNPJ');
+  CombFiltro.Items.Add('Nome Completo');
 end;
 
 procedure TcadClienteF.qryCadClienteAfterCancel(DataSet: TDataSet);
@@ -175,7 +181,8 @@ end;
 procedure TcadClienteF.edtCPF_CNPJKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-  cadProdutoF.checkEdit(Sender, qryCadCliente, btnEditar);
+  if Key <> VK_TAB then
+    cadProdutoF.checkEdit(Sender, qryCadCliente, btnEditar);
 end;
 
 procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
@@ -193,22 +200,46 @@ begin
 end;
 
 procedure TcadClienteF.edtPesquisaChange(Sender: TObject);
+var
+  campo, filtro: string;
 begin
-  //Fecha a Query
-  qryCadCliente.Open;
+  //filtagem da pesquisa
+  if CombFiltro.ItemIndex = -1 then
+    Exit;
 
-  //Edita o comando SQL
-  if edtPesquisa.Text <> '' then
-  begin
-    qryCadCliente.SQL.Text:= ('select * from cliente c' +
-                              ' where c.clienteid::text like ''' + edtPesquisa.Text + '%'';');
-  end else
-  begin
-    qryCadCliente.SQL.Text:= ('select * from cliente order by clienteid;');
+  campo:= edtPesquisa.Text;
+  //pega cada insert do EditConsulta
+
+ case CombFiltro.ItemIndex of
+    0: filtro := 'CLIENTEID::text';
+    1: filtro := 'TIPO_CLIENTE';
+    2: filtro := 'CPF_CNPJ_CLIENTE';
+    3: filtro := 'NOME_CLIENTE';
+  else
+    filtro := '';
   end;
+  //Busca pelo index do Combobox qual coluna da tabela quero buscar
+  // enquanto estiver ativo busca no mesmo
+  // obs data não funciona ainda
 
-  //Reabre a Query
+  if filtro = '' then
+    Exit;
+  //garante que não busca nada se não tiver o filtro
+
+  qryCadCliente.Close;
+  qryCadCliente.SQL.Clear;
+
+  if campo = '' then
+  begin
+    qryCadCliente.SQL.Add('SELECT * FROM CLIENTE ORDER BY CLIENTEID');
+  end else begin
+    qryCadCliente.SQL.Add('SELECT * FROM CLIENTE WHERE ' + filtro + ' ILIKE :campo');
+    qryCadCliente.ParamByName('campo').AsString := campo + '%';
+  end;
+  //se campo estiver vazio mostra tudo
+  //concatena cada insert de campo com a query
   qryCadCliente.Open;
+
 end;
 
 procedure TcadClienteF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;

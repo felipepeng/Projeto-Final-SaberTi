@@ -76,7 +76,6 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DateEditDataOrcamentoButtonClick(Sender: TObject);
-    procedure DateEditDataOrcamentoClick(Sender: TObject);
     procedure DateEditDataOrcamentoKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DateEditDataValidadeButtonClick(Sender: TObject);
