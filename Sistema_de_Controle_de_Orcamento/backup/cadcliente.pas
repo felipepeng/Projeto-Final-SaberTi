@@ -81,7 +81,8 @@ begin
   CombFiltro.Items.Add('ID');
   CombFiltro.Items.Add('Tipo_Cliente');
   CombFiltro.Items.Add('CPF/CNPJ');
-  CombFiltro.Items.Add('Nome Completo');
+  CombFiltro.Items.Add('Nome');
+  CombFiltro.ItemIndex := 0;  // seleciona o primeiro item;
 end;
 
 procedure TcadClienteF.qryCadClienteAfterCancel(DataSet: TDataSet);

@@ -13,6 +13,7 @@ type
   { TcadCategoria_ProdutoF }
 
   TcadCategoria_ProdutoF = class(TXCadPaiF)
+    CombFiltro: TComboBox;
     dsCatProduto: TDataSource;
     edtId: TDBEdit;
     edtDescricao: TDBEdit;
@@ -69,7 +70,10 @@ end;
 procedure TcadCategoria_ProdutoF.qryCatProdutoBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
+  begin
     qryCatProduto.Cancel;
+    DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+  end;
 end;
 
 procedure TcadCategoria_ProdutoF.FormShow(Sender: TObject);
@@ -77,6 +81,11 @@ begin
   inherited;
   qryCatProduto.Open;
   edtPesquisa.SetFocus;
+
+  //Inicia ComboBox
+  CombFiltro.Items.Add('ID');
+  CombFiltro.Items.Add('Descrição');
+  CombFiltro.ItemIndex := 0;  // seleciona o primeiro item;
 end;
 
 procedure TcadCategoria_ProdutoF.qryCatProdutoAfterCancel(DataSet: TDataSet);
@@ -115,21 +124,7 @@ end;
 
 procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);
 begin
-  //Fecha a Query
-  qryCatProduto.Close;
 
-  //Edita o comando SQL
-  if edtPesquisa.Text <> '' then
-  begin
-    qryCatProduto.SQL.Text:= ('select * from categoria_produto' +
-                              ' where categoriaprodutoid::text like ''' + edtPesquisa.Text + '%'';');
-  end else
-  begin
-    qryCatProduto.SQL.Text:= ('select * from categoria_produto;');
-  end;
-
-  //Reabre a Query
-  qryCatProduto.Open;
 end;
 
 procedure TcadCategoria_ProdutoF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
@@ -170,22 +165,62 @@ begin
 end;
 
 procedure TcadCategoria_ProdutoF.edtPesquisaChange(Sender: TObject);
+var
+  campo, filtro: string;
 begin
-  //Fecha a Query
-  qryCatProduto.Close;
+  //filtagem da pesquisa
+  if CombFiltro.ItemIndex = -1 then
+    Exit;
 
-  //Edita o comando SQL
-  if edtPesquisa.Text <> '' then
-  begin
-    qryCatProduto.SQL.Text:= ('select * from categoria_produto' +
-                              ' where categoriaprodutoid::text like ''' + edtPesquisa.Text + '%'';');
-  end else
-  begin
-    qryCatProduto.SQL.Text:= ('select * from categoria_produto;');
+  campo:= edtPesquisa.Text;
+  //pega cada insert do EditConsulta
+
+ case CombFiltro.ItemIndex of
+    0: filtro := 'categoriaprodutoid::text';
+    1: filtro := 'ds_categoria_produto';
+  else
+    filtro := '';
   end;
+  //Busca pelo index do Combobox qual coluna da tabela quero buscar
+  // enquanto estiver ativo busca no mesmo
+  // obs data não funciona ainda
 
-  //Reabre a Query
+  if filtro = '' then
+    Exit;
+  //garante que não busca nada se não tiver o filtro
+
+  qryCatProduto.Close;
+  qryCatProduto.SQL.Clear;
+
+  if campo = '' then
+  begin
+    qryCatProduto.SQL.Add('SELECT * FROM categoria_produto ORDER BY categoriaprodutoid');
+  end else begin
+    qryCatProduto.SQL.Add('SELECT * FROM categoria_produto WHERE ' + filtro + ' ILIKE :campo');
+    qryCatProduto.ParamByName('campo').AsString := campo + '%';
+  end;
+  //se campo estiver vazio mostra tudo
+  //concatena cada insert de campo com a query
   qryCatProduto.Open;
+
+
+
+
+  ////Fecha a Query
+  //qryCatProduto.Close;
+  //
+  ////Edita o comando SQL
+  //if edtPesquisa.Text <> '' then
+  //begin
+  //  qryCatProduto.SQL.Text:= ('select * from categoria_produto' +
+  //                            ' where categoriaprodutoid::text like ''' + edtPesquisa.Text + '%'';');
+  //end else
+  //begin
+  //  qryCatProduto.SQL.Text:= ('select * from categoria_produto;');
+  //end;
+  //
+  ////Reabre a Query
+  //qryCatProduto.Open;
 end;
 
 procedure TcadCategoria_ProdutoF.edtPesquisaKeyDown(Sender: TObject;
