@@ -76,9 +76,11 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesqClienteClick(Sender: TObject);
     procedure DateEditDataOrcamentoButtonClick(Sender: TObject);
-    procedure DateEditDataOrcamentoClick(Sender: TObject);
+    procedure DateEditDataOrcamentoKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DateEditDataValidadeButtonClick(Sender: TObject);
-    procedure DateEditDataValidadeClick(Sender: TObject);
+    procedure DateEditDataValidadeKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBGrid1DblClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
@@ -312,13 +314,17 @@ begin
   end;
 end;
 
-procedure TOrcamentoF.DateEditDataOrcamentoClick(Sender: TObject);
+procedure TOrcamentoF.DateEditDataOrcamentoKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
 begin
-  if qryOrcamento.State = dsBrowse then
+  if Key <> VK_TAB then
   begin
-    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
-    btnEditar.SetFocus;
-    Abort;
+    if qryOrcamento.State = dsBrowse then
+    begin
+      ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+      btnEditar.SetFocus;
+      Abort;
+    end;
   end;
 end;
 
@@ -332,13 +338,17 @@ begin
   end;
 end;
 
-procedure TOrcamentoF.DateEditDataValidadeClick(Sender: TObject);
+procedure TOrcamentoF.DateEditDataValidadeKeyDown(Sender: TObject;
+  var Key: Word; Shift: TShiftState);
 begin
-  if qryOrcamento.State = dsBrowse then
+  if Key <> VK_TAB then
   begin
-    ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
-    btnEditar.SetFocus;
-    Abort;
+    if qryOrcamento.State = dsBrowse then
+    begin
+      ShowMessage('Para Trocar a Data, primeiro ative o modo de edição.');
+      btnEditar.SetFocus;
+      Abort;
+    end;
   end;
 end;
 
