@@ -81,6 +81,7 @@ type
 
   public
     procedure checkEdit(Sender: TObject ;qry: TZQuery);
+    procedure checkEdit(Sender: TObject ;qry: TZQuery; button: TBitBtn);
   end;
 
 var
@@ -98,6 +99,16 @@ begin
     begin
       ShowMessage('Para Alterar o campo, primeiro ative o modo de Edição.');
       btnEditar.SetFocus;
+      Abort;
+    end;
+end;
+
+procedure TcadProdutoF.checkEdit(Sender: TObject ;qry: TZQuery; button: TBitBtn);
+begin
+  if qry.State = dsBrowse then
+    begin
+      ShowMessage('Para Alterar o campo, primeiro ative o modo de Edição.');
+      button.SetFocus;
       Abort;
     end;
 end;

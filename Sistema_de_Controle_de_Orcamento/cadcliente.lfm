@@ -12,6 +12,8 @@ inherited cadClienteF: TcadClienteF
     Height = 394
     Width = 590
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 366
       ClientWidth = 582
@@ -180,6 +182,7 @@ inherited cadClienteF: TcadClienteF
           DataSource = dsCadCliente
           MaxLength = 0
           TabOrder = 0
+          OnKeyDown = edtNomeKeyDown
         end
         object edtId: TDBEdit[3]
           Left = 32
@@ -217,6 +220,7 @@ inherited cadClienteF: TcadClienteF
           DataSource = dsCadCliente
           MaxLength = 0
           TabOrder = 1
+          OnKeyDown = edtCPF_CNPJKeyDown
           OnKeyPress = edtCPF_CNPJKeyPress
         end
         object cbTipo: TDBComboBox[6]
@@ -235,6 +239,7 @@ inherited cadClienteF: TcadClienteF
           MaxLength = 0
           Style = csDropDownList
           TabOrder = 2
+          OnClick = cbTipoClick
           OnKeyDown = cbTipoKeyDown
         end
         object lblTipo: TLabel[7]
@@ -258,6 +263,7 @@ inherited cadClienteF: TcadClienteF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadClienteAfterInsert
     BeforePost = qryCadClienteBeforePost
+    AfterCancel = qryCadClienteAfterCancel
     UpdateObject = updtCadCliente
     SQL.Strings = (
       'select * from cliente c'

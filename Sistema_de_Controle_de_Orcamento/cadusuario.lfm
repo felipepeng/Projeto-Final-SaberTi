@@ -1,7 +1,7 @@
 inherited cadUsuarioF: TcadUsuarioF
-  Left = 631
+  Left = 818
   Height = 387
-  Top = 265
+  Top = 314
   Caption = 'Cadastro de Usuário'
   ClientHeight = 387
   KeyPreview = True
@@ -12,6 +12,8 @@ inherited cadUsuarioF: TcadUsuarioF
     Height = 387
     Width = 458
     TabStop = False
+    ActivePage = tbCadastro
+    TabIndex = 1
     inherited tbConsulta: TTabSheet
       ClientHeight = 359
       ClientWidth = 450
@@ -191,6 +193,7 @@ inherited cadUsuarioF: TcadUsuarioF
           DataSource = dsCadUsuario
           MaxLength = 0
           TabOrder = 0
+          OnKeyDown = edtUsuarioKeyDown
         end
         object lblNomeComp: TLabel[4]
           Left = 32
@@ -215,6 +218,7 @@ inherited cadUsuarioF: TcadUsuarioF
           DataSource = dsCadUsuario
           MaxLength = 0
           TabOrder = 1
+          OnKeyDown = edtNomeCompKeyDown
         end
         object lblSenha: TLabel[6]
           Left = 32
@@ -248,6 +252,7 @@ inherited cadUsuarioF: TcadUsuarioF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadUsuarioAfterInsert
     BeforePost = qryCadUsuarioBeforePost
+    AfterCancel = qryCadUsuarioAfterCancel
     UpdateObject = updtCadUsuario
     SQL.Strings = (
       'select * from usuarios;'

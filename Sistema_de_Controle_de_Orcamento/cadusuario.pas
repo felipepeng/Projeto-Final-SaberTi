@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule, LCLType;
+  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule, LCLType, cadProduto;
 
 type
 
@@ -38,14 +38,19 @@ type
     procedure btnInserirClick(Sender: TObject);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtNomeCompKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtPesquisaChange(Sender: TObject);
     procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtUsuarioKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure qryCadUsuarioAfterCancel(DataSet: TDataSet);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
     procedure qryCadUsuarioBeforePost(DataSet: TDataSet);
   private
@@ -70,6 +75,14 @@ begin
   qryCadUsuario.Open;
 
   edtPesquisa.SetFocus;
+end;
+
+procedure TcadUsuarioF.qryCadUsuarioAfterCancel(DataSet: TDataSet);
+begin
+  btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnEditar.Enabled := true;
+  btnEditar.Font.Style := [];
+  btnEditar.Font.Color := clBlack;
 end;
 
 procedure TcadUsuarioF.qryCadUsuarioAfterInsert(DataSet: TDataSet);
@@ -109,6 +122,7 @@ begin
   qryCadUsuario.Insert;
 
   edtUsuario.SetFocus;
+  btnEditar.Enabled := false;
 end;
 
 procedure TcadUsuarioF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
@@ -123,6 +137,13 @@ begin
   begin
     edtPesquisa.SetFocus;
   end;
+end;
+
+procedure TcadUsuarioF.edtNomeCompKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+    cadProdutoF.checkEdit(Sender, qryCadUsuario, btnEditar);
 end;
 
 procedure TcadUsuarioF.edtPesquisaChange(Sender: TObject);
@@ -156,10 +177,20 @@ end;
 procedure TcadUsuarioF.edtSenhaKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
+  if Key <> VK_TAB then
+    cadProdutoF.checkEdit(Sender, qryCadUsuario, btnEditar);
+
   if Key = VK_RETURN then
   begin
     btnGravar.SetFocus;
   end;
+end;
+
+procedure TcadUsuarioF.edtUsuarioKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+    cadProdutoF.checkEdit(Sender, qryCadUsuario, btnEditar);
 end;
 
 procedure TcadUsuarioF.btnGravarClick(Sender: TObject);
@@ -186,16 +217,38 @@ begin
     Abort;
   end;
 
-  //Gravar
-  qryCadUsuario.Post;
-  inherited;
+
+  if qryCadUsuario.State <> dsBrowse then
+  begin
+    //Gravar
+    qryCadUsuario.Post;
+    qryCadUsuario.Refresh;
+    inherited;
+
+    //Troca ìcone Editar
+    btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+    btnEditar.Font.Style := [];
+    btnEditar.Font.Color := clBlack;
+  end
+  else
+  begin
+    ShowMessage('Para gravar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
 end;
 
 procedure TcadUsuarioF.btnEditarClick(Sender: TObject);
 begin
   inherited;
-  //Edit
-  qryCadUsuario.Edit;
+
+  if (qryCadUsuario.State <> dsInsert) then
+  begin
+    //Edit
+    qryCadUsuario.Edit;
+    btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+    btnEditar.Font.Style := [fsBold];
+    btnEditar.Font.Color := clBlue;
+  end;
 end;
 
 procedure TcadUsuarioF.btnExcluirClick(Sender: TObject);

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule, LCLType;
+  DBCtrls, ZDataset, ZAbstractRODataset, ZSqlUpdate, XCadPai, DB, DataModule, LCLType, cadProduto;
 
 type
 
@@ -37,16 +37,22 @@ type
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
     procedure btnPesquisaClick(Sender: TObject);
+    procedure cbTipoClick(Sender: TObject);
     procedure cbTipoKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
+    procedure edtCPF_CNPJKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
+    procedure edtNomeKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
+      );
     procedure edtPesquisaChange(Sender: TObject);
     procedure edtPesquisaKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure qryCadClienteAfterCancel(DataSet: TDataSet);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
     procedure qryCadClienteBeforePost(DataSet: TDataSet);
   private
@@ -70,6 +76,14 @@ begin
   qryCadCliente.Open;
 
   edtPesquisa.SetFocus;
+end;
+
+procedure TcadClienteF.qryCadClienteAfterCancel(DataSet: TDataSet);
+begin
+  btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+  btnEditar.Enabled := true;
+  btnEditar.Font.Style := [];
+  btnEditar.Font.Color := clBlack;
 end;
 
 procedure TcadClienteF.qryCadClienteAfterInsert(DataSet: TDataSet);
@@ -108,6 +122,7 @@ begin
   qryCadCliente.Insert;
 
   edtNome.SetFocus;
+  btnEditar.Enabled := false;
 end;
 
 procedure TcadClienteF.btnPesquisaClick(Sender: TObject);
@@ -127,6 +142,11 @@ begin
 
   //Reabre a Query
   qryCadCliente.Open;
+end;
+
+procedure TcadClienteF.cbTipoClick(Sender: TObject);
+begin
+  cadProdutoF.checkEdit(Sender, qryCadCliente, btnEditar);
 end;
 
 procedure TcadClienteF.cbTipoKeyDown(Sender: TObject; var Key: Word;
@@ -152,11 +172,25 @@ begin
   end;
 end;
 
+procedure TcadClienteF.edtCPF_CNPJKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+    cadProdutoF.checkEdit(Sender, qryCadCliente, btnEditar);
+end;
+
 procedure TcadClienteF.edtCPF_CNPJKeyPress(Sender: TObject; var Key: char);
 begin
   //Só permite números e backspace
   if not (Key in ['0'..'9', #8]) then
     Key := #0;
+end;
+
+procedure TcadClienteF.edtNomeKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key <> VK_TAB then
+  cadProdutoF.checkEdit(Sender, qryCadCliente, btnEditar);
 end;
 
 procedure TcadClienteF.edtPesquisaChange(Sender: TObject);
@@ -211,16 +245,38 @@ begin
     Abort;
   end;
 
-  //Confirma o Insert
-  qryCadCliente.Post;
-  inherited; //Vai para Consulta
+
+  if qryCadCliente.State <> dsBrowse then
+  begin
+    //Gravar
+    qryCadCliente.Post;
+    qryCadCliente.Refresh;
+    inherited;
+
+    //Troca ìcone Editar
+    btnEditar.Glyph.LoadFromFile('./icons/editar.BMP');
+    btnEditar.Font.Style := [];
+    btnEditar.Font.Color := clBlack;
+  end
+  else
+  begin
+    ShowMessage('Para gravar, primeiro ative o modo de edição.');
+    btnEditar.SetFocus;
+  end;
 end;
 
 procedure TcadClienteF.btnEditarClick(Sender: TObject);
 begin
   inherited; //Faz Nada
-  //Edit
-  qryCadCliente.Edit;
+
+  if (qryCadCliente.State <> dsInsert) then
+  begin
+    //Edit
+    qryCadCliente.Edit;
+    btnEditar.Glyph.LoadFromFile('./icons/editando.bmp');
+    btnEditar.Font.Style := [fsBold];
+    btnEditar.Font.Color := clBlue;
+  end;
 end;
 
 procedure TcadClienteF.btnExcluirClick(Sender: TObject);

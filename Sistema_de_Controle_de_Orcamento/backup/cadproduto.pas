@@ -126,7 +126,11 @@ end;
 procedure TcadProdutoF.qryCadProdutoBeforePost(DataSet: TDataSet);
 begin
   if PageControl1.ActivePage = tbConsulta then
-    qryCadProduto.Cancel;
+    begin
+      qryCadProduto.Cancel;
+      DataModule1.decreaseSequence('produto_produtoid');
+    end;
+
 end;
 
 procedure TcadProdutoF.FormClose(Sender: TObject; var CloseAction: TCloseAction
