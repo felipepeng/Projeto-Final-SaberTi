@@ -14,6 +14,7 @@ type
 
   TcadUsuarioF = class(TXCadPaiF)
     btnPesquisa: TSpeedButton;
+    CombFiltro: TComboBox;
     dsCadUsuario: TDataSource;
     edtSenha: TDBEdit;
     edtNomeComp: TDBEdit;
@@ -75,6 +76,13 @@ begin
   qryCadUsuario.Open;
 
   edtPesquisa.SetFocus;
+
+  //Inicia ComboBox
+  CombFiltro.Items.Add('ID');
+  CombFiltro.Items.Add('Usuário');
+  CombFiltro.Items.Add('Nome');
+  CombFiltro.Items.Add('Senha');
+  CombFiltro.ItemIndex := 0;  // seleciona o primeiro item;
 end;
 
 procedure TcadUsuarioF.qryCadUsuarioAfterCancel(DataSet: TDataSet);
@@ -147,22 +155,64 @@ begin
 end;
 
 procedure TcadUsuarioF.edtPesquisaChange(Sender: TObject);
+var
+  campo, filtro: string;
 begin
-  //Fecha a Query
-  qryCadUsuario.Close;
+  //filtagem da pesquisa
+  if CombFiltro.ItemIndex = -1 then
+    Exit;
 
-  //Edita o comando SQL
-  if edtPesquisa.Text <> '' then
-  begin
-    qryCadUsuario.SQL.Text:= ('select * from usuarios u' +
-                              ' where u.id::text LIKE ''' + edtPesquisa.Text + '%'';');
-  end else
-  begin
-    qryCadUsuario.SQL.Text:= ('select * from usuarios;');
+  campo:= edtPesquisa.Text;
+  //pega cada insert do EditConsulta
+
+ case CombFiltro.ItemIndex of
+    0: filtro := 'id::text';
+    1: filtro := 'usuario';
+    2: filtro := 'nome_completo';
+    3: filtro := 'senha';
+  else
+    filtro := '';
   end;
+  //Busca pelo index do Combobox qual coluna da tabela quero buscar
+  // enquanto estiver ativo busca no mesmo
+  // obs data não funciona ainda
 
-  //Reabre a Query
+  if filtro = '' then
+    Exit;
+  //garante que não busca nada se não tiver o filtro
+
+  qryCadUsuario.Close;
+  qryCadUsuario.SQL.Clear;
+
+  if campo = '' then
+  begin
+    qryCadUsuario.SQL.Add('SELECT * FROM usuarios ORDER BY id');
+  end else begin
+    qryCadUsuario.SQL.Add('SELECT * FROM usuarios WHERE ' + filtro + ' ILIKE :campo');
+    qryCadUsuario.ParamByName('campo').AsString := campo + '%';
+  end;
+  //se campo estiver vazio mostra tudo
+  //concatena cada insert de campo com a query
   qryCadUsuario.Open;
+
+
+
+
+  ////Fecha a Query
+  //qryCadUsuario.Close;
+  //
+  ////Edita o comando SQL
+  //if edtPesquisa.Text <> '' then
+  //begin
+  //  qryCadUsuario.SQL.Text:= ('select * from usuarios u' +
+  //                            ' where u.id::text LIKE ''' + edtPesquisa.Text + '%'';');
+  //end else
+  //begin
+  //  qryCadUsuario.SQL.Text:= ('select * from usuarios;');
+  //end;
+  //
+  ////Reabre a Query
+  //qryCadUsuario.Open;
 end;
 
 procedure TcadUsuarioF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;

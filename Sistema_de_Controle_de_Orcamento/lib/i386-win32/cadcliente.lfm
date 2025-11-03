@@ -1,11 +1,11 @@
 inherited cadClienteF: TcadClienteF
-  Left = 178
+  Left = 391
   Height = 548
-  Top = 169
+  Top = 211
   Width = 869
   Caption = 'Cliente'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 548
+  ClientWidth = 869
   KeyPreview = True
   OnClose = FormClose
   OnKeyDown = FormKeyDown
