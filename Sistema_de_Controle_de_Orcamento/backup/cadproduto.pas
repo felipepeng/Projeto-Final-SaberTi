@@ -78,6 +78,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure qryCadProdutoAfterCancel(DataSet: TDataSet);
     procedure qryCadProdutoAfterInsert(DataSet: TDataSet);
+    procedure qryCadProdutoBeforeCancel(DataSet: TDataSet);
     procedure qryCadProdutoBeforePost(DataSet: TDataSet);
   private
 
@@ -139,12 +140,38 @@ begin
   btnEditar.Enabled := true;
   btnEditar.Font.Style := [];
   btnEditar.Font.Color := clBlack;
+
+  PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadProdutoF.qryCadProdutoAfterInsert(DataSet: TDataSet);
 begin
   //Sequence
   qryCadProduto.FieldByName('produtoid').AsInteger := StrToInt(DataModule1.getSequence('produto_produtoid'));
+end;
+
+procedure TcadProdutoF.qryCadProdutoBeforeCancel(DataSet: TDataSet);
+begin
+  if (qryCadProduto.State<>dsBrowse) and (qryCadProdutods_produto.AsString<>'') then
+  begin
+    If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
+    begin
+      //Checa se está durante o Insert
+      if qryCadProduto.State = dsInsert then
+        DataModule1.decreaseSequence('produto_produtoid');
+    end
+    else
+    begin
+      Abort;
+      PageControl1.ActivePage := tbCadastro;
+    end;
+  end
+  else
+  begin
+    //Checa se está durante o Insert
+    if qryCadProduto.State = dsInsert then
+      DataModule1.decreaseSequence('produto_produtoid');
+  end;
 end;
 
 procedure TcadProdutoF.qryCadProdutoBeforePost(DataSet: TDataSet);
@@ -236,7 +263,7 @@ end;
 
 procedure TcadProdutoF.dateCadastroButtonClick(Sender: TObject);
 begin
-  checkEdit(Sender, qryCadProduto);   _
+  checkEdit(Sender, qryCadProduto);
 end;
 
 procedure TcadProdutoF.dateCadastroKeyDown(Sender: TObject; var Key: Word;
@@ -463,11 +490,11 @@ end;
 
 procedure TcadProdutoF.btnCancelarClick(Sender: TObject);
 begin
-  inherited; //Vai para Consulta
+  //inherited; //Vai para Consulta
 
   //Decrementa a Sequence
-  if qryCadProduto.State = dsInsert then
-    DataModule1.decreaseSequence('produto_produtoid');
+  //if qryCadProduto.State = dsInsert then
+    //DataModule1.decreaseSequence('produto_produtoid');
 
   //Cancel
   qryCadProduto.Cancel;

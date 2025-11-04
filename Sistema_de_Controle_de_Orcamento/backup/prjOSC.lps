@@ -70,7 +70,7 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCliente"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="110"/>
+        <TopLine Value="100"/>
         <CursorPos X="10" Y="123"/>
         <UsageCount Value="101"/>
         <Loaded Value="True"/>
@@ -83,10 +83,13 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadProduto"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="226"/>
-        <CursorPos X="35" Y="230"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="148"/>
+        <CursorPos X="207" Y="155"/>
         <UsageCount Value="99"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="cadusuario.pas"/>
@@ -95,11 +98,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadUsuario"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <TopLine Value="98"/>
-        <CursorPos X="63" Y="108"/>
-        <ComponentState Value="1"/>
+        <CursorPos X="42" Y="119"/>
         <UsageCount Value="96"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -236,11 +237,7 @@
         <UsageCount Value="57"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="27">
-      <Position>
-        <Filename Value="cadcategoria_produto.pas"/>
-        <Caret Line="249" Column="25" TopLine="242"/>
-      </Position>
+    <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="cadcategoria_produto.pas"/>
         <Caret Line="77" Column="48" TopLine="69"/>
@@ -348,6 +345,18 @@
       <Position>
         <Filename Value="cadusuario.pas"/>
         <Caret Line="97" Column="40" TopLine="90"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="230" Column="35" TopLine="226"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="472" Column="35" TopLine="457"/>
+      </Position>
+      <Position>
+        <Filename Value="cadproduto.pas"/>
+        <Caret Line="144" Column="41" TopLine="137"/>
       </Position>
     </JumpHistory>
     <RunParams>

@@ -105,7 +105,7 @@ end;
 
 procedure TcadUsuarioF.qryCadUsuarioBeforeCancel(DataSet: TDataSet);
 begin
-  if (qryCadUsuario.State<>dsBrowse) and (qryCadUsuariousuario.AsString<>'') then
+  if (qryCadUsuario.State<>dsBrowse) and (qryCadUsuariousuario.AsString<>'') or (qryCadUsuarionome_completo.AsString<>'') or (qryCadUsuariosenha.AsString<>'') then
   begin
     If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
     begin

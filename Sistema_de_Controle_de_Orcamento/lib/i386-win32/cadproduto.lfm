@@ -1,7 +1,7 @@
 inherited cadProdutoF: TcadProdutoF
-  Left = 510
+  Left = 388
   Height = 661
-  Top = 186
+  Top = 199
   Width = 847
   Caption = 'Cadastro de Produto'
   ClientHeight = 661
@@ -1605,8 +1605,6 @@ inherited cadProdutoF: TcadProdutoF
     Height = 661
     Width = 847
     TabStop = False
-    ActivePage = tbConsulta
-    TabIndex = 0
     inherited tbConsulta: TTabSheet
       ClientHeight = 628
       ClientWidth = 839
@@ -2034,6 +2032,7 @@ inherited cadProdutoF: TcadProdutoF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadProdutoAfterInsert
     BeforePost = qryCadProdutoBeforePost
+    BeforeCancel = qryCadProdutoBeforeCancel
     AfterCancel = qryCadProdutoAfterCancel
     UpdateObject = updtCadProduto
     SQL.Strings = (
