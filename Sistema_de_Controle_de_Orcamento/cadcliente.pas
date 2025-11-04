@@ -155,6 +155,7 @@ begin
   qryCadCliente.Insert;
 
   edtNome.SetFocus;
+  cbTipo.ItemIndex := 0;
   btnEditar.Enabled := false;
 end;
 

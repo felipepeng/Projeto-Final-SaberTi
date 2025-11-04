@@ -362,7 +362,7 @@ end;
 
 procedure TcadClienteF.btnCancelarClick(Sender: TObject);
 begin
-  if qryOrcamento.State = dsBrowse then
+  if qryCadCliente.State = dsBrowse then
    inherited;
 
   qryCadCliente.Cancel;

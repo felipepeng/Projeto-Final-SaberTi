@@ -322,8 +322,8 @@ end;
 
 procedure TcadCategoria_ProdutoF.btnCancelarClick(Sender: TObject);
 begin
-  if qryOrcamento.State = dsBrowse then
-   inherited;
+  if qryCatProduto.State = dsBrowse then
+    inherited;
 
   //Cancela
   qryCatProduto.Cancel;

@@ -1605,6 +1605,8 @@ inherited cadClienteF: TcadClienteF
     Height = 548
     Width = 869
     TabStop = False
+    ActivePage = tbConsulta
+    TabIndex = 0
     inherited tbConsulta: TTabSheet
       ClientHeight = 520
       ClientWidth = 861
@@ -1640,6 +1642,7 @@ inherited cadClienteF: TcadClienteF
           Top = 16
           Width = 100
           ItemHeight = 15
+          ReadOnly = True
           TabOrder = 0
           OnKeyDown = CombFiltroKeyDown
         end
