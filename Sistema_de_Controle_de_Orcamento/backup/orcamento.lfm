@@ -1642,6 +1642,7 @@ inherited OrcamentoF: TOrcamentoF
           Width = 128
           ItemHeight = 20
           TabOrder = 0
+          OnKeyDown = CombFiltroKeyDown
         end
       end
       inherited PanelConsultaBottom: TPanel

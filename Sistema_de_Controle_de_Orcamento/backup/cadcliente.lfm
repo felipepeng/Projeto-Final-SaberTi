@@ -1641,6 +1641,7 @@ inherited cadClienteF: TcadClienteF
           Width = 100
           ItemHeight = 20
           TabOrder = 0
+          OnKeyDown = CombFiltroKeyDown
         end
       end
       inherited PanelConsultaBottom: TPanel
@@ -1842,6 +1843,7 @@ inherited cadClienteF: TcadClienteF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadClienteAfterInsert
     BeforePost = qryCadClienteBeforePost
+    BeforeCancel = qryCadClienteBeforeCancel
     AfterCancel = qryCadClienteAfterCancel
     UpdateObject = updtCadCliente
     SQL.Strings = (

@@ -30,7 +30,6 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
-    procedure btnPesquisaClick(Sender: TObject);
     procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
@@ -45,6 +44,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure qryCatProdutoAfterCancel(DataSet: TDataSet);
     procedure qryCatProdutoAfterInsert(DataSet: TDataSet);
+    procedure qryCatProdutoBeforeCancel(DataSet: TDataSet);
     procedure qryCatProdutoBeforePost(DataSet: TDataSet);
   private
 
@@ -66,6 +66,31 @@ implementation
 procedure TcadCategoria_ProdutoF.qryCatProdutoAfterInsert(DataSet: TDataSet);
 begin
   qryCatProdutocategoriaprodutoid.AsInteger := StrToInt(DataModule1.getSequence('categoria_produto_categoriaprodutoid_seq'));
+end;
+
+procedure TcadCategoria_ProdutoF.qryCatProdutoBeforeCancel(DataSet: TDataSet);
+begin
+  if (qryCatProduto.State<>dsBrowse) and (qryCatProdutods_categoria_produto.AsString<>'') then
+  begin
+    If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
+    begin
+      //Checa se está durante o Insert
+      if qryCatProduto.State = dsInsert then
+        DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+    end
+    else
+    begin
+      Abort;
+      PageControl1.ActivePage := tbCadastro;
+    end;
+  end
+  else
+  begin
+    //Checa se está durante o Insert
+    if qryCatProduto.State = dsInsert then
+      DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+  end;
+
 end;
 
 procedure TcadCategoria_ProdutoF.qryCatProdutoBeforePost(DataSet: TDataSet);
@@ -95,6 +120,8 @@ begin
   btnEditar.Enabled := true;
   btnEditar.Font.Style := [];
   btnEditar.Font.Color := clBlack;
+
+  PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadCategoria_ProdutoF.FormClose(Sender: TObject;
@@ -121,11 +148,6 @@ begin
 
   edtDescricao.SetFocus;
   btnEditar.Enabled := false;
-end;
-
-procedure TcadCategoria_ProdutoF.btnPesquisaClick(Sender: TObject);
-begin
-
 end;
 
 procedure TcadCategoria_ProdutoF.CombFiltroKeyDown(Sender: TObject;
@@ -213,24 +235,6 @@ begin
   //concatena cada insert de campo com a query
   qryCatProduto.Open;
 
-
-
-
-  ////Fecha a Query
-  //qryCatProduto.Close;
-  //
-  ////Edita o comando SQL
-  //if edtPesquisa.Text <> '' then
-  //begin
-  //  qryCatProduto.SQL.Text:= ('select * from categoria_produto' +
-  //                            ' where categoriaprodutoid::text like ''' + edtPesquisa.Text + '%'';');
-  //end else
-  //begin
-  //  qryCatProduto.SQL.Text:= ('select * from categoria_produto;');
-  //end;
-  //
-  ////Reabre a Query
-  //qryCatProduto.Open;
 end;
 
 procedure TcadCategoria_ProdutoF.edtPesquisaKeyDown(Sender: TObject;
@@ -322,11 +326,7 @@ end;
 
 procedure TcadCategoria_ProdutoF.btnCancelarClick(Sender: TObject);
 begin
-  inherited; //Vai para Consulta
-
-  //Checa se está durante o Insert
-  if qryCatProduto.State = dsInsert then
-    DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+  //inherited; //Vai para Consulta
 
   //Cancela
   qryCatProduto.Cancel;

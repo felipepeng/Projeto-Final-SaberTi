@@ -1605,8 +1605,6 @@ inherited cadClienteF: TcadClienteF
     Height = 548
     Width = 869
     TabStop = False
-    ActivePage = tbConsulta
-    TabIndex = 0
     inherited tbConsulta: TTabSheet
       ClientHeight = 515
       ClientWidth = 861
@@ -1845,6 +1843,7 @@ inherited cadClienteF: TcadClienteF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadClienteAfterInsert
     BeforePost = qryCadClienteBeforePost
+    BeforeCancel = qryCadClienteBeforeCancel
     AfterCancel = qryCadClienteAfterCancel
     UpdateObject = updtCadCliente
     SQL.Strings = (

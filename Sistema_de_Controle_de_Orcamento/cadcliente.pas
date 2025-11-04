@@ -56,6 +56,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure qryCadClienteAfterCancel(DataSet: TDataSet);
     procedure qryCadClienteAfterInsert(DataSet: TDataSet);
+    procedure qryCadClienteBeforeCancel(DataSet: TDataSet);
     procedure qryCadClienteBeforePost(DataSet: TDataSet);
   private
 
@@ -92,12 +93,39 @@ begin
   btnEditar.Enabled := true;
   btnEditar.Font.Style := [];
   btnEditar.Font.Color := clBlack;
+
+  PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadClienteF.qryCadClienteAfterInsert(DataSet: TDataSet);
 begin
   //Aplica Sequence
   qryCadCliente.FieldByName('clienteid').AsInteger := StrToInt(DataModule1.getSequence('cliente_clienteid'));
+end;
+
+procedure TcadClienteF.qryCadClienteBeforeCancel(DataSet: TDataSet);
+begin
+  if (qryCadCliente.State<>dsBrowse) and (qryCadClientenome_cliente.AsString<>'') or (qryCadClientecpf_cnpj_cliente.AsString<>'') then
+  begin
+    If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
+    begin
+      //Checa se está durante o Insert
+      if qryCadCliente.State = dsInsert then
+        DataModule1.decreaseSequence('cliente_clienteid');
+    end
+    else
+    begin
+      Abort;
+      PageControl1.ActivePage := tbCadastro;
+    end;
+  end
+  else
+  begin
+    //Checa se está durante o Insert
+    if qryCadCliente.State = dsInsert then
+      DataModule1.decreaseSequence('cliente_clienteid');
+  end;
+
 end;
 
 procedure TcadClienteF.qryCadClienteBeforePost(DataSet: TDataSet);
@@ -337,11 +365,7 @@ end;
 
 procedure TcadClienteF.btnCancelarClick(Sender: TObject);
 begin
-  inherited; //Vai para Consulta
-
-  //Checa se está durante o Insert
-  if qryCadCliente.State = dsInsert then
-    DataModule1.decreaseSequence('cliente_clienteid');
+  //inherited; //Vai para Consulta
 
   qryCadCliente.Cancel;
 

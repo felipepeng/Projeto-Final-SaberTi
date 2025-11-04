@@ -508,8 +508,11 @@ begin
     qryOrcItem.Refresh;
     if not (qryOrcItem.IsEmpty) then
     begin
-      qryOrcItem.Delete;
-      SomaItens();
+      if  MessageDlg('Atenção', 'Você tem certeza que deseja excluir este item?', mtConfirmation,[mbyes,mbno],0) = mryes then
+      begin
+        qryOrcItem.Delete;
+        SomaItens();
+      end;
     end;
   end
   else
