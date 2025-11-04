@@ -54,6 +54,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure qryCadUsuarioAfterCancel(DataSet: TDataSet);
     procedure qryCadUsuarioAfterInsert(DataSet: TDataSet);
+    procedure qryCadUsuarioBeforeCancel(DataSet: TDataSet);
     procedure qryCadUsuarioBeforePost(DataSet: TDataSet);
   private
 
@@ -92,12 +93,39 @@ begin
   btnEditar.Enabled := true;
   btnEditar.Font.Style := [];
   btnEditar.Font.Color := clBlack;
+
+  PageControl1.ActivePage := tbConsulta;
 end;
 
 procedure TcadUsuarioF.qryCadUsuarioAfterInsert(DataSet: TDataSet);
 begin
   //Aplica Sequence
   qryCadUsuario.FieldByName('id').AsInteger := StrToInt(DataModule1.getSequence('usuarios_id_seq'));
+end;
+
+procedure TcadUsuarioF.qryCadUsuarioBeforeCancel(DataSet: TDataSet);
+begin
+  if (qryCadUsuario.State<>dsBrowse) and (qryCadUsuariousuario.AsString<>'') then
+  begin
+    If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
+    begin
+      //Checa se está durante o Insert
+      if qryCadUsuario.State = dsInsert then
+        DataModule1.decreaseSequence('usuarios_id_seq');
+    end
+    else
+    begin
+      Abort;
+      PageControl1.ActivePage := tbCadastro;
+    end;
+  end
+  else
+  begin
+    //Checa se está durante o Insert
+    if qryCadUsuario.State = dsInsert then
+      DataModule1.decreaseSequence('usuarios_id_seq');
+  end;
+
 end;
 
 procedure TcadUsuarioF.qryCadUsuarioBeforePost(DataSet: TDataSet);
@@ -328,11 +356,11 @@ end;
 
 procedure TcadUsuarioF.btnCancelarClick(Sender: TObject);
 begin
-  inherited;
+  //inherited;
 
   //Checa se está durante o Insert
-  if qryCadUsuario.State = dsInsert then
-    DataModule1.decreaseSequence('usuarios_id_seq');
+  //if qryCadUsuario.State = dsInsert then
+    //DataModule1.decreaseSequence('usuarios_id_seq');
 
   //Cancelar
   qryCadUsuario.Cancel;

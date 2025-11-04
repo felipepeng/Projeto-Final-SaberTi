@@ -36,6 +36,8 @@ type
     procedure btnExcluirClick(Sender: TObject);
     procedure btnGravarClick(Sender: TObject);
     procedure btnInserirClick(Sender: TObject);
+    procedure CombFiltroKeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure DBGrid1KeyDown(Sender: TObject; var Key: Word; Shift: TShiftState
       );
     procedure edtNomeCompKeyDown(Sender: TObject; var Key: Word;
@@ -132,6 +134,15 @@ begin
   btnEditar.Enabled := false;
 end;
 
+procedure TcadUsuarioF.CombFiltroKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_RIGHT then
+  begin
+    edtPesquisa.SetFocus;
+  end;
+end;
+
 procedure TcadUsuarioF.DBGrid1KeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
@@ -220,6 +231,11 @@ begin
   if Key = VK_RETURN then
   begin
     DBGrid1.SetFocus;
+  end;
+
+  if Key = VK_LEFT then
+  begin
+    CombFiltro.SetFocus;
   end;
 end;
 

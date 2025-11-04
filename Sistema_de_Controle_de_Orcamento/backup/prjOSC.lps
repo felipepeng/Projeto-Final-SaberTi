@@ -69,10 +69,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadCliente"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="105"/>
-        <CursorPos X="56" Y="127"/>
+        <TopLine Value="110"/>
+        <CursorPos X="10" Y="123"/>
         <UsageCount Value="101"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -96,10 +95,14 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="cadUsuario"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="228"/>
-        <CursorPos X="15" Y="238"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="98"/>
+        <CursorPos X="63" Y="108"/>
+        <ComponentState Value="1"/>
         <UsageCount Value="96"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="pesqcatproduto.pas"/>
@@ -233,7 +236,7 @@
         <UsageCount Value="57"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="24">
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="cadcategoria_produto.pas"/>
         <Caret Line="249" Column="25" TopLine="242"/>
@@ -333,6 +336,18 @@
       <Position>
         <Filename Value="cadcliente.pas"/>
         <Caret Line="353" Column="20" TopLine="344"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="238" Column="15" TopLine="228"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="335" Column="7" TopLine="316"/>
+      </Position>
+      <Position>
+        <Filename Value="cadusuario.pas"/>
+        <Caret Line="97" Column="40" TopLine="90"/>
       </Position>
     </JumpHistory>
     <RunParams>

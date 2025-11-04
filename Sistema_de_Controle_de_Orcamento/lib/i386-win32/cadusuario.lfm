@@ -4,8 +4,8 @@ inherited cadUsuarioF: TcadUsuarioF
   Top = 278
   Width = 794
   Caption = 'Cadastro de Usuário'
-  ClientHeight = 523
-  ClientWidth = 794
+  ClientHeight = 0
+  ClientWidth = 0
   Icon.Data = {
     8FC60000000001000100000000000100200079C600001600000089504E470D0A
     1A0A0000000D49484452000002000000020008020000007B1A43AD0000C64049
@@ -1605,8 +1605,6 @@ inherited cadUsuarioF: TcadUsuarioF
     Height = 523
     Width = 794
     TabStop = False
-    ActivePage = tbConsulta
-    TabIndex = 0
     inherited tbConsulta: TTabSheet
       ClientHeight = 490
       ClientWidth = 786
@@ -1835,6 +1833,7 @@ inherited cadUsuarioF: TcadUsuarioF
     Connection = DataModule1.ZConnection1
     AfterInsert = qryCadUsuarioAfterInsert
     BeforePost = qryCadUsuarioBeforePost
+    BeforeCancel = qryCadUsuarioBeforeCancel
     AfterCancel = qryCadUsuarioAfterCancel
     UpdateObject = updtCadUsuario
     SQL.Strings = (
