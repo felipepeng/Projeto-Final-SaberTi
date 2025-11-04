@@ -109,22 +109,19 @@ begin
   begin
     If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
     begin
-      //Checa se está durante o Insert
-      if qryCadCliente.State = dsInsert then
-        DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
+
     end
     else
     begin
       Abort;
       PageControl1.ActivePage := tbCadastro;
     end;
-  end
-  else
-  begin
-    //Checa se está durante o Insert
-    if qryCadCliente.State = dsInsert then
-      DataModule1.decreaseSequence('categoria_produto_categoriaprodutoid_seq');
   end;
+
+
+  //Checa se está durante o Insert
+  if qryCadCliente.State = dsInsert then
+    DataModule1.decreaseSequence('cliente_clienteid');
 
 end;
 
@@ -133,7 +130,7 @@ begin
   if PageControl1.ActivePage = tbConsulta then
   begin
     qryCadCliente.Cancel;
-    DataModule1.decreaseSequence('cliente_clienteid');
+    //DataModule1.decreaseSequence('cliente_clienteid');
   end;
 end;
 
@@ -365,10 +362,10 @@ end;
 
 procedure TcadClienteF.btnCancelarClick(Sender: TObject);
 begin
-  //inherited; //Vai para Consulta
+  if qryOrcamento.State = dsBrowse then
+   inherited;
 
   qryCadCliente.Cancel;
-
 end;
 
 end.

@@ -152,26 +152,24 @@ end;
 
 procedure TcadProdutoF.qryCadProdutoBeforeCancel(DataSet: TDataSet);
 begin
-  if (qryCadProduto.State<>dsBrowse) and (qryCadProdutods_produto.AsString<>'') then
+  if (qryCadProduto.State<>dsBrowse) and (qryCadProdutods_produto.AsString<>'') or (qryCadProdutoobs_produto.AsString<>'') or (qryCadProdutovl_venda_produto.AsString<>'') or (qryCadProdutocategoriaprodutoid.AsString<>'') then
   begin
     If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
     begin
-      //Checa se está durante o Insert
-      if qryCadProduto.State = dsInsert then
-        DataModule1.decreaseSequence('produto_produtoid');
+
     end
     else
     begin
       Abort;
       PageControl1.ActivePage := tbCadastro;
     end;
-  end
-  else
-  begin
-    //Checa se está durante o Insert
-    if qryCadProduto.State = dsInsert then
-      DataModule1.decreaseSequence('produto_produtoid');
   end;
+
+
+  //Checa se está durante o Insert
+  if qryCadProduto.State = dsInsert then
+    DataModule1.decreaseSequence('produto_produtoid');
+
 end;
 
 procedure TcadProdutoF.qryCadProdutoBeforePost(DataSet: TDataSet);
@@ -179,7 +177,7 @@ begin
   if PageControl1.ActivePage = tbConsulta then
     begin
       qryCadProduto.Cancel;
-      DataModule1.decreaseSequence('produto_produtoid');
+      //DataModule1.decreaseSequence('produto_produtoid');
     end;
 
 end;
@@ -490,11 +488,8 @@ end;
 
 procedure TcadProdutoF.btnCancelarClick(Sender: TObject);
 begin
-  //inherited; //Vai para Consulta
-
-  //Decrementa a Sequence
-  //if qryCadProduto.State = dsInsert then
-    //DataModule1.decreaseSequence('produto_produtoid');
+  if qryOrcamento.State = dsBrowse then
+   inherited;
 
   //Cancel
   qryCadProduto.Cancel;

@@ -1,7 +1,7 @@
 inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
-  Left = 798
+  Left = 539
   Height = 528
-  Top = 227
+  Top = 305
   Width = 892
   Caption = 'Categoria de Produto'
   ClientHeight = 528
@@ -1606,7 +1606,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
     Width = 892
     TabStop = False
     inherited tbConsulta: TTabSheet
-      ClientHeight = 495
+      ClientHeight = 500
       ClientWidth = 884
       inherited PanelConsultaTop: TPanel
         Width = 884
@@ -1627,7 +1627,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtPesquisa: TEdit[1]
           Left = 240
-          Height = 28
+          Height = 23
           Top = 16
           Width = 128
           TabOrder = 1
@@ -1636,16 +1636,16 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object CombFiltro: TComboBox[2]
           Left = 120
-          Height = 28
+          Height = 23
           Top = 16
           Width = 108
-          ItemHeight = 20
+          ItemHeight = 15
           TabOrder = 0
           OnKeyDown = CombFiltroKeyDown
         end
       end
       inherited PanelConsultaBottom: TPanel
-        Top = 440
+        Top = 456
         Width = 884
         ClientWidth = 884
         inherited btnInserir: TBitBtn
@@ -1656,12 +1656,13 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
       end
       inherited PanelConsultaCenter: TPanel
-        Height = 384
+        Height = 411
+        Top = 45
         Width = 884
-        ClientHeight = 384
+        ClientHeight = 411
         ClientWidth = 884
         inherited DBGrid1: TDBGrid
-          Height = 382
+          Height = 409
           Width = 882
           Columns = <          
             item
@@ -1685,10 +1686,10 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
       end
     end
     inherited tbCadastro: TTabSheet
-      ClientHeight = 495
+      ClientHeight = 500
       ClientWidth = 884
       inherited PanelCadastroBottom: TPanel
-        Top = 432
+        Top = 450
         Width = 884
         ClientWidth = 884
         inherited btnGravar: TBitBtn
@@ -1708,9 +1709,9 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
       end
       inherited PanelCadastroCenter: TPanel
-        Height = 432
+        Height = 450
         Width = 884
-        ClientHeight = 432
+        ClientHeight = 450
         ClientWidth = 884
         object lblId: TLabel[0]
           Left = 44
@@ -1742,7 +1743,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtId: TDBEdit[2]
           Left = 44
-          Height = 28
+          Height = 23
           Top = 58
           Width = 52
           DataField = 'categoriaprodutoid'
@@ -1754,7 +1755,7 @@ inherited cadCategoria_ProdutoF: TcadCategoria_ProdutoF
         end
         object edtDescricao: TDBEdit[3]
           Left = 44
-          Height = 28
+          Height = 23
           Top = 130
           Width = 204
           DataField = 'ds_categoria_produto'

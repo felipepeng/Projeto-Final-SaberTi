@@ -95,6 +95,7 @@ type
     procedure PageControl1Change(Sender: TObject);
     procedure qryOrcamentoAfterCancel(DataSet: TDataSet);
     procedure qryOrcamentoAfterInsert(DataSet: TDataSet);
+    procedure qryOrcamentoBeforeCancel(DataSet: TDataSet);
     procedure qryOrcamentoBeforeEdit(DataSet: TDataSet);
     procedure qryOrcamentoBeforePost(DataSet: TDataSet);
     procedure qryOrcItemAfterInsert(DataSet: TDataSet);
@@ -190,12 +191,46 @@ begin
   btnEditar.Font.Color := clBlack;
 
   btnImprimir.Enabled := true;
+  PageControl1.ActivePage := tbConsulta;
+
 end;
 
 procedure TOrcamentoF.qryOrcamentoAfterInsert(DataSet: TDataSet);
 begin
   //Sequence Orcamento
   qryOrcamento.FieldByName('orcamentoid').AsInteger := StrToInt(DataModule1.getSequence('orcamento_orcamentoid_seq'));
+end;
+
+procedure TOrcamentoF.qryOrcamentoBeforeCancel(DataSet: TDataSet);
+begin
+
+  if (qryOrcamento.State<>dsBrowse) and (qryOrcamentoclienteid.AsString<>'') or (not qryOrcItem.IsEmpty) then
+  begin
+    If  MessageDlg('Atenção', 'Existem alterações não salvar, quer cancelar mesmo assim?', mtConfirmation,[mbyes,mbno],0) = mryes then
+    begin
+      if qryOrcamento.State = dsInsert then
+      begin
+        if not qryOrcItem.IsEmpty then
+        begin
+          qryOrcItem.First;
+          while not qryOrcItem.Eof do
+          begin
+            qryOrcItem.Next;
+            qryOrcItem.Delete;
+          end;
+        end;
+      end;
+    end
+    else
+    begin
+      Abort;
+      PageControl1.ActivePage := tbCadastro;
+    end;
+  end;
+
+  if qryOrcamento.State = dsInsert then
+    DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
+
 end;
 
 procedure TOrcamentoF.qryOrcamentoBeforeEdit(DataSet: TDataSet);
@@ -208,7 +243,7 @@ begin
   if PageControl1.ActivePage = tbConsulta then
   begin
     qryOrcamento.Cancel;
-    DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
+    //DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
   end;
 end;
 
@@ -296,23 +331,6 @@ begin
   //concatena cada insert de campo com a query
   qryOrcamento.Open;
 
-
-
-  ////Fecha a Query
-  //qryOrcamento.Close;
-  //
-  ////Edita o comando SQL
-  //if edtPesquisa.Text <> '' then
-  //begin
-  //  qryOrcamento.SQL.Text:= ('select * from orcamento o' +
-  //                            ' where o.orcamentoid::text LIKE ''' + edtPesquisa.Text + '%'';');
-  //end else
-  //begin
-  //  qryOrcamento.SQL.Text:= ('select * from orcamento order by  orcamentoid;');
-  //end;
-  //
-  ////Reabre a Query
-  //qryOrcamento.Open;
 end;
 
 procedure TOrcamentoF.edtPesquisaKeyDown(Sender: TObject; var Key: Word;
@@ -503,8 +521,6 @@ end;
 procedure TOrcamentoF.btnExcluirItemClick(Sender: TObject);
 begin
 
-
-
   if (qryOrcamento.State = dsInsert) or (qryOrcamento.State = dsEdit) then
   begin
     qryOrcItem.Refresh;
@@ -527,24 +543,12 @@ end;
 
 procedure TOrcamentoF.btnCancelarClick(Sender: TObject);
 begin
-  inherited;
-
-   if qryOrcamento.State = dsInsert then
-   begin
-     if not qryOrcItem.IsEmpty then
-     begin
-       qryOrcItem.First;
-        while not qryOrcItem.Eof do
-        begin
-          qryOrcItem.Next;
-          qryOrcItem.Delete;
-        end;
-     end;
-   end;
+ if qryOrcamento.State = dsBrowse then
+   inherited;
 
   //Decrementa a Sequence
-  if qryOrcamento.State = dsInsert then
-    DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
+  //if qryOrcamento.State = dsInsert then
+    //DataModule1.decreaseSequence('orcamento_orcamentoid_seq');
 
   //Cancel
   qryOrcamento.Cancel;
