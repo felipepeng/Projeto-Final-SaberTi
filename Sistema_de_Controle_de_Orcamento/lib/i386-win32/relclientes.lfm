@@ -1,13 +1,12 @@
 object relClientesF: TrelClientesF
   Left = 884
-  Height = 145
+  Height = 116
   Top = 337
-  Width = 458
+  Width = 366
   Caption = 'Relatório de Clientes'
-  ClientHeight = 145
-  ClientWidth = 458
+  ClientHeight = 116
+  ClientWidth = 366
   Color = 10084282
-  DesignTimePPI = 120
   Icon.Data = {
     8FC60000000001000100000000000100200079C600001600000089504E470D0A
     1A0A0000000D49484452000002000000020008020000007B1A43AD0000C64049
@@ -1606,10 +1605,10 @@ object relClientesF: TrelClientesF
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   object btnRelClientes: TBitBtn
-    Left = 112
-    Height = 80
-    Top = 32
-    Width = 232
+    Left = 90
+    Height = 64
+    Top = 26
+    Width = 186
     Caption = 'Imprimir Rel. Clientes'
     Glyph.Data = {
       8A040000424D22010000000000007600000028000000210000001D0000000100
@@ -1656,11 +1655,12 @@ object relClientesF: TrelClientesF
   object qryClientes: TZQuery
     Connection = DataModule1.ZConnection1
     SQL.Strings = (
-      'select * from cliente;'
+      'select * from cliente'
+      'order by clienteid;'
     )
     Params = <>
-    Left = 8
-    Top = 72
+    Left = 6
+    Top = 58
   end
   object frReport1: TfrReport
     Dataset = frDBDataSet1
@@ -1668,12 +1668,12 @@ object relClientesF: TrelClientesF
     Options = []
     PreviewButtons = [pbZoom, pbLoad, pbSave, pbPrint, pbFind, pbHelp, pbExit, pbSettings, pbPageSetup]
     DataType = dtDataSet
-    Left = 8
-    Top = 8
+    Left = 6
+    Top = 6
   end
   object frDBDataSet1: TfrDBDataSet
     DataSet = qryClientes
-    Left = 72
-    Top = 8
+    Left = 58
+    Top = 6
   end
 end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, Buttons, LR_DBSet,
-  LR_Class, ZDataset;
+  LR_Class, ZDataset, LCLType;
 
 type
 
@@ -18,6 +18,7 @@ type
     frReport1: TfrReport;
     qryCatProduto: TZQuery;
     procedure btnRelClientesClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
 
   public
@@ -39,6 +40,15 @@ begin
   frReport1.LoadFromFile('.\Relatorios\relCatProduto.lrf');
   frReport1.PrepareReport;
   frReport1.ShowReport;
+end;
+
+procedure TrelCatProdutoF.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if Key = VK_ESCAPE then
+  begin
+    Close;
+  end;
 end;
 
 end.

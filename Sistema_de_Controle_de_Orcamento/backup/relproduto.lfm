@@ -1599,6 +1599,7 @@ object relProdutoF: TrelProdutoF
     AF8AAC92F52EE0584B096BFF7D822088ADA1E304D0F68C4C022008A24BF87FA5
     CC9A4C5A2DF96A0000000049454E44AE426082
   }
+  KeyPreview = True
   Position = poScreenCenter
   LCLVersion = '4.2.0.0'
   OnKeyDown = FormKeyDown
